@@ -15,9 +15,6 @@ public class ReservationDtoMapper {
   ClientDtoMapper clientDtoMapper;
 
   @EJB
-  EquipmentDtoMapper equipmentDtoMapper;
-
-  @EJB
   CarDtoMapper carDtoMapper;
 
   public ReservationDto mapReservationToDto(Reservation reservation){
@@ -33,18 +30,12 @@ public class ReservationDtoMapper {
     reservationDto.setRegistrationCarNumber(carDtoMapper.mapCarToDto(reservation.getCar()).getRegistrationNumber());
     reservationDto.setDepartmentCity(carDtoMapper.mapCarToDto(reservation.getCar()).getDepartmentCity());
     reservationDto.setClientEmail(clientDtoMapper.mapClientToDto(reservation.getClient()).getEmail());
-    reservationDto.setClientName(clientDtoMapper.mapClientToDto(reservation.getClient()).getName());
+    reservationDto.setClientNameAndSurname(clientDtoMapper.mapClientToDto(reservation.getClient()).getNameAndSurname());
     reservationDto.setClientPesel(clientDtoMapper.mapClientToDto(reservation.getClient()).getPesel());
     reservationDto.setClientPhoneNumber(clientDtoMapper.mapClientToDto(reservation.getClient()).getPhoneNumber());
-    reservationDto.setClientReservationNumber(clientDtoMapper.mapClientToDto(reservation.getClient()).getReservationNumber());
-    reservationDto.setClientSurname(clientDtoMapper.mapClientToDto(reservation.getClient()).getSurname());
-    reservationDto.setInsurance(equipmentDtoMapper.mapEquipmentToDto(reservation.getEquipment()).getInsurance());
-    reservationDto.setNavigation(equipmentDtoMapper.mapEquipmentToDto(reservation.getEquipment()).getNavigation());
-    reservationDto.setNumberOfBabyCarrier(equipmentDtoMapper.mapEquipmentToDto(reservation.getEquipment()).getNumberOfBabyCarrier());
-    reservationDto.setNumberOfChildSeat(equipmentDtoMapper.mapEquipmentToDto(reservation.getEquipment()).getNumberOfChildSeat());
-    reservationDto.setNumberOfPad(equipmentDtoMapper.mapEquipmentToDto(reservation.getEquipment()).getNumberOfPad());
-    reservationDto.setWorkerName(workerDtoMapper.mapWorkerToDto(reservation.getWorker()).getName());
-    reservationDto.setWorkerSurname(workerDtoMapper.mapWorkerToDto(reservation.getWorker()).getSurname());
+    reservationDto.setClientType(clientDtoMapper.mapClientToDto(reservation.getClient()).getClientType());
+    reservationDto.setClientTypeDiscount(clientDtoMapper.mapClientToDto(reservation.getClient()).getClientTypeDiscount());
+    reservationDto.setWorkerNameAndSurname(workerDtoMapper.mapWorkerToDto(reservation.getWorker()).getNameAndSurname());
     reservationDto.setWorkerPesel(workerDtoMapper.mapWorkerToDto(reservation.getWorker()).getPesel());
     reservationDto.setWorkerEmail(workerDtoMapper.mapWorkerToDto(reservation.getWorker()).getEmail());
     reservationDto.setWorkerPositionName(workerDtoMapper.mapWorkerToDto(reservation.getWorker()).getPositionName());

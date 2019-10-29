@@ -19,10 +19,7 @@ public class Worker {
   Long id;
 
   @Column(name = "name")
-  String name;
-
-  @Column(name = "surname")
-  String surname;
+  String nameAndSurname;
 
   @Column(name = "email")
   String email;
@@ -44,9 +41,8 @@ public class Worker {
   public Worker() {
   }
 
-  public Worker(String name, String surname, String email, String pesel) {
-    this.name = name;
-    this.surname = surname;
+  public Worker(String nameAndSurname, String email, String pesel) {
+    this.nameAndSurname = nameAndSurname;
     this.email = email;
     this.pesel = pesel;
   }
@@ -59,20 +55,12 @@ public class Worker {
     this.id = id;
   }
 
-  public String getName() {
-    return name;
+  public String getNameAndSurname() {
+    return nameAndSurname;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getSurname() {
-    return surname;
-  }
-
-  public void setSurname(String surname) {
-    this.surname = surname;
+  public void setNameAndSurname(String nameAndSurname) {
+    this.nameAndSurname = nameAndSurname;
   }
 
   public String getEmail() {

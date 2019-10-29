@@ -1,12 +1,15 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -24,9 +27,8 @@ public class Reservation {
   @Column(name = "end_date")
   Date endDate;
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "equipment_id")
-  Equipment equipment;
+  @OneToMany(mappedBy = "equipment")
+  List<ReservationEquipment> reservationEquipments = new ArrayList<>();
 
   @ManyToOne
   @JoinColumn(name = "client_id")
@@ -72,12 +74,12 @@ public class Reservation {
     this.endDate = endDate;
   }
 
-  public Equipment getEquipment() {
-    return equipment;
+  public List<ReservationEquipment> getReservationEquipments() {
+    return reservationEquipments;
   }
 
-  public void setEquipment(Equipment equipment) {
-    this.equipment = equipment;
+  public void setReservationEquipments(List<ReservationEquipment> reservationEquipments) {
+    this.reservationEquipments = reservationEquipments;
   }
 
   public Client getClient() {

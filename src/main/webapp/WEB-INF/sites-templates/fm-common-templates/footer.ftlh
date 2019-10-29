@@ -1,13 +1,5 @@
-<footer>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <p>© Wojownicy Klawiatury, Inc. 2019</p>
-    </div>
-    <div class="col-md-6">
-      <p class="float-right">
-        <a href="#">Wróć do góry</a>
-      </p>
-    </div>
-  </div>
+<footer class="panel-footer">
+  <h6 class="text-center">
+    Copyright&copy; ${.now?string.yyyy} F&C Rentals
+  </h6>
 </footer>

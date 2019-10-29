@@ -21,7 +21,7 @@ public class Car {
   @Column(name = "registration_number")
   String registrationNumber;
 
-  @OneToMany(mappedBy = "reservation")
+  @OneToMany(mappedBy = "car")
   List<Reservation> reservations = new ArrayList<>();
 
   @ManyToOne

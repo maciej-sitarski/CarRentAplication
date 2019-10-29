@@ -3,8 +3,7 @@ package dto;
 public class WorkerDto {
 
   private Long id;
-  private String name;
-  private String surname;
+  private String nameAndSurname;
   private String email;
   private String pesel;
   private String positionName;
@@ -18,20 +17,12 @@ public class WorkerDto {
     this.id = id;
   }
 
-  public String getName() {
-    return name;
+  public String getNameAndSurname() {
+    return nameAndSurname;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getSurname() {
-    return surname;
-  }
-
-  public void setSurname(String surname) {
-    this.surname = surname;
+  public void setNameAndSurname(String nameAndSurname) {
+    this.nameAndSurname = nameAndSurname;
   }
 
   public String getEmail() {

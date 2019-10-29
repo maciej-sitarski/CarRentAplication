@@ -11,11 +11,8 @@ public class EquipmentDtoMapper {
     EquipmentDto equipmentDto = new EquipmentDto();
 
     equipmentDto.setId(equipment.getId());
-    equipmentDto.setInsurance(equipment.getInsurance());
-    equipmentDto.setNavigation(equipment.getNavigation());
-    equipmentDto.setNumberOfBabyCarrier(equipment.getNumberOfBabyCarrier());
-    equipmentDto.setNumberOfChildSeat(equipment.getNumberOfChildSeat());
-    equipmentDto.setNumberOfPad(equipment.getNumberOfPad());
+    equipmentDto.setEquipmentType(equipment.getEquipmentType());
+    equipmentDto.setPrice(equipment.getPrice());
 
     return equipmentDto;
   }

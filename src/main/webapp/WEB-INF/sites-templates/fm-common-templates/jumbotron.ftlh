@@ -1,7 +1,6 @@
-<div class="jumbotron jumbotron-fluid" style="background-color: rgb(177, 202, 248)">
+<div class="jumbotron text-center" style="background-color: rgb(177, 202, 248)">
   <div class="container">
-    <h1 class="display-4">Witaj w CarRent ${user ! ""}!</h1>
-      <#if user??><h1 class="display-4">Witaj w BookHub ${user}!</h1></#if>
+    <h1 class="display-5">Witaj w Fast&Cheap Rentals!</h1>
     <p class="lead">Twojej wypożyczalni samochodów</p>
   </div>
 </div>

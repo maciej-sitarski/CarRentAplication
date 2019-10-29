@@ -18,8 +18,7 @@ public class WorkerDtoMapper {
     WorkerDto workerDto = new WorkerDto();
 
     workerDto.setId(worker.getId());
-    workerDto.setName(worker.getName());
-    workerDto.setSurname(worker.getSurname());
+    workerDto.setNameAndSurname(worker.getNameAndSurname());
     workerDto.setEmail(worker.getEmail());
     workerDto.setPesel(worker.getPesel());
     workerDto.setPositionName(positionDtoMapper.mapPositionToDto(worker.getPosition()).getName());

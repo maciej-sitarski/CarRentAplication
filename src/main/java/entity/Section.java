@@ -22,7 +22,7 @@ public class Section {
   @Column(name = "price")
   Long price;
 
-  @OneToMany(mappedBy = "model")
+  @OneToMany(mappedBy = "section")
   List<Model> models = new ArrayList<>();
 
   public Section() {

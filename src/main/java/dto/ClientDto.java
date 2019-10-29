@@ -3,12 +3,12 @@ package dto;
 public class ClientDto {
 
   private Long id;
-  private String name;
-  private String surname;
+  private String nameAndSurname;
   private String email;
   private String pesel;
   private String phoneNumber;
-  private Long reservationNumber;
+  private String clientType;
+  private String clientTypeDiscount;
 
   public Long getId() {
     return id;
@@ -18,20 +18,12 @@ public class ClientDto {
     this.id = id;
   }
 
-  public String getName() {
-    return name;
+  public String getNameAndSurname() {
+    return nameAndSurname;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getSurname() {
-    return surname;
-  }
-
-  public void setSurname(String surname) {
-    this.surname = surname;
+  public void setNameAndSurname(String nameAndSurname) {
+    this.nameAndSurname = nameAndSurname;
   }
 
   public String getEmail() {
@@ -58,11 +50,19 @@ public class ClientDto {
     this.phoneNumber = phoneNumber;
   }
 
-  public Long getReservationNumber() {
-    return reservationNumber;
+  public String getClientType() {
+    return clientType;
   }
 
-  public void setReservationNumber(Long reservationNumber) {
-    this.reservationNumber = reservationNumber;
+  public void setClientType(String clientType) {
+    this.clientType = clientType;
+  }
+
+  public String getClientTypeDiscount() {
+    return clientTypeDiscount;
+  }
+
+  public void setClientTypeDiscount(String clientTypeDiscount) {
+    this.clientTypeDiscount = clientTypeDiscount;
   }
 }

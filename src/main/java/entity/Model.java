@@ -21,7 +21,7 @@ public class Model {
   @Column(name = "name")
   String name;
 
-  @OneToMany(mappedBy = "car")
+  @OneToMany(mappedBy = "model")
   List<Car> cars = new ArrayList<>();
 
   @ManyToOne

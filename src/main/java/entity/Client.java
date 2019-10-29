@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -16,11 +18,8 @@ public class Client {
   @Column(name = "client_id")
   Long id;
 
-  @Column(name = "name")
-  String name;
-
-  @Column(name = "surname")
-  String surname;
+  @Column(name = "name_surname")
+  String nameAndSurname;
 
   @Column(name = "email")
   String email;
@@ -31,23 +30,21 @@ public class Client {
   @Column(name = "phone_number")
   String phoneNumber;
 
-  @Column(name = "reservation_number")
-  Long reservationNumber;
-
   @OneToMany(mappedBy = "client")
   List<Reservation> reservations = new ArrayList<>();
+
+  @ManyToOne
+  @JoinColumn(name = "client_type")
+  ClientType clientType;
 
   public Client() {
   }
 
-  public Client(String name, String surname, String email, String pesel, String phoneNumber,
-      Long reservationNumber) {
-    this.name = name;
-    this.surname = surname;
+  public Client(String nameAndSurname, String email, String pesel, String phoneNumber) {
+    this.nameAndSurname = nameAndSurname;
     this.email = email;
     this.pesel = pesel;
     this.phoneNumber = phoneNumber;
-    this.reservationNumber = reservationNumber;
   }
 
   public Long getId() {
@@ -58,20 +55,12 @@ public class Client {
     this.id = id;
   }
 
-  public String getName() {
-    return name;
+  public String getNameAndSurname() {
+    return nameAndSurname;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getSurname() {
-    return surname;
-  }
-
-  public void setSurname(String surname) {
-    this.surname = surname;
+  public void setNameAndSurname(String nameAndSurname) {
+    this.nameAndSurname = nameAndSurname;
   }
 
   public String getEmail() {
@@ -98,19 +87,19 @@ public class Client {
     this.phoneNumber = phoneNumber;
   }
 
-  public Long getReservationNumber() {
-    return reservationNumber;
-  }
-
-  public void setReservationNumber(Long reservationNumber) {
-    this.reservationNumber = reservationNumber;
-  }
-
   public List<Reservation> getReservations() {
     return reservations;
   }
 
   public void setReservations(List<Reservation> reservations) {
     this.reservations = reservations;
+  }
+
+  public ClientType getClientType() {
+    return clientType;
+  }
+
+  public void setClientType(ClientType clientType) {
+    this.clientType = clientType;
   }
 }

@@ -19,10 +19,10 @@ public class Department {
   @Column(name = "city")
   String city;
 
-  @OneToMany(mappedBy = "worker")
+  @OneToMany(mappedBy = "department")
   List<Worker> workers = new ArrayList<>();
 
-  @OneToMany(mappedBy = "worker")
+  @OneToMany(mappedBy = "department")
   List<Car> cars = new ArrayList<>();
 
   public Department() {

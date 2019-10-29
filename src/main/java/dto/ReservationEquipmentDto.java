@@ -2,11 +2,14 @@ package dto;
 
 import java.util.Date;
 
-public class ReservationDto {
+public class ReservationEquipmentDto {
 
   private Long id;
-  private Date startDate;
-  private Date endDate;
+  private Long number;
+  private String equipmentType;
+  private Long equipmentPrice;
+  private Date reservationStartDate;
+  private Date reservationEndDate;
   private String workerNameAndSurname;
   private String workerEmail;
   private String workerPesel;
@@ -32,20 +35,44 @@ public class ReservationDto {
     this.id = id;
   }
 
-  public Date getStartDate() {
-    return startDate;
+  public Long getNumber() {
+    return number;
   }
 
-  public void setStartDate(Date startDate) {
-    this.startDate = startDate;
+  public void setNumber(Long number) {
+    this.number = number;
   }
 
-  public Date getEndDate() {
-    return endDate;
+  public String getEquipmentType() {
+    return equipmentType;
   }
 
-  public void setEndDate(Date endDate) {
-    this.endDate = endDate;
+  public void setEquipmentType(String equipmentType) {
+    this.equipmentType = equipmentType;
+  }
+
+  public Long getEquipmentPrice() {
+    return equipmentPrice;
+  }
+
+  public void setEquipmentPrice(Long equipmentPrice) {
+    this.equipmentPrice = equipmentPrice;
+  }
+
+  public Date getReservationStartDate() {
+    return reservationStartDate;
+  }
+
+  public void setReservationStartDate(Date reservationStartDate) {
+    this.reservationStartDate = reservationStartDate;
+  }
+
+  public Date getReservationEndDate() {
+    return reservationEndDate;
+  }
+
+  public void setReservationEndDate(Date reservationEndDate) {
+    this.reservationEndDate = reservationEndDate;
   }
 
   public String getWorkerNameAndSurname() {

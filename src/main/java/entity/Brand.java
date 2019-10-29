@@ -19,7 +19,7 @@ public class Brand {
   @Column(name = "name")
   String name;
 
-  @OneToMany(mappedBy = "car")
+  @OneToMany(mappedBy = "brand")
   List<Car> cars = new ArrayList<>();
 
   public Brand() {

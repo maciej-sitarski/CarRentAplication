@@ -13,6 +13,10 @@
   margin-bottom: 50px;
 }
 
+.panel-footer{
+  background-color:#337ab7;
+}
+
 #form-container {
   padding-top: 100px;
   margin-top: 100px;
