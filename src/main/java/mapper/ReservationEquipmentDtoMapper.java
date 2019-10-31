@@ -27,7 +27,8 @@ public class ReservationEquipmentDtoMapper {
     reservationEquipmentDto.setClientPesel(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()).getClientPesel());
     reservationEquipmentDto.setClientPhoneNumber(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()).getClientPhoneNumber());
     reservationEquipmentDto.setClientType(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()).getClientType());
-    reservationEquipmentDto.setClientTypeDiscount(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()).getClientTypeDiscount());reservationEquipmentDto.setDepartmentCity(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()).getDepartmentCity());
+    reservationEquipmentDto.setClientTypeDiscount(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()).getClientTypeDiscount());
+    reservationEquipmentDto.setDepartmentCity(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()).getDepartmentCity());
     reservationEquipmentDto.setModelCarName(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()).getModelCarName());
     reservationEquipmentDto.setRegistrationCarNumber(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()).getRegistrationCarNumber());
     reservationEquipmentDto.setReservationEndDate(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()).getEndDate());
