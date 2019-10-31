@@ -1,0 +1,55 @@
+package entity;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "brand")
+public class Brand {
+
+  @Id
+  @Column(name = "brand_id")
+  Long id;
+
+  @Column(name = "name")
+  String name;
+
+  @OneToMany(mappedBy = "brand")
+  List<Car> cars = new ArrayList<>();
+
+  public Brand() {
+  }
+
+  public Brand(String name) {
+    this.name = name;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public List<Car> getCars() {
+    return cars;
+  }
+
+  public void setCars(List<Car> cars) {
+    this.cars = cars;
+  }
+}
