@@ -22,11 +22,9 @@ public class CarDtoMapper {
 
     carDto.setId(car.getId());
     carDto.setRegistrationNumber(car.getRegistrationNumber());
-    carDto.setBrandName(brandDtoMapper.mapBrandToDto(car.getBrand()).getName());
-    carDto.setDepartmentCity(departmentDtoMapper.mapDepartmentToDto(car.getDepartment()).getCity());
-    carDto.setModelName(modelDtoMapper.mapModelToDto(car.getModel()).getName());
-    carDto.setSectionName(modelDtoMapper.mapModelToDto(car.getModel()).getSectionName());
-    carDto.setSectionPrice(modelDtoMapper.mapModelToDto(car.getModel()).getSectionPrice());
+    carDto.setBrandDto(brandDtoMapper.mapBrandToDto(car.getBrand()));
+    carDto.setDepartmentDto(departmentDtoMapper.mapDepartmentToDto(car.getDepartment()));
+    carDto.setModelDto(modelDtoMapper.mapModelToDto(car.getModel()));
 
     return carDto;
   }

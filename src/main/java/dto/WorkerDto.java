@@ -6,8 +6,8 @@ public class WorkerDto {
   private String nameAndSurname;
   private String email;
   private String pesel;
-  private String positionName;
-  private String departmentCity;
+  private DepartmentDto departmentDto;
+  private PositionDto positionDto;
 
   public Long getId() {
     return id;
@@ -41,19 +41,19 @@ public class WorkerDto {
     this.pesel = pesel;
   }
 
-  public String getPositionName() {
-    return positionName;
+  public DepartmentDto getDepartmentDto() {
+    return departmentDto;
   }
 
-  public void setPositionName(String positionName) {
-    this.positionName = positionName;
+  public void setDepartmentDto(DepartmentDto departmentDto) {
+    this.departmentDto = departmentDto;
   }
 
-  public String getDepartmentCity() {
-    return departmentCity;
+  public PositionDto getPositionDto() {
+    return positionDto;
   }
 
-  public void setDepartmentCity(String departmentCity) {
-    this.departmentCity = departmentCity;
+  public void setPositionDto(PositionDto positionDto) {
+    this.positionDto = positionDto;
   }
 }

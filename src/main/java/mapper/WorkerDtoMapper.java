@@ -21,9 +21,8 @@ public class WorkerDtoMapper {
     workerDto.setNameAndSurname(worker.getNameAndSurname());
     workerDto.setEmail(worker.getEmail());
     workerDto.setPesel(worker.getPesel());
-    workerDto.setPositionName(positionDtoMapper.mapPositionToDto(worker.getPosition()).getName());
-    workerDto.setDepartmentCity(
-        departmentDtoMapper.mapDepartmentToDto(worker.getDepartment()).getCity());
+    workerDto.setDepartmentDto(departmentDtoMapper.mapDepartmentToDto(worker.getDepartment()));
+    workerDto.setPositionDto(positionDtoMapper.mapPositionToDto(worker.getPosition()));
 
     return workerDto;
   }

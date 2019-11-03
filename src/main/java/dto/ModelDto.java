@@ -4,8 +4,7 @@ public class ModelDto {
 
   private Long id;
   private String name;
-  private String sectionName;
-  private Long sectionPrice;
+  private SectionDto sectionDto;
 
   public Long getId() {
     return id;
@@ -23,19 +22,11 @@ public class ModelDto {
     this.name = name;
   }
 
-  public String getSectionName() {
-    return sectionName;
+  public SectionDto getSectionDto() {
+    return sectionDto;
   }
 
-  public void setSectionName(String sectionName) {
-    this.sectionName = sectionName;
-  }
-
-  public Long getSectionPrice() {
-    return sectionPrice;
-  }
-
-  public void setSectionPrice(Long sectionPrice) {
-    this.sectionPrice = sectionPrice;
+  public void setSectionDto(SectionDto sectionDto) {
+    this.sectionDto = sectionDto;
   }
 }
