@@ -13,6 +13,18 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"
+             id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">Rezerwacje</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"
+             id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">Samochody</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"
+             id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">Oddziały</a>
           <a class="nav-link dropdown-toggle" href="#"
              id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false">Panel administratora</a>
