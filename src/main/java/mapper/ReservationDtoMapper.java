@@ -23,22 +23,9 @@ public class ReservationDtoMapper {
     reservationDto.setId(reservation.getId());
     reservationDto.setStartDate(reservation.getStartDate());
     reservationDto.setEndDate(reservation.getEndDate());
-    reservationDto.setBrandCarName(carDtoMapper.mapCarToDto(reservation.getCar()).getBrandName());
-    reservationDto.setSectionCarName(carDtoMapper.mapCarToDto(reservation.getCar()).getSectionName());
-    reservationDto.setSectionCarPrice(carDtoMapper.mapCarToDto(reservation.getCar()).getSectionPrice());
-    reservationDto.setModelCarName(carDtoMapper.mapCarToDto(reservation.getCar()).getModelName());
-    reservationDto.setRegistrationCarNumber(carDtoMapper.mapCarToDto(reservation.getCar()).getRegistrationNumber());
-    reservationDto.setDepartmentCity(carDtoMapper.mapCarToDto(reservation.getCar()).getDepartmentCity());
-    reservationDto.setClientEmail(clientDtoMapper.mapClientToDto(reservation.getClient()).getEmail());
-    reservationDto.setClientNameAndSurname(clientDtoMapper.mapClientToDto(reservation.getClient()).getNameAndSurname());
-    reservationDto.setClientPesel(clientDtoMapper.mapClientToDto(reservation.getClient()).getPesel());
-    reservationDto.setClientPhoneNumber(clientDtoMapper.mapClientToDto(reservation.getClient()).getPhoneNumber());
-    reservationDto.setClientType(clientDtoMapper.mapClientToDto(reservation.getClient()).getClientType());
-    reservationDto.setClientTypeDiscount(clientDtoMapper.mapClientToDto(reservation.getClient()).getClientTypeDiscount());
-    reservationDto.setWorkerNameAndSurname(workerDtoMapper.mapWorkerToDto(reservation.getWorker()).getNameAndSurname());
-    reservationDto.setWorkerPesel(workerDtoMapper.mapWorkerToDto(reservation.getWorker()).getPesel());
-    reservationDto.setWorkerEmail(workerDtoMapper.mapWorkerToDto(reservation.getWorker()).getEmail());
-    reservationDto.setWorkerPositionName(workerDtoMapper.mapWorkerToDto(reservation.getWorker()).getPositionName());
+    reservationDto.setCarDto(carDtoMapper.mapCarToDto(reservation.getCar()));
+    reservationDto.setClientDto(clientDtoMapper.mapClientToDto(reservation.getClient()));
+    reservationDto.setWorkerDto(workerDtoMapper.mapWorkerToDto(reservation.getWorker()));
 
     return reservationDto;
   }

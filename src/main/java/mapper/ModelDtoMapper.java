@@ -16,8 +16,7 @@ public class ModelDtoMapper {
 
     modelDto.setId(model.getId());
     modelDto.setName(model.getName());
-    modelDto.setSectionName(sectionDtoMapper.mapSectionToDto(model.getSection()).getName());
-    modelDto.setSectionPrice(sectionDtoMapper.mapSectionToDto(model.getSection()).getPrice());
+    modelDto.setSectionDto(sectionDtoMapper.mapSectionToDto(model.getSection()));
 
     return modelDto;
   }
