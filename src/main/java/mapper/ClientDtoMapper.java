@@ -19,8 +19,7 @@ public class ClientDtoMapper {
     clientDto.setNameAndSurname(client.getNameAndSurname());
     clientDto.setPesel(client.getPesel());
     clientDto.setPhoneNumber(client.getPhoneNumber());
-    clientDto.setClientType(clientTypeDtoMapper.mapClientTypeToDto(client.getClientType()).getType());
-    clientDto.setClientTypeDiscount(clientTypeDtoMapper.mapClientTypeToDto(client.getClientType()).getDiscount());
+    clientDto.setClientTypeDto(clientTypeDtoMapper.mapClientTypeToDto(client.getClientType()));
 
     return clientDto;
   }

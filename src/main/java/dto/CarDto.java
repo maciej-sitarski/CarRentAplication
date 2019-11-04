@@ -4,11 +4,9 @@ public class CarDto {
 
   private Long id;
   private String registrationNumber;
-  private String brandName;
-  private String modelName;
-  private String sectionName;
-  private Long sectionPrice;
-  private String departmentCity;
+  private BrandDto brandDto;
+  private ModelDto modelDto;
+  private DepartmentDto departmentDto;
 
   public Long getId() {
     return id;
@@ -26,43 +24,27 @@ public class CarDto {
     this.registrationNumber = registrationNumber;
   }
 
-  public String getBrandName() {
-    return brandName;
+  public BrandDto getBrandDto() {
+    return brandDto;
   }
 
-  public void setBrandName(String brandName) {
-    this.brandName = brandName;
+  public void setBrandDto(BrandDto brandDto) {
+    this.brandDto = brandDto;
   }
 
-  public String getModelName() {
-    return modelName;
+  public ModelDto getModelDto() {
+    return modelDto;
   }
 
-  public void setModelName(String modelName) {
-    this.modelName = modelName;
+  public void setModelDto(ModelDto modelDto) {
+    this.modelDto = modelDto;
   }
 
-  public String getSectionName() {
-    return sectionName;
+  public DepartmentDto getDepartmentDto() {
+    return departmentDto;
   }
 
-  public void setSectionName(String sectionName) {
-    this.sectionName = sectionName;
-  }
-
-  public Long getSectionPrice() {
-    return sectionPrice;
-  }
-
-  public void setSectionPrice(Long sectionPrice) {
-    this.sectionPrice = sectionPrice;
-  }
-
-  public String getDepartmentCity() {
-    return departmentCity;
-  }
-
-  public void setDepartmentCity(String departmentCity) {
-    this.departmentCity = departmentCity;
+  public void setDepartmentDto(DepartmentDto departmentDto) {
+    this.departmentDto = departmentDto;
   }
 }

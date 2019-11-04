@@ -7,8 +7,7 @@ public class ClientDto {
   private String email;
   private String pesel;
   private String phoneNumber;
-  private String clientType;
-  private String clientTypeDiscount;
+  private ClientTypeDto clientTypeDto;
 
   public Long getId() {
     return id;
@@ -50,19 +49,11 @@ public class ClientDto {
     this.phoneNumber = phoneNumber;
   }
 
-  public String getClientType() {
-    return clientType;
+  public ClientTypeDto getClientTypeDto() {
+    return clientTypeDto;
   }
 
-  public void setClientType(String clientType) {
-    this.clientType = clientType;
-  }
-
-  public String getClientTypeDiscount() {
-    return clientTypeDiscount;
-  }
-
-  public void setClientTypeDiscount(String clientTypeDiscount) {
-    this.clientTypeDiscount = clientTypeDiscount;
+  public void setClientTypeDto(ClientTypeDto clientTypeDto) {
+    this.clientTypeDto = clientTypeDto;
   }
 }
