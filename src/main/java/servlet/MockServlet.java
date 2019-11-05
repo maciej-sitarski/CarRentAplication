@@ -1,7 +1,12 @@
 package servlet;
 
+import dao.CarDaoBean;
 import dao.DepartmentDaoBean;
+import entity.Brand;
+import entity.Car;
 import entity.Department;
+import entity.Model;
+import entity.Section;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -24,6 +29,9 @@ public class MockServlet  extends HttpServlet {
 
   @Inject
   DepartmentDaoBean departmentDaoBean;
+
+  @Inject
+  CarDaoBean carDaoBean;
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -67,6 +75,90 @@ public class MockServlet  extends HttpServlet {
     departmentDaoBean.saveBrand(department6);
     departmentDaoBean.saveBrand(department7);
     departmentDaoBean.saveBrand(department8);
+
+    Section sectionA = new Section();
+    sectionA.setName("a");
+    sectionA.setPrice(70l);
+
+    Section sectionB = new Section();
+    sectionB.setName("b");
+    sectionB.setPrice(80l);
+
+    Section sectionC = new Section();
+    sectionC.setName("c");
+    sectionC.setPrice(100l);
+
+    Section sectionD = new Section();
+    sectionD.setName("b");
+    sectionD.setPrice(150l);
+
+    Section sectionSuv = new Section();
+    sectionSuv.setName("suv");
+    sectionSuv.setPrice(199l);
+
+    Section section7os = new Section();
+    section7os.setName("7os");
+    section7os.setPrice(199l);
+
+    Section sectionBus = new Section();
+    sectionBus.setName("bus");
+    sectionBus.setPrice(250l);
+
+    Section sectionPremium = new Section();
+    sectionPremium.setName("premium");
+    sectionPremium.setPrice(300l);
+
+
+
+    Brand brand1 = new Brand();
+    brand1.setName("Opel");
+
+    Brand brand2 = new Brand();
+    brand2.setName("Seat");
+
+    Brand brand3 = new Brand();
+    brand3.setName("Toyota");
+
+    Brand brand4 = new Brand();
+    brand4.setName("Renault");
+
+    Brand brand5 = new Brand();
+    brand5.setName("Hyundai");
+
+    Brand brand6 = new Brand();
+    brand6.setName("BMW");
+
+    Brand brand7 = new Brand();
+    brand7.setName("Ford");
+
+    Model model1 = new Model();
+    model1.setName("Corsa");
+    model1.setSection(sectionB);
+
+    Model model2 = new Model();
+    model2.setName("Clio");
+    model2.setSection(sectionB);
+
+    Model model3 = new Model();
+    model3.setName("i20");
+    model3.setSection(sectionB);
+
+    Model model4 = new Model();
+    model1.setName("fiesta");
+    model1.setSection(sectionB);
+
+    Model model = new Model();
+    model.setName("Astra");
+    model.setSection(sectionC);
+
+
+
+
+
+
+    Car car1 = new Car();
+
+
 
     try {
       template.process(dataModel, printWriter);
