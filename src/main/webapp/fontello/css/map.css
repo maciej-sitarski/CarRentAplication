@@ -55,4 +55,7 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-location-1:before { content: '\e800'; font-size: 40px; color: #052F09;} /* '' */
+.icon-location-1:before { content: '\e800'; font-size: 40px; color: #052F09; margin-right: 0px} /* '' */
+.icon-location-1:hover:before{ content: '\e800';
+  color: orange;
+}

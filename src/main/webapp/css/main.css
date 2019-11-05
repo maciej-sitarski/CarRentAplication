@@ -52,9 +52,8 @@
 
 .map {
   text-align: center;
-  margin-bottom: 90px;
-  margin-top: 60px;
-  width: 100%;
+
+
 
 }
 
@@ -73,10 +72,20 @@ ul {
   color: #052F09;
 }
 
+.departments:hover{
+  color: orange;
+}
+
 .department {
   color: #052F09;
   font-size: 30px;
   text-align: center;
 }
+
+.department:hover {
+  color: orange;
+  text-decoration: none;
+}
+
 
 
