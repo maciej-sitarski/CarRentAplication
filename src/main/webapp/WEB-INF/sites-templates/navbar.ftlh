@@ -28,7 +28,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="mainmenu">
-    <ul class="navbar-nav ml-5 mr-auto">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item mr-4">
         <a class="nav-link" href="/main"> Strona główna </a>
       </li>
@@ -44,9 +44,8 @@
       <li class="nav-item mr-4">
         <a class="nav-link mr-auto" href="#"> Oddziały </a>
       </li>
-    </ul>
-    <ul  class="navbar-nav">
-      <li class="nav-item">
+
+      <li class="nav-item mr-4">
         <a class="nav-link" href="#"> Logowanie </a>
       </li>
     </ul>
