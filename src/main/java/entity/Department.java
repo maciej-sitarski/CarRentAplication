@@ -4,15 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+@NamedQueries({
+    @NamedQuery(
+        name = "Departments.findAll",
+        query = "SELECT d FROM Department d"
+    )
+})
 
 @Entity
 @Table(name = "department")
 public class Department {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "department_id")
   Long id;
 
