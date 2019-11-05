@@ -27,9 +27,9 @@ public class MainSiteServlet extends HttpServlet {
 
     Map<String, String> dataModel = new HashMap<>();
 
-    String siteType = (String) req.getAttribute("siteType");
-
-    dataModel.put("siteType", siteType);
+//    String siteType = (String) req.getAttribute("siteType");
+//
+//    dataModel.put("siteType", siteType);
 
     PrintWriter printWriter = resp.getWriter();
 
