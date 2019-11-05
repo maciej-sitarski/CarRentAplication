@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/main.css">
   <title>CarRent</title>
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap&subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="/fontello/css/map.css" type="text/css">
 </head>
 
 <body>
@@ -30,6 +31,10 @@
   <div class="collapse navbar-collapse" id="mainmenu">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item mr-4">
+        <a class="nav-link " href="mock"> Mockowanie </a>
+      </li>
+
+      <li class="nav-item mr-4">
         <a class="nav-link" href="/main"> Strona główna </a>
       </li>
 
@@ -42,7 +47,7 @@
       </li>
 
       <li class="nav-item mr-4">
-        <a class="nav-link mr-auto" href="#"> Oddziały </a>
+        <a class="nav-link mr-auto" href="/departments"> Oddziały </a>
       </li>
 
       <li class="nav-item mr-4">
