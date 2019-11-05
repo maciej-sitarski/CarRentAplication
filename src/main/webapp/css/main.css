@@ -26,6 +26,12 @@
   border-color: white;
 }
 
+.navbar-nav {
+  background: #052F09;
+  text-align: center;
+}
+
+
 .footer {
   background-color: #052F09;
   color: white;
@@ -42,7 +48,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding: 50px 0 400px 0;
-  margin-button: 0px;
 }
 
 
