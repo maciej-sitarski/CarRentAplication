@@ -2,9 +2,6 @@ package servlet;
 
 import dao.DepartmentDaoBean;
 import entity.Department;
-import freemarker.TemplateProvider;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -19,8 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/mock")
 public class MockServlet  extends HttpServlet {
 
-  @Inject
-  TemplateProvider templateProvider;
 
   @Inject
   DepartmentDaoBean departmentDaoBean;
@@ -29,7 +24,6 @@ public class MockServlet  extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
 
-    Template template = templateProvider.getTemplate(getServletContext(), "mock.ftlh" );
 
     Map<String, String> dataModel = new HashMap<>();
 
@@ -67,11 +61,5 @@ public class MockServlet  extends HttpServlet {
     departmentDaoBean.saveBrand(department6);
     departmentDaoBean.saveBrand(department7);
     departmentDaoBean.saveBrand(department8);
-
-    try {
-      template.process(dataModel, printWriter);
-    } catch (TemplateException e) {
-      e.printStackTrace();
-    }
   }
 }
