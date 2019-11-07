@@ -1,0 +1,20 @@
+.navbar {
+  background-color: #052F09;
+  color: white;
+  max-height: 65px;
+  z-index: 1;
+}
+
+.navbar a {
+  color: white;
+}
+
+.navbar-toggler {
+  border-color: white;
+}
+
+.navbar-nav {
+  background: #052F09;
+  text-align: center;
+
+}

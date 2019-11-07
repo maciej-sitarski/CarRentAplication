@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/main")
 public class MainSiteServlet extends HttpServlet {
+
   @Inject
   TemplateProvider templateProvider;
 
@@ -23,7 +24,7 @@ public class MainSiteServlet extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
 
-    Template template = templateProvider.getTemplate(getServletContext(), "main-site.ftlh" );
+    Template template = templateProvider.getTemplate(getServletContext(), "main-site.ftlh");
 
     Map<String, String> dataModel = new HashMap<>();
 

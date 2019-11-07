@@ -2,10 +2,10 @@
   font-family: 'map';
   src: url('../font/map.eot?11236792');
   src: url('../font/map.eot?11236792#iefix') format('embedded-opentype'),
-       url('../font/map.woff2?11236792') format('woff2'),
-       url('../font/map.woff?11236792') format('woff'),
-       url('../font/map.ttf?11236792') format('truetype'),
-       url('../font/map.svg?11236792#map') format('svg');
+  url('../font/map.woff2?11236792') format('woff2'),
+  url('../font/map.woff?11236792') format('woff'),
+  url('../font/map.ttf?11236792') format('truetype'),
+  url('../font/map.svg?11236792#map') format('svg');
   font-weight: normal;
   font-style: normal;
 }
