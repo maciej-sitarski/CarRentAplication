@@ -30,9 +30,6 @@
 
   <div class="collapse navbar-collapse" id="mainmenu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item mr-4">
-        <a class="nav-link " href="mock"> Mockowanie </a>
-      </li>
 
       <li class="nav-item mr-4">
         <a class="nav-link" href="/main"> Strona główna </a>
@@ -43,7 +40,7 @@
       </li>
 
       <li class="nav-item mr-4">
-        <a class="nav-link " href="#"> Samochody </a>
+        <a class="nav-link " href="/cars"> Samochody </a>
       </li>
 
       <li class="nav-item mr-4">

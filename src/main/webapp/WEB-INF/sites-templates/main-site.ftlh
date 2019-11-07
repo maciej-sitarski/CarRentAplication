@@ -3,7 +3,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4" id="main-cards">
-      <h2 class="card-header" style="font-weight: bold">Samochody</h2>
+      <h2 class="card-header" href="/cars" style="font-weight: bold">Samochody</h2>
       <div class="card-body">
         <h5>Przeglądaj zbiór dostępnych aut. Wybierz segment samochodu i dokonuj najlepszego wyboru.
         </h5>
