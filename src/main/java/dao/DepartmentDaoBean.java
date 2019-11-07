@@ -13,7 +13,7 @@ public class DepartmentDaoBean {
   @PersistenceContext
   private EntityManager entityManager;
 
-  public void saveBrand(Department department) {
+  public void saveDepartment(Department department) {
     entityManager.persist(department);
   }
 

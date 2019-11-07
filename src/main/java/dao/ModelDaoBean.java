@@ -11,7 +11,7 @@ public class ModelDaoBean {
   @PersistenceContext
   private EntityManager entityManager;
 
-  public void saveBrand(Model model) {
+  public void saveModel(Model model) {
     entityManager.persist(model);
   }
 

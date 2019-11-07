@@ -11,7 +11,7 @@ public class CarDaoBean {
   @PersistenceContext
   private EntityManager entityManager;
 
-  public void saveBrand(Car car) {
+  public void saveCar (Car car) {
     entityManager.persist(car);
   }
 
