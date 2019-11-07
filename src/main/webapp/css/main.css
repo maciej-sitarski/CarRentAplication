@@ -12,29 +12,10 @@
   font-family: 'Lato', sans-serif;
 }
 
-.navbar {
-  background-color: #052F09;
-  color: white;
-  max-height: 65px;
-}
-
-.navbar a {
-  color: white;
-}
-
-.navbar-toggler {
-  border-color: white;
-}
-
-.navbar-nav {
-  background: #052F09;
-  text-align: center;
-}
-
-
 .footer {
   background-color: #052F09;
   color: white;
+  width:100%;
 }
 
 .jumbotron {
@@ -47,45 +28,17 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 0 400px 0;
+  padding: 50px 0 353px 0;
 }
 
-.map {
-  text-align: center;
-
-
-
-}
-
-ul {
-  list-style-type: square;
-  text-align: left;
-
-}
-
-.departments-right {
-  text-align: left;
-  margin-top: 80px;
-}
-
-.departments {
+.modal-header{
   color: #052F09;
+  background-color: #90BF8E;
 }
 
-.departments:hover{
-  color: orange;
-}
 
-.department {
-  color: #052F09;
-  font-size: 30px;
-  text-align: center;
-}
 
-.department:hover {
-  color: orange;
-  text-decoration: none;
-}
+
 
 
 

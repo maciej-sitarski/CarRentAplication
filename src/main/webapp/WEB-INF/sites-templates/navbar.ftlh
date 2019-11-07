@@ -10,6 +10,9 @@
         crossorigin="anonymous">
   <!-- Our CSS -->
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/departments.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/modalLogin.css">
   <title>CarRent</title>
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap&subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="/fontello/css/map.css" type="text/css">
@@ -51,11 +54,35 @@
       </li>
 
       <li class="nav-item mr-4">
-        <a class="nav-link" href="#"> Logowanie </a>
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Zaloguj się</a>
       </li>
     </ul>
   </div>
 </nav>
+
+<div class="modal fade" id="loginModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Prosimy o zalogowanie się  </h4>
+      </div>
+      <div class="modal-body">
+        <label><strong>Adres email: </strong></label><br/>
+        <input type="text"><br/>
+        <label><strong>Hasło: </strong></label><br/>
+        <input type="password">
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-success"style="position: absolute; left: 20px;">Zaloguj się </a>
+        <p style="position: absolute; left: 130px;">lub
+          <a class="registration" href="/registration">Utwórz konto </a>
+        </p>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

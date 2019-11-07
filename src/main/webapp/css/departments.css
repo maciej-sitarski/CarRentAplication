@@ -1,0 +1,33 @@
+.map {
+  text-align: center;
+}
+
+ul {
+  list-style-type: square;
+  text-align: left;
+
+}
+
+.departments-right {
+  text-align: left;
+  margin-top: 50px;
+}
+
+.departments {
+  color: #052F09;
+}
+
+.departments:hover{
+  color: orange;
+}
+
+.department {
+  color: #052F09;
+  font-size: 30px;
+  text-align: center;
+}
+
+.department:hover {
+  color: orange;
+  text-decoration: none;
+}

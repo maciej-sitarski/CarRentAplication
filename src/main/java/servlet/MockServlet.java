@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import service.DepartmentsService;
 
 @WebServlet("/mock")
 public class MockServlet  extends HttpServlet {
@@ -24,6 +25,9 @@ public class MockServlet  extends HttpServlet {
 
   @Inject
   DepartmentDaoBean departmentDaoBean;
+
+  @Inject
+  DepartmentsService departmentsService;
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -59,14 +63,16 @@ public class MockServlet  extends HttpServlet {
     Department department8 = new Department();
     department8.setCity("Szczecin");
 
-    departmentDaoBean.saveBrand(department1);
-    departmentDaoBean.saveBrand(department2);
-    departmentDaoBean.saveBrand(department3);
-    departmentDaoBean.saveBrand(department4);
-    departmentDaoBean.saveBrand(department5);
-    departmentDaoBean.saveBrand(department6);
-    departmentDaoBean.saveBrand(department7);
-    departmentDaoBean.saveBrand(department8);
+    if(departmentsService.findListOfDepartmentsDto().size()<1) {
+      departmentDaoBean.saveBrand(department1);
+      departmentDaoBean.saveBrand(department2);
+      departmentDaoBean.saveBrand(department3);
+      departmentDaoBean.saveBrand(department4);
+      departmentDaoBean.saveBrand(department5);
+      departmentDaoBean.saveBrand(department6);
+      departmentDaoBean.saveBrand(department7);
+      departmentDaoBean.saveBrand(department8);
+    }
 
     try {
       template.process(dataModel, printWriter);
