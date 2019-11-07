@@ -1,4 +1,4 @@
-package servlet;
+package service;
 
 import dao.BrandDaoBean;
 import dao.CarDaoBean;
@@ -10,17 +10,14 @@ import entity.Car;
 import entity.Department;
 import entity.Model;
 import entity.Section;
-import java.io.IOException;
+import javax.annotation.PostConstruct;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.inject.Inject;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/mock")
-public class MockServlet extends HttpServlet {
-
+@Singleton
+@Startup
+public class Apilnitializer {
 
   @Inject
   DepartmentDaoBean departmentDaoBean;
@@ -37,9 +34,8 @@ public class MockServlet extends HttpServlet {
   @Inject
   ModelDaoBean modelDaoBean;
 
-  @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-      throws ServletException, IOException {
+  @PostConstruct
+  protected void init() {
 
     Department departmentKrakow = new Department();
     departmentKrakow.setCity("Kraków");
@@ -996,6 +992,6 @@ public class MockServlet extends HttpServlet {
     carDaoBean.saveCar(car118);
     carDaoBean.saveCar(car119);
     carDaoBean.saveCar(car120);
-
   }
+
 }
