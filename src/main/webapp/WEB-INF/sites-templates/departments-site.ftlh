@@ -41,34 +41,11 @@
       <h1>
         Wybiez swój oddział:
       </h1><br/>
-      <ul class="departments-list">
-        <li>
-          <a class="department" href="#">GDAŃSK</a>
-        </li>
-        <li>
-          <a class="department" href="#">KRAKÓW</a>
-        </li>
-        <li>
-          <a class="department" href="#">LUBLIN</a>
-        </li>
-        <li>
-          <a class="department" href="#">ŁÓDŹ</a>
-        </li>
-        <li>
-          <a class="department" href="#">POZNAŃ</a>
-        </li>
-        <li>
-          <a class="department" href="#">SZCZECIN</a>
-        </li>
-        <li>
-          <a class="department" href="#">WARSZAWA</a>
-        </li>
-        <li>
-          <a class="department" href="#">WROCŁAW</a>
-        </li>
-
-
-      </ul>
+        <#list departments as department>
+          <li>
+            <a class="department" href="#">${department.city}</a>
+          </li>
+        </#list>
     </div>
 
 <#include "footer.ftlh">
