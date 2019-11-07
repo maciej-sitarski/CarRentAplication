@@ -11,7 +11,7 @@ public class SectionDaoBean {
   @PersistenceContext
   private EntityManager entityManager;
 
-  public void saveBrand(Section section) {
+  public void saveSection(Section section) {
     entityManager.persist(section);
   }
 
