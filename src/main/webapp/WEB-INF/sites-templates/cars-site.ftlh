@@ -5,15 +5,21 @@
   </h1><br/>
     <div class="row">
       <div class="col-md-4" id="car-card">
-        <a class="department" href="#">Opel</a>
+        <a href="#">Opel</a>
       </div>
-      <div class="col-md-4">
-        <a class="department" href="#" id="car-card">Sienka</a>
+      <div class="col-md-4" id="car-card">
+        <a href="#">Sienka</a>
       </div>
-      <div class="col-md-4">
-        <a class="department" href="#" id="car-card">Sienka kurwa</a>
+      <div class="col-md-4" id="car-card">
+        <a href="#">Sienka kurwa</a>
       </div>
+        <div class="col-md-4" id="car-card">
+          <a href="#">Opel</a>
+        </div>
     </div>
+  <div class="row">
+
+  </div>
 </div>
 
 <#include "footer.ftlh">
