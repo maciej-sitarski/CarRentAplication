@@ -11,11 +11,11 @@ public class PositionDaoBean {
   @PersistenceContext
   private EntityManager entityManager;
 
-  public void saveBrand(Position position) {
+  public void savePosition(Position position) {
     entityManager.persist(position);
   }
 
-  public Position findBrandById(Long id) {
+  public Position findPositionById(Long id) {
     return entityManager.find(Position.class, id);
   }
 }

@@ -9,8 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+@NamedQueries({
+    @NamedQuery(
+        name = "Worker.findEmailInDB",
+        query = "SELECT w.email FROM Worker w WHERE w.email = :email"
+    ),
+    @NamedQuery(
+        name = "Worker.findPeselInDB",
+        query = "SELECT w.pesel FROM Worker w WHERE w.pesel = :pesel"
+    ),
+    @NamedQuery(
+        name = "Worker.findNumberInDB",
+        query = "SELECT w.phoneNumber FROM Worker w WHERE w.phoneNumber = :phoneNumber"
+    ),
+    @NamedQuery(
+        name = "Worker.findWorkerByEmail",
+        query = "SELECT w FROM Worker w WHERE w.email = :email"
+    )
+})
 
 @Entity
 @Table(name = "worker")
@@ -22,13 +43,19 @@ public class Worker {
   Long id;
 
   @Column(name = "name")
-  String nameAndSurname;
+  String fullName;
 
   @Column(name = "email")
   String email;
 
   @Column(name = "pesel")
   String pesel;
+
+  @Column(name = "phone_number")
+  String phoneNumber;
+
+  @Column(name = "password")
+  String password;
 
   @OneToMany(mappedBy = "worker")
   List<Reservation> reservations = new ArrayList<>();
@@ -44,10 +71,37 @@ public class Worker {
   public Worker() {
   }
 
-  public Worker(String nameAndSurname, String email, String pesel) {
-    this.nameAndSurname = nameAndSurname;
+  public Worker(String fullName, String email, String pesel, String phoneNumber,
+      String password) {
+    this.fullName = fullName;
     this.email = email;
     this.pesel = pesel;
+    this.phoneNumber = phoneNumber;
+    this.password = password;
+  }
+
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public String getFullName() {
+    return fullName;
+  }
+
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
   }
 
   public Long getId() {
@@ -56,14 +110,6 @@ public class Worker {
 
   public void setId(Long id) {
     this.id = id;
-  }
-
-  public String getNameAndSurname() {
-    return nameAndSurname;
-  }
-
-  public void setNameAndSurname(String nameAndSurname) {
-    this.nameAndSurname = nameAndSurname;
   }
 
   public String getEmail() {

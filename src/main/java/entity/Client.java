@@ -9,8 +9,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+@NamedQueries({
+    @NamedQuery(
+        name = "Client.findEmailInDB",
+        query = "SELECT c.email FROM Client c WHERE c.email = :email"
+    ),
+    @NamedQuery(
+        name = "Client.findPeselInDB",
+        query = "SELECT c.pesel FROM Client c WHERE c.pesel = :pesel"
+    ),
+    @NamedQuery(
+        name = "Client.findNumberInDB",
+        query = "SELECT c.phoneNumber FROM Client c WHERE c.phoneNumber = :phoneNumber"
+    ),
+    @NamedQuery(
+        name = "Client.findClientByEmail",
+        query = "SELECT c FROM Client c WHERE c.email = :email"
+    )
+
+})
 
 @Entity
 @Table(name = "client")
@@ -33,6 +55,9 @@ public class Client {
   @Column(name = "phone_number")
   String phoneNumber;
 
+  @Column(name = "password")
+  String password;
+
   @OneToMany(mappedBy = "client")
   List<Reservation> reservations = new ArrayList<>();
 
@@ -43,11 +68,12 @@ public class Client {
   public Client() {
   }
 
-  public Client(String nameAndSurname, String email, String pesel, String phoneNumber) {
+  public Client(String nameAndSurname, String email, String pesel, String phoneNumber, String password) {
     this.nameAndSurname = nameAndSurname;
     this.email = email;
     this.pesel = pesel;
     this.phoneNumber = phoneNumber;
+    this.password = password;
   }
 
   public Long getId() {
@@ -104,5 +130,13 @@ public class Client {
 
   public void setClientType(ClientType clientType) {
     this.clientType = clientType;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 }

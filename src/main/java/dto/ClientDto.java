@@ -3,10 +3,11 @@ package dto;
 public class ClientDto {
 
   private Long id;
-  private String nameAndSurname;
+  private String fullName;
   private String email;
   private String pesel;
   private String phoneNumber;
+  private String password;
   private ClientTypeDto clientTypeDto;
 
   public Long getId() {
@@ -17,12 +18,20 @@ public class ClientDto {
     this.id = id;
   }
 
-  public String getNameAndSurname() {
-    return nameAndSurname;
+  public String getFullName() {
+    return fullName;
   }
 
-  public void setNameAndSurname(String nameAndSurname) {
-    this.nameAndSurname = nameAndSurname;
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
   public String getEmail() {

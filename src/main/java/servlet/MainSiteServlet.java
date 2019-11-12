@@ -26,9 +26,12 @@ public class MainSiteServlet extends HttpServlet {
 
     Template template = templateProvider.getTemplate(getServletContext(), "main-site.ftlh");
 
-    Map<String, String> dataModel = new HashMap<>();
+    Map<String, Object> dataModel = new HashMap<>();
 
     PrintWriter printWriter = resp.getWriter();
+
+    String position = (String) req.getSession().getAttribute("type");
+    dataModel.put("type", position);
 
     try {
       template.process(dataModel, printWriter);

@@ -4,16 +4,21 @@ import dao.BrandDaoBean;
 import dao.CarDaoBean;
 import dao.DepartmentDaoBean;
 import dao.ModelDaoBean;
+import dao.PositionDaoBean;
 import dao.SectionDaoBean;
+import dao.WorkerDaoBean;
 import entity.Brand;
 import entity.Car;
 import entity.Department;
 import entity.Model;
+import entity.Position;
 import entity.Section;
+import entity.Worker;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
+import org.apache.commons.codec.digest.DigestUtils;
 
 @Singleton
 @Startup
@@ -33,6 +38,12 @@ public class Apilnitializer {
 
   @Inject
   ModelDaoBean modelDaoBean;
+
+  @Inject
+  PositionDaoBean positionDaoBean;
+
+  @Inject
+  WorkerDaoBean workerDaoBean;
 
   @PostConstruct
   protected void init() {
@@ -992,6 +1003,25 @@ public class Apilnitializer {
     carDaoBean.saveCar(car118);
     carDaoBean.saveCar(car119);
     carDaoBean.saveCar(car120);
-  }
 
+    Position admin = new Position("Admin");
+    Position menager = new Position("Menager");
+    Position coordinator = new Position("Coordinator");
+    Position worker = new Position("Worker");
+
+    positionDaoBean.savePosition(admin);
+    positionDaoBean.savePosition(menager);
+    positionDaoBean.savePosition(coordinator);
+    positionDaoBean.savePosition(worker);
+
+    Worker adminWorker = new Worker();
+    adminWorker.setDepartment(departmentWarszawa);
+    adminWorker.setEmail("manchester_united@onet.pl");
+    adminWorker.setFullName("Andrzej Krzywy");
+    adminWorker.setPassword(DigestUtils.md5Hex("dupa"));
+    adminWorker.setPesel("12345678910");
+    adminWorker.setPhoneNumber("666777888");
+    adminWorker.setPosition(admin);
+    workerDaoBean.saveWorker(adminWorker);
+  }
 }

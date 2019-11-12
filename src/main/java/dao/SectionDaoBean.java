@@ -15,7 +15,7 @@ public class SectionDaoBean {
     entityManager.persist(section);
   }
 
-  public Section findBrandById(Long id) {
+  public Section findSectionById(Long id) {
     return entityManager.find(Section.class, id);
   }
 }

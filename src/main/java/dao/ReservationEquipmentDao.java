@@ -11,11 +11,11 @@ public class ReservationEquipmentDao {
   @PersistenceContext
   private EntityManager entityManager;
 
-  public void saveBrand(ReservationEquipment reservationEquipment) {
+  public void saveReservationEquipment(ReservationEquipment reservationEquipment) {
     entityManager.persist(reservationEquipment);
   }
 
-  public ReservationEquipment findBrandById(Long id) {
+  public ReservationEquipment findReservationEquipmentById(Long id) {
     return entityManager.find(ReservationEquipment.class, id);
   }
 

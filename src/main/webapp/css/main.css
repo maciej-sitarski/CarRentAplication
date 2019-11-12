@@ -1,14 +1,12 @@
 #main-cards {
-  background-color: #90BF8E;
+  background-color: #D6D7D7;
   text-align: center;
-  max-height: 170px;
   font-family: 'Lato', sans-serif;
 }
 
 #main-card {
   background-color: #5C9A5A;
   text-align: center;
-  max-height: 170px;
   font-family: 'Lato', sans-serif;
 }
 
@@ -28,13 +26,15 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 0 353px 0;
+  padding: 50px 0 400px 0;
 }
 
 .modal-header{
   color: #052F09;
-  background-color: #90BF8E;
+  background-color: #D6D7D7;
 }
+
+
 
 
 

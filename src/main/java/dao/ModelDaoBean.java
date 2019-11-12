@@ -15,7 +15,7 @@ public class ModelDaoBean {
     entityManager.persist(model);
   }
 
-  public Model findBrandById(Long id) {
+  public Model findModelById(Long id) {
     return entityManager.find(Model.class, id);
   }
 }
