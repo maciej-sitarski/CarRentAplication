@@ -9,8 +9,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+@NamedQueries(
+    @NamedQuery(
+        name = "Cars.findAll",
+        query = "SELECT c FROM Car c"
+    )
+)
 
 @Entity
 @Table(name = "car")
