@@ -18,8 +18,8 @@
   <link rel="stylesheet" href="/fontello/css/map.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="/js/registration-form.js"></script>
   <script src="/js/login.js"></script>
+  <script src="/js/permission.js"></script>
 
 </head>
 
@@ -54,18 +54,45 @@
         <a class="nav-link mr-auto" href="/departments"> Oddziały </a>
       </li>
 
-        <#if type=="Admin"||>
+        <#if type=="Client">
           <li class="nav-item mr-4 dropdown">
             <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
                aria-expanded="false" id="submenu" aria-haspopup="true">Panel użytkownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
-              <a class="dropdown-item" href="#">Profil użytkownika</a>
+              <a class="dropdown-item" href="/profile">Profil użytkownika</a>
               <a class="dropdown-item" href="#">Twoje rezerwacje</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
           </li>
-
-        <#else>
+        <#elseif type=="Admin" || type=="Menagement">
+          <li class="nav-item mr-4 dropdown">
+            <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+               aria-expanded="false" id="submenu" aria-haspopup="true">Panel pracownika</a>
+            <div class="dropdown-menu" aria-labelledby="submenu">
+              <a class="dropdown-item" href="/workers">Pracownicy</a>
+              <a class="dropdown-item" href="/clients">Użytkownicy</a>
+              <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
+            </div>
+          </li>
+        <#elseif type=="Coordinator">
+          <li class="nav-item mr-4 dropdown">
+            <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+               aria-expanded="false" id="submenu" aria-haspopup="true">Panel pracownika</a>
+            <div class="dropdown-menu" aria-labelledby="submenu">
+              <a class="dropdown-item" href="#">Pracownicy</a>
+              <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
+            </div>
+          </li>
+        <#elseif type=="Worker">
+          <li class="nav-item mr-4 dropdown">
+            <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+               aria-expanded="false" id="submenu" aria-haspopup="true" >Panel pracownika</a>
+            <div class="dropdown-menu" aria-labelledby="submenu">
+              <a class="dropdown-item" href="#">Zlecenia</a>
+              <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
+            </div>
+          </li>
+        <#elseif type=="Guest">
           <li class="nav-item mr-4">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Zaloguj
               się</a>

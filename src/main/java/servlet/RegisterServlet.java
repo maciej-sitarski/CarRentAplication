@@ -1,6 +1,7 @@
 package servlet;
 
 import dao.ClientDaoBean;
+import dao.ClientTypeDaoBean;
 import entity.Client;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
@@ -17,6 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
+import service.PositionService;
+import service.RegistrationService;
 
 
 @WebServlet("/registration")
@@ -28,8 +31,14 @@ public class RegisterServlet extends HttpServlet {
   @EJB
   ClientDaoBean clientDaoBean;
 
-//  @EJB
-//  MD5Service md5Service;
+  @EJB
+  RegistrationService registrationService;
+
+  @EJB
+  ClientTypeDaoBean clientTypeDaoBean;
+
+  @EJB
+  PositionService positionService;
 
 
   @Override
@@ -62,9 +71,14 @@ public class RegisterServlet extends HttpServlet {
     String password = req.getParameter("password");
     String number = req.getParameter("number");
     String hashPassword = DigestUtils.md5Hex(password);
-
-    Client client = new Client(fullname, email, pesel, number, hashPassword);
-    clientDaoBean.saveClient(client);
+    if (!registrationService.isClientNumberInDataBase(number) && !registrationService
+        .isClientEmailInDataBase(email) && !registrationService.isClientPeselInDataBase(pesel)
+        && !registrationService.isWorkerNumberInDataBase(number) && !registrationService
+        .isWorkerPeselInDataBase(pesel) && !registrationService.isWorkerEmailInDataBase(email)) {
+      Client client = new Client(fullname, email, pesel, number, hashPassword);
+      client.setClientType(clientTypeDaoBean.findClientTypeById(1L));
+      clientDaoBean.saveClient(client);
+    }
 
     PrintWriter printWriter = resp.getWriter();
     printWriter.println("<script type=\"text/javascript\">");

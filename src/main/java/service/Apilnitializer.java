@@ -2,6 +2,7 @@ package service;
 
 import dao.BrandDaoBean;
 import dao.CarDaoBean;
+import dao.ClientTypeDaoBean;
 import dao.DepartmentDaoBean;
 import dao.ModelDaoBean;
 import dao.PositionDaoBean;
@@ -9,6 +10,7 @@ import dao.SectionDaoBean;
 import dao.WorkerDaoBean;
 import entity.Brand;
 import entity.Car;
+import entity.ClientType;
 import entity.Department;
 import entity.Model;
 import entity.Position;
@@ -44,6 +46,9 @@ public class Apilnitializer {
 
   @Inject
   WorkerDaoBean workerDaoBean;
+
+  @Inject
+  ClientTypeDaoBean clientTypeDaoBean;
 
   @PostConstruct
   protected void init() {
@@ -1005,9 +1010,9 @@ public class Apilnitializer {
     carDaoBean.saveCar(car120);
 
     Position admin = new Position("Admin");
-    Position menager = new Position("Menager");
-    Position coordinator = new Position("Coordinator");
-    Position worker = new Position("Worker");
+    Position menager = new Position("Menadżer");
+    Position coordinator = new Position("Koordynator");
+    Position worker = new Position("Pracownik");
 
     positionDaoBean.savePosition(admin);
     positionDaoBean.savePosition(menager);
@@ -1023,5 +1028,16 @@ public class Apilnitializer {
     adminWorker.setPhoneNumber("666777888");
     adminWorker.setPosition(admin);
     workerDaoBean.saveWorker(adminWorker);
+
+    ClientType neutral = new ClientType("Normalny", "0%");
+    ClientType brown = new ClientType("Brązowy", "5%");
+    ClientType silver = new ClientType("Srebrny", "10%");
+    ClientType gold = new ClientType("Złoty", "15%");
+
+    clientTypeDaoBean.saveClientType(neutral);
+    clientTypeDaoBean.saveClientType(brown);
+    clientTypeDaoBean.saveClientType(silver);
+    clientTypeDaoBean.saveClientType(gold);
+
   }
 }

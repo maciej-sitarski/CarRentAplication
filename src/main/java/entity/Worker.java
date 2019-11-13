@@ -30,7 +30,11 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "Worker.findWorkerByEmail",
         query = "SELECT w FROM Worker w WHERE w.email = :email"
-    )
+    ),
+    @NamedQuery(
+        name = "Worker.findAll",
+        query = "SELECT w FROM Worker w"
+    ),
 })
 
 @Entity

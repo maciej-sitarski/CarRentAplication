@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import org.hibernate.jdbc.Work;
 
 @Stateless
 public class WorkerDaoBean {
@@ -48,5 +49,10 @@ public class WorkerDaoBean {
       return Optional.empty();
     }
     return Optional.of(workers.get(0));
+  }
+
+  public List<Worker> findAllWorkers() {
+    Query query = entityManager.createNamedQuery("Worker.findAll", Worker.class);
+    return query.getResultList();
   }
 }

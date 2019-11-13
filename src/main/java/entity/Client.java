@@ -2,6 +2,7 @@ package entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,11 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "Client.findClientByEmail",
         query = "SELECT c FROM Client c WHERE c.email = :email"
-    )
+    ),
+    @NamedQuery(
+        name = "Client.findAll",
+        query = "SELECT c FROM Client c"
+    ),
 
 })
 
@@ -58,7 +63,7 @@ public class Client {
   @Column(name = "password")
   String password;
 
-  @OneToMany(mappedBy = "client")
+  @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
   List<Reservation> reservations = new ArrayList<>();
 
   @ManyToOne

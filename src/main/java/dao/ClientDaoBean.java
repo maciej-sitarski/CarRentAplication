@@ -18,6 +18,14 @@ public class ClientDaoBean {
     entityManager.persist(client);
   }
 
+  public void updateClient(Client client) {
+    entityManager.merge(client);
+  }
+
+  public void deleteClient(Client client) {
+    entityManager.remove(client);
+  }
+
   public Client findClientById(Long id) {
     return entityManager.find(Client.class, id);
   }
@@ -50,6 +58,10 @@ public class ClientDaoBean {
     return Optional.of(clients.get(0));
   }
 
+  public List<Client> findAllClients() {
+    Query query = entityManager.createNamedQuery("Client.findAll", Client.class);
+    return query.getResultList();
+  }
 
 
 }

@@ -1,11 +1,14 @@
 package service;
 
-import dao.ClientDaoBean;
+import dto.ClientDto;
+import dto.WorkerDto;
 import entity.Client;
 import entity.Worker;
+import java.lang.management.OperatingSystemMXBean;
 import java.util.Optional;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.swing.text.html.Option;
 
 @Stateless
 public class LoginService {

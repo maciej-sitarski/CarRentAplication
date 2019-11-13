@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class ClientTypeDao {
+public class ClientTypeDaoBean {
 
   @PersistenceContext
   private EntityManager entityManager;

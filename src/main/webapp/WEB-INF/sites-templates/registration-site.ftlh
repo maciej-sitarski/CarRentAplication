@@ -19,19 +19,19 @@
   <div class="row">
     <div class="col-md-12">
       <label>Pesel: </label>
-      <input id="pesel" name="pesel" type="text" class="form-control" placeholder="Pesel" maxlength="11" required>
+      <input id="pesel" name="pesel" type="text" class="form-control" placeholder="Pesel" maxlength="11"  minlength="11" required>
     </div>
   </div><br/>
   <div class="row">
     <div class="col-md-12">
       <label>Numer telefonu: </label>
-      <input id="number" name="number" type="text" class="form-control" placeholder="Numer telefonu" required>
+      <input id="number" name="number" type="text" class="form-control" placeholder="Numer telefonu" minlength="9" required>
     </div>
   </div><br/>
   <div class="row">
     <div class="col-md-12">
       <label>Hasło: </label>
-      <input id="password" name="password" type="password" class="form-control" placeholder="Hasło" required>
+      <input id="password" name="password" type="password" class="form-control" placeholder="Hasło (Minimum 6 znaków)"  minlength="6" required>
     </div>
   </div><br/>
   <div class="row">

@@ -1,5 +1,7 @@
 package servlet;
 
+import dao.ClientDaoBean;
+import dto.ClientDto;
 import entity.Client;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
@@ -15,7 +17,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.codec.digest.DigestUtils;
 import service.ClientService;
+import service.RegistrationService;
 
 @WebServlet("/profile")
 public class ProfileServlet extends HttpServlet {
@@ -25,6 +29,12 @@ public class ProfileServlet extends HttpServlet {
 
   @EJB
   ClientService clientService;
+
+  @EJB
+  RegistrationService registrationService;
+
+  @EJB
+  ClientDaoBean clientDaoBean;
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -40,7 +50,7 @@ public class ProfileServlet extends HttpServlet {
     Long id = (Long)req.getSession().getAttribute("id");
     dataModel.put("type", position);
 
-    Client client = clientService.findClientById(id);
+    ClientDto client = clientService.findClientDtoById(id);
     dataModel.put("client", client);
 
     try {
@@ -48,6 +58,39 @@ public class ProfileServlet extends HttpServlet {
     } catch (TemplateException e) {
       e.printStackTrace();
     }
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+      throws ServletException, IOException {
+
+    String fullname = req.getParameter("fullname");
+    String email = req.getParameter("email");
+    String pesel = req.getParameter("pesel");
+    String password = req.getParameter("password");
+    String number = req.getParameter("number");
+    String hashPassword = DigestUtils.md5Hex(password);
+    if (!registrationService.isClientNumberInDataBase(number) && !registrationService
+        .isClientEmailInDataBase(email) && !registrationService.isClientPeselInDataBase(pesel)
+        && !registrationService.isWorkerNumberInDataBase(number) && !registrationService
+        .isWorkerPeselInDataBase(pesel) && !registrationService.isWorkerEmailInDataBase(email)) {
+      Long id = (Long)req.getSession().getAttribute("id");
+      Client client = clientService.findClientById(id);
+      client.setNameAndSurname(fullname);
+      client.setEmail(email);
+      client.setPesel(pesel);
+      client.setPhoneNumber(number);
+      client.setPassword(hashPassword);
+      clientDaoBean.updateClient(client);
+    }
+
+    PrintWriter printWriter = resp.getWriter();
+    printWriter.println("<script type=\"text/javascript\">");
+    printWriter.println(
+        "alert('Poprawnie zmieniono dane.');");
+    printWriter.println("window.location.replace(\"/main\")");
+    printWriter.println("</script>");
+
   }
 
 }

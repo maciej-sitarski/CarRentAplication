@@ -26,12 +26,12 @@ public class LoginServlet extends HttpServlet {
 
     if(clientService.findClientByEmail(email).isPresent()){
       String position = "Client";
-      Long id = clientService.findClientByEmail(email).get().getId();
+      Long id = clientService.findClientDtoByEmail(email).getId();
       req.getSession().setAttribute("type", position);
       req.getSession().setAttribute("id", id);
     }
 
-    if(workerService.findWorkerByEmail(email).isPresent()){
+    else if(workerService.findWorkerByEmail(email).isPresent()){
       String position = workerService.findWorkerByEmail(email).get().getPosition().getName();
       Long id = workerService.findWorkerByEmail(email).get().getId();
       req.getSession().setAttribute("type", position);

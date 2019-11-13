@@ -11,7 +11,6 @@
             wyboru.
           </h5>
         </div>
-
     </div>
     <div class="col-md-4" id="main-card">
       <a href="#" class="cards-link" style="color: #052F09;">

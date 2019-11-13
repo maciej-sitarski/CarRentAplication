@@ -20,7 +20,7 @@ $(function () {
       url: "/log-out",
       method: "POST",
       success: function () {
-        location.reload();
+        location.replace("/main");
       }
     });
   });
