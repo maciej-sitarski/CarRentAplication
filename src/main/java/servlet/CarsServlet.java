@@ -1,5 +1,6 @@
 package servlet;
 
+import dto.CarDto;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -30,8 +31,8 @@ public class CarsServlet extends HttpServlet {
       throws ServletException, IOException {
     Template template = templateProvider.getTemplate(getServletContext(), "cars-site.ftlh");
     PrintWriter printWriter = resp.getWriter();
-    List<Object> uniqueCarList = carService.uniqueCarList();
-    Map<String, List<Object>> dataModel = new HashMap<>();
+    List<CarDto> uniqueCarList = carService.bCarsList();
+    Map<String, List<CarDto>> dataModel = new HashMap<>();
     dataModel.put("cars",uniqueCarList);
     try {
       template.process(dataModel, printWriter);

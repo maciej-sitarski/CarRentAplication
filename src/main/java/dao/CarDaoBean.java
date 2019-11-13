@@ -25,11 +25,4 @@ public class CarDaoBean {
     Query query = entityManager.createNamedQuery("Cars.findAll", Car.class);
     return query.getResultList();
   }
-
-  public List<Object> findUniqueCarsList(){
-    Query query = entityManager.createNamedQuery("Cars.findUniqueCars", Car.class);
-    query.setMaxResults(1);
-    return query.getResultList();
-  }
-
 }
