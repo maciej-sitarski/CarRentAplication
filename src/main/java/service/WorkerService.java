@@ -44,4 +44,12 @@ public class WorkerService {
         Collectors.toList());
   }
 
+  public Worker findWorkerById(Long id){
+    return workerDaoBean.findWorkerById(id);
+  }
+
+  public WorkerDto findWorkerDtoById(Long id){
+    return workerDtoMapper.mapWorkerToDto(workerDaoBean.findWorkerById(id));
+  }
+
 }

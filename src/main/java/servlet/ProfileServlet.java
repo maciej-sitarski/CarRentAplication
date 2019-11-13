@@ -2,6 +2,7 @@ package servlet;
 
 import dao.ClientDaoBean;
 import dto.ClientDto;
+import dto.WorkerDto;
 import entity.Client;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
 import service.ClientService;
 import service.RegistrationService;
+import service.WorkerService;
 
 @WebServlet("/profile")
 public class ProfileServlet extends HttpServlet {
@@ -29,6 +31,9 @@ public class ProfileServlet extends HttpServlet {
 
   @EJB
   ClientService clientService;
+
+  @EJB
+  WorkerService workerService;
 
   @EJB
   RegistrationService registrationService;
