@@ -18,7 +18,7 @@ public class SectionService {
   @EJB
   SectionDtoMapper sectionDtoMapper;
 
-  public List<SectionDto> sectionList(){
+  public List<SectionDto> sectionList() {
     List<Section> sectionList = sectionDaoBean.sectionsList();
     SectionDto sectionDto;
     List<SectionDto> sectionDtoList = new ArrayList<>();

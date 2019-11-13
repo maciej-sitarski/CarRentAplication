@@ -21,7 +21,7 @@ public class CarDaoBean {
     return entityManager.find(Car.class, id);
   }
 
-  public List<Car> findCarsList(){
+  public List<Car> findCarsList() {
     Query query = entityManager.createNamedQuery("Cars.findAll", Car.class);
     return query.getResultList();
   }

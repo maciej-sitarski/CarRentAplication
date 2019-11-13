@@ -21,7 +21,7 @@ public class SectionDaoBean {
     return entityManager.find(Section.class, id);
   }
 
-  public List<Section> sectionsList(){
+  public List<Section> sectionsList() {
     Query query = entityManager.createNamedQuery("Section.findAll", Section.class);
     return query.getResultList();
   }

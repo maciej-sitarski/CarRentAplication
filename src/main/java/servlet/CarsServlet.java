@@ -39,7 +39,7 @@ public class CarsServlet extends HttpServlet {
     List<CarDto> uniqueCarList = carService.uniqueCarsList();
     List<SectionDto> sectionsList = sectionService.sectionList();
     Map<String, Object> dataModel = new HashMap<>();
-    dataModel.put("cars",uniqueCarList);
+    dataModel.put("cars", uniqueCarList);
     dataModel.put("sections", sectionsList);
     try {
       template.process(dataModel, printWriter);
