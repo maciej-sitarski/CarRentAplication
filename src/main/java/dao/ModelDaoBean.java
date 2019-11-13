@@ -1,9 +1,11 @@
 package dao;
 
 import entity.Model;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @Stateless
 public class ModelDaoBean {
@@ -17,5 +19,10 @@ public class ModelDaoBean {
 
   public Model findModelById(Long id) {
     return entityManager.find(Model.class, id);
+  }
+
+  public List<Model> findModelList(){
+    Query query = entityManager.createNamedQuery("Models.findAll");
+    return query.getResultList();
   }
 }

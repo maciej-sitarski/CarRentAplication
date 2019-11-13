@@ -60,24 +60,25 @@ Lista segmentów - brands
       </li>
     </#list>
   <h1>
-    Wybiez swój oddział:
+    Samochody:
   </h1><br/>
-    <div class="row">
-      <div class="col-md-4" id="car-card">
-        <a href="#">Opel</a>
-      </div>
-      <div class="col-md-4" id="car-card">
-        <a href="#">Sienka</a>
-      </div>
-      <div class="col-md-4" id="car-card">
-        <a href="#">Sienka kurwa</a>
-      </div>
-        <div class="col-md-4" id="car-card">
-          <a href="#">Opel</a>
-        </div>
-    </div>
   <div class="row">
-
+      <#list sections>
+          <#items as section>
+            <div class="left-container">
+              <h2>${section.name}</h2>
+                <#list cars>
+                    <#items as car>
+                        <#if car.modelDto.sectionDto.name == section.name>
+                          <div class="col-md-4" id="car-card">
+                            <a href="#">${car.brandDto.name} ${car.modelDto.name}</a>
+                          </div>
+                        </#if>
+                    </#items>
+                </#list>
+            </div>
+          </#items>
+      </#list>
   </div>
 </div>
 
