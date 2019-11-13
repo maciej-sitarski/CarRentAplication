@@ -14,12 +14,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@NamedQueries(
+@NamedQueries({
     @NamedQuery(
         name = "Cars.findAll",
         query = "SELECT c FROM Car c"
-    )
-)
+    ),
+})
 
 @Entity
 @Table(name = "car")

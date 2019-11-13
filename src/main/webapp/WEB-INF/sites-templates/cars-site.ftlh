@@ -5,7 +5,11 @@
   </h1><br/>
     <div class="row">
       <div class="col-md-4" id="car-card">
-        <a href="#">Opel</a>
+        <#list cars>
+          <#items as car>
+            <a href="#"> Marka: ${car.brand} Model: ${car.model}</a>
+          </#items>
+        </#list>
       </div>
       <div class="col-md-4" id="car-card">
         <a href="#">Sienka</a>

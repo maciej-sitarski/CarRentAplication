@@ -17,12 +17,18 @@ public class CarDaoBean {
     entityManager.persist(car);
   }
 
-  public Car findBrandById(Long id) {
+  public Car findCarById(Long id) {
     return entityManager.find(Car.class, id);
   }
 
   public List<Car> findCarsList(){
     Query query = entityManager.createNamedQuery("Cars.findAll", Car.class);
+    return query.getResultList();
+  }
+
+  public List<Object> findUniqueCarsList(){
+    Query query = entityManager.createNamedQuery("Cars.findUniqueCars", Car.class);
+    query.setMaxResults(1);
     return query.getResultList();
   }
 
