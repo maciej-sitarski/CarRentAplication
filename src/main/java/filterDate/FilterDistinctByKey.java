@@ -11,6 +11,4 @@ public class FilterDistinctByKey {
     Map<Object, Boolean> seen = new ConcurrentHashMap<>();
     return t->seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
   }
-
-
 }
