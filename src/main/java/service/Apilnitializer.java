@@ -87,23 +87,23 @@ public class Apilnitializer {
     departmentDaoBean.saveDepartment(departmentSzczecin);
 
     Section sectionA = new Section();
-    sectionA.setName("a");
+    sectionA.setName("A");
     sectionA.setPrice(70L);
 
     Section sectionB = new Section();
-    sectionB.setName("b");
+    sectionB.setName("B");
     sectionB.setPrice(80L);
 
     Section sectionC = new Section();
-    sectionC.setName("c");
+    sectionC.setName("C");
     sectionC.setPrice(100L);
 
     Section sectionD = new Section();
-    sectionD.setName("d");
+    sectionD.setName("D");
     sectionD.setPrice(150L);
 
     Section sectionSuv = new Section();
-    sectionSuv.setName("suv");
+    sectionSuv.setName("SUV");
     sectionSuv.setPrice(199L);
 
     Section section7os = new Section();
@@ -111,11 +111,11 @@ public class Apilnitializer {
     section7os.setPrice(199L);
 
     Section sectionBus = new Section();
-    sectionBus.setName("bus");
+    sectionBus.setName("BUS");
     sectionBus.setPrice(250L);
 
     Section sectionPremium = new Section();
-    sectionPremium.setName("premium");
+    sectionPremium.setName("PREMIUM");
     sectionPremium.setPrice(300L);
 
     sectionDaoBean.saveSection(sectionA);
@@ -644,32 +644,32 @@ public class Apilnitializer {
 
     Car car79 = new Car();
     car79.setBrand(brandToyota);
-    car79.setModel(modelCorolla);
+    car79.setModel(modelAvensis);
     car79.setDepartment(departmentGdansk);
 
     Car car80 = new Car();
     car80.setBrand(brandToyota);
-    car80.setModel(modelCorolla);
+    car80.setModel(modelAvensis);
     car80.setDepartment(departmentKrakow);
 
     Car car81 = new Car();
     car81.setBrand(brandToyota);
-    car81.setModel(modelCorolla);
+    car81.setModel(modelAvensis);
     car81.setDepartment(departmentLodz);
 
     Car car82 = new Car();
     car82.setBrand(brandToyota);
-    car82.setModel(modelCorolla);
+    car82.setModel(modelAvensis);
     car82.setDepartment(departmentLublin);
 
     Car car83 = new Car();
     car83.setBrand(brandToyota);
-    car83.setModel(modelCorolla);
+    car83.setModel(modelAvensis);
     car83.setDepartment(departmentPoznan);
 
     Car car84 = new Car();
     car84.setBrand(brandToyota);
-    car84.setModel(modelCorolla);
+    car84.setModel(modelAvensis);
     car84.setDepartment(departmentSzczecin);
 
     Model modelTucson = new Model();
