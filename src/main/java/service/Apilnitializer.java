@@ -1021,9 +1021,9 @@ public class Apilnitializer {
 
     Worker adminWorker = new Worker();
     adminWorker.setDepartment(departmentWarszawa);
-    adminWorker.setEmail("manchester_united@onet.pl");
-    adminWorker.setFullName("Andrzej Krzywy");
-    adminWorker.setPassword(DigestUtils.md5Hex("dupa"));
+    adminWorker.setEmail("Admin");
+    adminWorker.setFullName("Admin Admin");
+    adminWorker.setPassword(DigestUtils.md5Hex("Admin"));
     adminWorker.setPesel("12345678910");
     adminWorker.setPhoneNumber("666777888");
     adminWorker.setPosition(admin);
