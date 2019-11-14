@@ -39,7 +39,7 @@
     </div>
     <div class="departments-right col-md-6">
       <h1>
-        Wybiez swój oddział:
+        Wybierz swój oddział:
       </h1><br/>
         <#list departments as department>
           <li>

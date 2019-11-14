@@ -11,11 +11,11 @@ public class EquipmentDaoBean {
   @PersistenceContext
   private EntityManager entityManager;
 
-  public void saveBrand(Equipment equipment) {
+  public void saveEquipment(Equipment equipment) {
     entityManager.persist(equipment);
   }
 
-  public Equipment findBrandById(Long id) {
+  public Equipment findEquipmentById(Long id) {
     return entityManager.find(Equipment.class, id);
   }
 }

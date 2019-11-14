@@ -6,16 +6,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class ClientTypeDao {
+public class ClientTypeDaoBean {
 
   @PersistenceContext
   private EntityManager entityManager;
 
-  public void saveBrand(ClientType clientType) {
+  public void saveClientType(ClientType clientType) {
     entityManager.persist(clientType);
   }
 
-  public ClientType findBrandById(Long id) {
+  public ClientType findClientTypeById(Long id) {
     return entityManager.find(ClientType.class, id);
   }
 }

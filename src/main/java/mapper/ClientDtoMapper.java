@@ -16,9 +16,10 @@ public class ClientDtoMapper {
 
     clientDto.setId(client.getId());
     clientDto.setEmail(client.getEmail());
-    clientDto.setNameAndSurname(client.getNameAndSurname());
+    clientDto.setFullName(client.getNameAndSurname());
     clientDto.setPesel(client.getPesel());
     clientDto.setPhoneNumber(client.getPhoneNumber());
+    clientDto.setPassword(client.getPassword());
     clientDto.setClientTypeDto(clientTypeDtoMapper.mapClientTypeToDto(client.getClientType()));
 
     return clientDto;

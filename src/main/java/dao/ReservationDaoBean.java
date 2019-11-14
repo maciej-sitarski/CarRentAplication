@@ -11,11 +11,11 @@ public class ReservationDaoBean {
   @PersistenceContext
   private EntityManager entityManager;
 
-  public void saveBrand(Reservation reservation) {
+  public void saveReservation(Reservation reservation) {
     entityManager.persist(reservation);
   }
 
-  public Reservation findBrandById(Long id) {
+  public Reservation findReservationById(Long id) {
     return entityManager.find(Reservation.class, id);
   }
 }

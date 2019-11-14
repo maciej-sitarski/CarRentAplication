@@ -17,7 +17,7 @@ public class DepartmentDaoBean {
     entityManager.persist(department);
   }
 
-  public Department findBrandById(Long id) {
+  public Department findDepartmentById(Long id) {
     return entityManager.find(Department.class, id);
   }
 

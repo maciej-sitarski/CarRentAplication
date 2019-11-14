@@ -6,8 +6,26 @@ public class WorkerDto {
   private String nameAndSurname;
   private String email;
   private String pesel;
+  private String phoneNumber;
+  private String password;
   private DepartmentDto departmentDto;
   private PositionDto positionDto;
+
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
   public Long getId() {
     return id;

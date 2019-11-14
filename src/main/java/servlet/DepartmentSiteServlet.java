@@ -41,6 +41,9 @@ public class DepartmentSiteServlet extends HttpServlet {
 
     PrintWriter printWriter = resp.getWriter();
 
+    String position = (String) req.getSession().getAttribute("type");
+    dataModel.put("type", position);
+
     try {
       template.process(dataModel, printWriter);
     } catch (TemplateException e) {
