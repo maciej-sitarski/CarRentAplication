@@ -8,7 +8,8 @@ $(function () {
         location.reload();
       },
       error: function (error) {
-        alert('Wpisano nieprawidłowe dane. Wpisz ponownie swoje dane lub załóż konto');
+        alert(
+            'Wpisano nieprawidłowe dane. Wpisz ponownie swoje dane lub załóż konto');
       }
     });
   });
@@ -22,6 +23,26 @@ $(function () {
       success: function () {
         location.replace("/main");
       }
+    });
+  });
+});
+
+$(function () {
+  $(document).ready(function () {
+    $("#deleteProfile").click(function () {
+      $.ajax({
+        url: '/api/clients/deleteProfile/' + $(this).attr('data-id-client'),
+        type: 'PATCH',
+        success: function () {
+          $.ajax({
+            url: "/log-out",
+            method: "POST",
+            success: function () {
+              location.replace("/main");
+            }
+          });
+        }
+    });
     });
   });
 });

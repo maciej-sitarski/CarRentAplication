@@ -36,6 +36,12 @@
   </div><br/>
   <div class="row">
     <div class="col-md-12">
+      <label>Potwierdzenie hasła: </label>
+      <input id="confirm-password" name="confirm-password" type="password" class="form-control" placeholder="Potwierdź hasło (Minimum 6 znaków)"  minlength="6" required>
+    </div>
+  </div><br/>
+  <div class="row">
+    <div class="col-md-12">
       <button type="submit" id="register" class="btn btn-primary" style="margin-bottom: 20px;">Zarejestruj się </button>
       <a href="/main" class="btn btn-danger" style="margin-bottom: 20px;">Powrót do strony głównej </a>
     </div>

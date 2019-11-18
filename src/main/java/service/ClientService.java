@@ -39,6 +39,10 @@ public class ClientService {
     return clientDaoBean.findClientById(id);
   }
 
+  public void deleteClientById(Long id){
+     clientDaoBean.deleteClient(id);
+  }
+
   public ClientDto findClientDtoByEmail(String email){
     return clientDtoMapper.mapClientToDto(clientDaoBean.findClientByEmail(email).get());
   }

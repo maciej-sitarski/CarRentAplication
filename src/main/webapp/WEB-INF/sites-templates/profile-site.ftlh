@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <label>Imię i nazwisko: <strong>${client.nameAndSurname}</strong> </label>
+      <label>Imię i nazwisko: <strong>${client.fullName}</strong> </label>
       <input id="fullname" name="fullname" type="text" class="form-control" placeholder="Wpisz nowe imię i nazwisko" required>
     </div>
   </div><br/>
@@ -37,8 +37,9 @@
   </div><br/>
   <div class="row">
     <div class="col-md-12">
-      <button type="submit" id="change" class="btn btn-primary" style="margin-bottom: 20px;">Zapisz zmiany </button>
-      <a href="/main" class="btn btn-danger" style="margin-bottom: 20px;">Powrót do strony głównej </a>
+      <button type="submit" id="change" class="btn btn-success" style="margin-bottom: 20px;">Zapisz zmiany </button>
+      <a href="/main" class="btn btn-primary" style="margin-bottom: 20px;">Powrót do strony głównej </a>
+      <button id="deleteProfile" class="btn btn-danger" data-id-client="${client.id}" style="margin-bottom: 20px;">Usuń konto </button>
     </div>
   </div>
 </form>

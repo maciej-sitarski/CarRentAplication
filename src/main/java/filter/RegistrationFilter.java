@@ -39,6 +39,7 @@ public class RegistrationFilter implements Filter {
       String pesel = httpServletRequest.getParameter("pesel");
       String password = httpServletRequest.getParameter("password");
       String number = httpServletRequest.getParameter("number");
+      String confirmPassword = httpServletRequest.getParameter("confirm-password");
       if (fullname.isEmpty()) {
         httpServletResponse.sendError(1, "Okno imię i nazwisko nie zostało uzupełnione. Spróbuj ponownie");
       } else if (email.isEmpty()) {
@@ -47,8 +48,12 @@ public class RegistrationFilter implements Filter {
         httpServletResponse.sendError(1, "Okno pesel nie zostało uzupełnione.  Spróbuj ponownie");
       } else if (password.isEmpty()) {
         httpServletResponse.sendError(1, "Okno hasło nie zostało uzupełnione.  Spróbuj ponownie");
+      }  else if (confirmPassword.isEmpty()) {
+      httpServletResponse.sendError(1, "Okno potwierdzające hasło nie zostało uzupełnione.  Spróbuj ponownie");
       } else if (number.isEmpty()) {
         httpServletResponse.sendError(1, "Okno numer nie zostało uzupełnione.  Spróbuj ponownie");
+      } else if (!confirmPassword.equals(password)) {
+        httpServletResponse.sendError(1, "Hasło potwierdzające inne niż hasło główne. Spróbuj ponownie");
       } else if (registrationService.isClientEmailInDataBase(email) || registrationService
           .isClientEmailInDataBase(email)) {
         httpServletResponse.sendError(1, "Adres email jest już zajęty. Spróbuj ponownie");

@@ -11,7 +11,7 @@
               <h2 style="font-family: 'Lato', sans-serif"><strong>SEGMENT &nbsp; ${section.name}</strong></h2>
             </div>
             <div class="right col-md-9">
-              <div class="row">
+              <div class="row ">
                   <#list cars as car>
                     <div class="col-xl-4 col-sm-6 " style="margin-top: 10px;">
                         <#if car.modelDto.sectionDto.name == section.name>
@@ -63,12 +63,18 @@
                             <div style="margin-bottom: auto">
                               <a href="#" class="car-signature"> <h2 style="text-align: center">${car.brandDto.name}  ${car.modelDto.name}</h2></a>
                             </div>
+
                         </#if>
+
                     </div>
                   </#list>
+
               </div>
+
             </div>
+
     </div>
+
     </#list>
 </div>
 <#include "footer.ftlh">

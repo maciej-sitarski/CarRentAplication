@@ -14,9 +14,11 @@
           <th scope="col">Adres email</th>
           <th scope="col">Numer telefonu</th>
           <th scope="col">Pesel</th>
-          <th scope="col">Stanowisko</th>
           <th scope="col">Oddział</th>
-          <th scope="col">Zmiana uprawnień</th>
+          <th scope="col">Oddział</th>
+          <th scope="col">Zmień Oddział</th>
+          <th scope="col">Zmień Stanowisko</th>
+
         </tr>
         </thead>
         <tbody>
@@ -27,17 +29,36 @@
               <td>${worker.email}</td>
               <td>${worker.phoneNumber}</td>
               <td>${worker.pesel}</td>
+             <td>${worker.departmentDto.city}</td>
               <td>${worker.positionDto.name}</td>
-              <td>${worker.departmentDto.city}</td>
+               <#if worker.positionDto.name != "Admin">
+                 <td class=" dropdown">
+                   <a class="dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+                      aria-expanded="false" id="submenuDepartments" aria-haspopup="true" style="color: white">Zmień oddział</a>
+                   <div class="dropdown-menu" aria-labelledby="submenuDepartments">
+                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Gdansk">Gdańsk</button>
+                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Lodz" >Łódź</button>
+                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Szczecin" >Szczecin</button>
+                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Wroclaw" >Wrocław</button>
+                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Warszawa" >Warszawa</button>
+                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Krakow" >Kraków</button>
+                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Lublin" >Lublin</button>
+                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Poznan" >Poznań</button>
+                   </div>
+                 </td>
+               <#else>
+                 <td>Warszawa</td>
+               </#if>
+
              <#if worker.positionDto.name != "Admin">
                <td class=" dropdown">
                  <a class="dropdown-toggler" data-toggle="dropdown" role="button" href="#"
-                    aria-expanded="false" id="submenu" aria-haspopup="true" style="color: white">Zmień uprawnienia</a>
-                 <div class="dropdown-menu" aria-labelledby="submenu">
-                   <button class="dropdown-item btn btn-primary" id="">Menadżer</button>
-                   <button class="dropdown-item btn btn-primary" id="">Koordynator</button>
-                   <button class="dropdown-item btn btn-primary" id="">Pracownik</button>
-                   <button class="dropdown-item btn btn-primary" id="">Usuń pracownika</button>
+                    aria-expanded="false" id="submenuPermission" aria-haspopup="true" style="color: white">Zmień stanowisko</a>
+                 <div class="dropdown-menu" aria-labelledby="submenuPermission">
+                   <button class="dropdown-item btn btn-primary givePermissionWorker" data-id-worker="${worker.id}" data-id-permission="giveManager" >Menadżer</button>
+                   <button class="dropdown-item btn btn-primary givePermissionWorker" data-id-worker="${worker.id}" data-id-permission="giveCoordinator" >Koordynator</button>
+                   <button class="dropdown-item btn btn-primary givePermissionWorker"  data-id-worker="${worker.id}" data-id-permission="giveWorker">Pracownik</button>
+                   <button class="dropdown-item btn btn-primary givePermissionWorker" data-id-worker="${worker.id}" data-id-permission="delete">Usuń pracownika</button>
                  </div>
                </td>
              <#else>

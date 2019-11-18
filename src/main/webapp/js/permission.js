@@ -1,8 +1,8 @@
 $(function () {
   $(document).ready(function () {
-    $("#giveMenager").click(function () {
+    $(".givePermission").click(function () {
       $.ajax({
-        url: '/api/clients/giveMenager/' + $(this).attr('data-id'),
+        url: '/api/clients/'+$(this).attr('data-id-permission')+'/' + $(this).attr('data-id-client'),
         type: 'PATCH',
         success: function (result) {
           location.reload();
@@ -14,9 +14,9 @@ $(function () {
 
 $(function () {
   $(document).ready(function () {
-    $("#giveCoordinator").click(function () {
+    $(".giveDepartments").click(function () {
       $.ajax({
-        url: '/api/clients/giveCoordinator/' + $(this).attr('data-id'),
+        url: '/api/workers/departments/'+$(this).attr('data-id-department')+'/' + $(this).attr('data-id-worker'),
         type: 'PATCH',
         success: function (result) {
           location.reload();
@@ -28,9 +28,9 @@ $(function () {
 
 $(function () {
   $(document).ready(function () {
-    $("#giveWorker").click(function () {
+    $(".givePermissionWorker").click(function () {
       $.ajax({
-        url: '/api/clients/giveWorker/' + $(this).attr('data-id'),
+        url: '/api/workers/permission/'+$(this).attr('data-id-permission')+'/' + $(this).attr('data-id-worker'),
         type: 'PATCH',
         success: function (result) {
           location.reload();

@@ -19,8 +19,16 @@ public class WorkerDaoBean {
     entityManager.persist(worker);
   }
 
+  public void updateWorker(Worker worker) {
+    entityManager.merge(worker);
+  }
+
   public Worker findWorkerById(Long id) {
     return entityManager.find(Worker.class, id);
+  }
+
+  public void deleteWorker(Long id) {
+    entityManager.remove(entityManager.find(Worker.class, id));
   }
 
   public List findWorkerEmailInDB(String email) {

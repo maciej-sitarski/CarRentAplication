@@ -15,6 +15,7 @@ public class LogOutServlet extends HttpServlet {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     req.getSession().setAttribute("type", "Guest");
+    req.getSession().setAttribute("id", null);
     PrintWriter printWriter = resp.getWriter();
     printWriter.println("<script type=\"text/javascript\">");
     printWriter.println("window.location.replace(\"/main\")");

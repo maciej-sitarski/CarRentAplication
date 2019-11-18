@@ -1,9 +1,9 @@
 <#include "navbar.ftlh">
 <#include "jumbotron.ftlh">
 <div class="container-fluid">
-  <div class="row">
+  <div class="row" style="height: 100%">
     <div class="col-md-4" id="main-cards">
-      <a href="#" class="cards-link" style="color: #052F09;">
+      <a href="/cars" class="cards-link" style="color: #052F09;">
         <h2 class="card-header" style="font-weight: bold">Samochody</h2>
       </a>
         <div class="card-body">
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="col-md-4" id="main-card">
-      <a href="#" class="cards-link" style="color: #052F09;">
+      <a href="/departments" class="cards-link" style="color: #052F09;">
         <h2 class="card-header" style="font-weight: bold">Oddziały</h2>
       </a>
         <div class="card-body">
