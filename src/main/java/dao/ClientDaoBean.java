@@ -22,8 +22,8 @@ public class ClientDaoBean {
     entityManager.merge(client);
   }
 
-  public void deleteClient(Client client) {
-    entityManager.remove(client);
+  public void deleteClient(Long id) {
+    entityManager.remove(entityManager.find(Client.class, id));
   }
 
   public Client findClientById(Long id) {

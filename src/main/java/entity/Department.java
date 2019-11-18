@@ -16,7 +16,39 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "Departments.findAll",
         query = "SELECT d FROM Department d"
-    )
+    ),
+    @NamedQuery(
+        name = "Department.findGdansk",
+        query = "SELECT d FROM Department d WHERE d.city LIKE 'Gdańsk'"
+    ),
+    @NamedQuery(
+        name = "Department.findWarszawa",
+        query = "SELECT d FROM Department d WHERE d.city LIKE 'Warszawa'"
+    ),
+    @NamedQuery(
+        name = "Department.findLodz",
+        query = "SELECT d FROM Department d WHERE d.city LIKE 'Łódź'"
+    ),
+    @NamedQuery(
+        name = "Department.findPoznan",
+        query = "SELECT d FROM Department d WHERE d.city LIKE 'Poznań'"
+    ),
+    @NamedQuery(
+        name = "Department.findKrakow",
+        query = "SELECT d FROM Department d WHERE d.city LIKE 'Kraków'"
+    ),
+    @NamedQuery(
+        name = "Department.findLublin",
+        query = "SELECT d FROM Department d WHERE d.city LIKE 'Lublin'"
+    ),
+    @NamedQuery(
+        name = "Department.findSzczecin",
+        query = "SELECT d FROM Department d WHERE d.city LIKE 'Szczecin'"
+    ),
+    @NamedQuery(
+        name = "Department.findWroclaw",
+        query = "SELECT d FROM Department d WHERE d.city LIKE 'Wrocław'"
+    ),
 })
 
 @Entity

@@ -33,9 +33,9 @@
                 <a class="dropdown-toggler" data-toggle="dropdown" role="button" href="#"
                    aria-expanded="false" id="submenu" aria-haspopup="true" style="color: white">Nadaj uprawnienia</a>
                 <div class="dropdown-menu" aria-labelledby="submenu">
-                  <button class="dropdown-item btn btn-primary" data-id="${client.id}" id="giveMenager">Menadżer</button>
-                  <button class="dropdown-item btn btn-primary" data-id="${client.id}" id="giveCoordinator">Koordynator</button>
-                  <button class="dropdown-item btn btn-primary" data-id="${client.id}" id="giveWorker">Pracownik</button>
+                  <button class="dropdown-item btn btn-primary givePermission" data-id-client="${client.id}" data-id-permission="giveManager">Menadżer</button>
+                  <button class="dropdown-item btn btn-primary givePermission" data-id-client="${client.id}" data-id-permission="giveCoordinator">Koordynator</button>
+                  <button class="dropdown-item btn btn-primary givePermission" data-id-client="${client.id}" data-id-permission="giveWorker">Pracownik</button>
                 </div>
               </td>
             </#list>

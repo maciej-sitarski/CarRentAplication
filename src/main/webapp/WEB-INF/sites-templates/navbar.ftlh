@@ -70,7 +70,6 @@
             <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
                aria-expanded="false" id="submenu" aria-haspopup="true">Panel pracownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
-              <a class="dropdown-item" href="/profile">Profil użytkownika</a>
               <a class="dropdown-item" href="/workers">Pracownicy</a>
               <a class="dropdown-item" href="/clients">Użytkownicy</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
@@ -81,7 +80,6 @@
             <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
                aria-expanded="false" id="submenu" aria-haspopup="true">Panel pracownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
-              <a class="dropdown-item" href="/profile">Profil użytkownika</a>
               <a class="dropdown-item" href="#">Pracownicy</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
@@ -91,7 +89,6 @@
             <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
                aria-expanded="false" id="submenu" aria-haspopup="true" >Panel pracownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
-              <a class="dropdown-item" href="/profile">Profil użytkownika</a>
               <a class="dropdown-item" href="#">Zlecenia</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
