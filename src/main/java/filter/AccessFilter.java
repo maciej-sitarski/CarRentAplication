@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter(
-    filterName = "StatusFilter",
+    filterName = "AccessFilter",
     urlPatterns = {"/clients", "/workers"}
 )
 public class AccessFilter implements Filter {
@@ -21,7 +21,7 @@ public class AccessFilter implements Filter {
       FilterChain filterChain) throws IOException, ServletException {
     HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
     HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
-    if (httpServletRequest.getSession().getAttribute("type") != "Admin" || httpServletRequest.getSession().getAttribute("type") != "Menager") {
+    if (!httpServletRequest.getSession().getAttribute("type").equals("Admin") && !httpServletRequest.getSession().getAttribute("type").equals( "Menadżer")) {
       httpServletResponse.sendRedirect("/main");
     }
 

@@ -1,5 +1,4 @@
 <#include "navbar.ftlh">
-
 <div class="container-fluid" style="background-color: #D6D7D7; min-height: 700px">
   <div class="row">
     <h1 style="text-align: center;margin-top: 30px; margin-left: auto; margin-right: auto;">
@@ -18,7 +17,6 @@
           <th scope="col">Oddział</th>
           <th scope="col">Zmień Oddział</th>
           <th scope="col">Zmień Stanowisko</th>
-
         </tr>
         </thead>
         <tbody>
@@ -33,31 +31,25 @@
               <td>${worker.positionDto.name}</td>
                <#if worker.positionDto.name != "Admin">
                  <td class=" dropdown">
-                   <a class="dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+                   <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#"
                       aria-expanded="false" id="submenuDepartments" aria-haspopup="true" style="color: white">Zmień oddział</a>
                    <div class="dropdown-menu" aria-labelledby="submenuDepartments">
-                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Gdansk">Gdańsk</button>
-                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Lodz" >Łódź</button>
-                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Szczecin" >Szczecin</button>
-                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Wroclaw" >Wrocław</button>
-                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Warszawa" >Warszawa</button>
-                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Krakow" >Kraków</button>
-                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Lublin" >Lublin</button>
-                     <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="Poznan" >Poznań</button>
+                     <#list departments as department>
+                       <button class="dropdown-item btn btn-primary giveDepartments" data-id-worker="${worker.id}" data-id-department="${department.city}">${department.city}</button>
+                     </#list>
                    </div>
                  </td>
                <#else>
                  <td>Warszawa</td>
                </#if>
-
              <#if worker.positionDto.name != "Admin">
                <td class=" dropdown">
-                 <a class="dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#"
                     aria-expanded="false" id="submenuPermission" aria-haspopup="true" style="color: white">Zmień stanowisko</a>
                  <div class="dropdown-menu" aria-labelledby="submenuPermission">
-                   <button class="dropdown-item btn btn-primary givePermissionWorker" data-id-worker="${worker.id}" data-id-permission="giveManager" >Menadżer</button>
-                   <button class="dropdown-item btn btn-primary givePermissionWorker" data-id-worker="${worker.id}" data-id-permission="giveCoordinator" >Koordynator</button>
-                   <button class="dropdown-item btn btn-primary givePermissionWorker"  data-id-worker="${worker.id}" data-id-permission="giveWorker">Pracownik</button>
+                   <button class="dropdown-item btn btn-primary givePermissionWorker" data-id-worker="${worker.id}" data-id-permission="Menadżer" >Menadżer</button>
+                   <button class="dropdown-item btn btn-primary givePermissionWorker" data-id-worker="${worker.id}" data-id-permission="Koordynator" >Koordynator</button>
+                   <button class="dropdown-item btn btn-primary givePermissionWorker"  data-id-worker="${worker.id}" data-id-permission="Pracownik">Pracownik</button>
                    <button class="dropdown-item btn btn-primary givePermissionWorker" data-id-worker="${worker.id}" data-id-permission="delete">Usuń pracownika</button>
                  </div>
                </td>
@@ -66,10 +58,7 @@
              </#if>
           </#list>
       </table>
-
-
     </div>
   </div>
 </div>
-
 <#include "footer.ftlh">

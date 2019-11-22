@@ -25,4 +25,10 @@ public class CarDaoBean {
     Query query = entityManager.createNamedQuery("Cars.findAll", Car.class);
     return query.getResultList();
   }
+
+  public List<Car> findCarsListFromDepartment(String city){
+    Query query = entityManager.createNamedQuery("Cars.findAvailableCars");
+    query.setParameter("city", city);
+    return query.getResultList();
+  }
 }

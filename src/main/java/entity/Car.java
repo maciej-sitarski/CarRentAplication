@@ -22,7 +22,11 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "Cars.findUnique",
         query = "SELECT distinct(c.model) FROM Car c"
-    )
+    ),
+    @NamedQuery(
+        name = "Cars.findAvailableCars",
+        query = "SELECT c FROM Car c INNER JOIN c.department d WHERE d.city = :city"
+    ),
 })
 
 @Entity

@@ -21,6 +21,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="/js/login.js"></script>
   <script src="/js/permission.js"></script>
+  <script src="/js/reservation.js"></script>
+
 
 </head>
 
@@ -44,7 +46,7 @@
       </li>
 
       <li class="nav-item mr-4">
-        <a class="nav-link" href="#"> Rezerwacje </a>
+        <a class="nav-link" href="/reservations"> Rezerwacje </a>
       </li>
 
       <li class="nav-item mr-4">
@@ -57,7 +59,7 @@
 
         <#if type=="Client">
           <li class="nav-item mr-4 dropdown">
-            <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#"
                aria-expanded="false" id="submenu" aria-haspopup="true">Panel użytkownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
               <a class="dropdown-item" href="/profile">Profil użytkownika</a>
@@ -67,7 +69,7 @@
           </li>
         <#elseif type=="Admin" || type=="Menagement">
           <li class="nav-item mr-4 dropdown">
-            <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#"
                aria-expanded="false" id="submenu" aria-haspopup="true">Panel pracownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
               <a class="dropdown-item" href="/workers">Pracownicy</a>
@@ -77,7 +79,7 @@
           </li>
         <#elseif type=="Coordinator">
           <li class="nav-item mr-4 dropdown">
-            <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#"
                aria-expanded="false" id="submenu" aria-haspopup="true">Panel pracownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
               <a class="dropdown-item" href="#">Pracownicy</a>
@@ -86,7 +88,7 @@
           </li>
         <#elseif type=="Worker">
           <li class="nav-item mr-4 dropdown">
-            <a class="nav-link dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#"
                aria-expanded="false" id="submenu" aria-haspopup="true" >Panel pracownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
               <a class="dropdown-item" href="#">Zlecenia</a>
@@ -127,10 +129,8 @@
           <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
         </div>
       </div>
-
     </div>
   </div>
-
 </form>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"

@@ -2,7 +2,6 @@ package servlet;
 
 import dto.DepartmentDto;
 import dto.WorkerDto;
-import entity.Worker;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -19,16 +18,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.DepartmentsService;
-import service.WorkerService;
 
-@WebServlet("/workers")
-public class WorkerServlet extends HttpServlet {
+@WebServlet("/reservations")
+public class ReservationFirstStepServlet extends HttpServlet {
 
   @Inject
   TemplateProvider templateProvider;
-
-  @EJB
-  WorkerService workerService;
 
   @EJB
   DepartmentsService departmentsService;
@@ -37,15 +32,16 @@ public class WorkerServlet extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
 
-    Template template = templateProvider.getTemplate(getServletContext(), "workers.ftlh");
+    Template template = templateProvider.getTemplate(getServletContext(), "reservation-site1.ftlh");
     Map<String, Object> dataModel = new HashMap<>();
     PrintWriter printWriter = resp.getWriter();
+    String city = req.getParameter("city");
+    if(city != null){
+      dataModel.put("city", city);
+    }
 
     String position = (String) req.getSession().getAttribute("type");
     dataModel.put("type", position);
-
-    List<WorkerDto> workers = workerService.findAllWorkersDto();
-    dataModel.put("workers", workers);
 
     List<DepartmentDto> departments = departmentsService.findListOfDepartmentsDto();
     dataModel.put("departments", departments);
@@ -57,4 +53,16 @@ public class WorkerServlet extends HttpServlet {
     }
   }
 
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+      throws ServletException, IOException {
+    String departmentStart = req.getParameter("departmentStart");
+    String departmentFinish = req.getParameter("departmentFinish");
+    String startDate = req.getParameter("startDate");
+    String startHour = req.getParameter("startHour");
+    String backDate = req.getParameter("backDate");
+    String backHour = req.getParameter("backHour");
+
+    resp.sendRedirect("/reservations-cars?startDate="+startDate+"&startHour="+startHour+"&backDate="+backDate+"&backHour="+backHour+"&departmentStart="+departmentStart);
+  }
 }
