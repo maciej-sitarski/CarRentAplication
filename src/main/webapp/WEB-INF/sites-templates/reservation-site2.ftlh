@@ -4,7 +4,7 @@
   <header class="border-bottom border-success"
           style="text-align:center;  width: 90%; margin-left: auto; margin-right: auto;margin-top: 30px; padding-bottom: 20px">
     <h1>
-      <strong>Wybierz samochód</strong>
+      <strong>Wybierz dostępny samochód w danym terminie</strong>
     </h1>
   </header>
     <#list sections as section>
@@ -66,13 +66,8 @@
                           </#if>
                       </div>
                       <div class="text-center">
-                        <button id="checkOpportunityToReservation"
-                                data-id-departmentStart="${departmentStart}"
-                                data-id-startDate="${startDate}" data-id-startHour="${startHour}"
-                                data-id-backDate="${backDate}" data-id-backHour="${backHour}"
-                                data-id-brandName="${car.brandDto.name}" data-id-modelName="${car.modelDto.name}"
-                        class="btn btn-primary" style="font-size : 20px; width:70%; margin-bottom:
-                        20px">
+                        <button onclick="redirect('${departmentStart}', '${startDate}','${startHour}', '${backDate}', '${backHour}', '${car.brandDto.name}', '${car.modelDto.name}')"
+                        class="btn btn-primary" style="font-size:20px; width:70%; margin-bottom:20px">
                           ${car.brandDto.name}  ${car.modelDto.name}
                         </button>
                       </div>

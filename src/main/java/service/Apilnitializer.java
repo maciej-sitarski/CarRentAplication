@@ -4,6 +4,7 @@ import dao.BrandDaoBean;
 import dao.CarDaoBean;
 import dao.ClientTypeDaoBean;
 import dao.DepartmentDaoBean;
+import dao.EquipmentDaoBean;
 import dao.ModelDaoBean;
 import dao.PositionDaoBean;
 import dao.SectionDaoBean;
@@ -12,6 +13,7 @@ import entity.Brand;
 import entity.Car;
 import entity.ClientType;
 import entity.Department;
+import entity.Equipment;
 import entity.Model;
 import entity.Position;
 import entity.Section;
@@ -49,6 +51,9 @@ public class Apilnitializer {
 
   @Inject
   ClientTypeDaoBean clientTypeDaoBean;
+
+  @Inject
+  EquipmentDaoBean equipmentDaoBean;
 
   @PostConstruct
   protected void init() {
@@ -1038,6 +1043,21 @@ public class Apilnitializer {
     clientTypeDaoBean.saveClientType(brown);
     clientTypeDaoBean.saveClientType(silver);
     clientTypeDaoBean.saveClientType(gold);
+
+    Equipment babyCarrier = new Equipment("Fotelik dla dziecka (nosidełko 0-9kg)", 10L);
+    Equipment childSeat = new Equipment("Fotelik dla dziecka (9-36kg)", 10L);
+    Equipment childSeat2 = new Equipment("Podkładka(siedzisko) dla dziecka", 10L);
+    Equipment navigation = new Equipment("Nawigacja GPS", 10L);
+    Equipment insuranceBasic = new Equipment("Ubezpieczenie podstawowe", 30L);
+    Equipment insuranceFull = new Equipment("Ubezpieczenie pełne", 60L);
+
+    equipmentDaoBean.saveEquipment(babyCarrier);
+    equipmentDaoBean.saveEquipment(childSeat);
+    equipmentDaoBean.saveEquipment(childSeat2);
+    equipmentDaoBean.saveEquipment(navigation);
+    equipmentDaoBean.saveEquipment(insuranceBasic);
+    equipmentDaoBean.saveEquipment(insuranceFull);
+
 
   }
 }

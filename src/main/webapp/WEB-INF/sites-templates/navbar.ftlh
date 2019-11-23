@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/departments.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/cars.css">
+  <link rel="stylesheet" href="css/reservations.css">
   <title>CarRent</title>
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap&subset=latin-ext"
         rel="stylesheet">

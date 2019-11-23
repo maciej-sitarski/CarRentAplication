@@ -6,23 +6,85 @@ $(function(){
   });
 });
 
-$(function () {
-  $(document).ready(function () {
-    $("#checkOpportunityToReservation").click(function () {
-      $.ajax({
-        url: '/api/reservations/check/'+$(this).attr('data-id-departmentStart')+'/' + $(this).attr('data-id-departmentFinish')+'/' + $(this).attr('data-id-startDate')+'/' + $(this).attr('data-id-startHour')+'/' + $(this).attr('data-id-backDate')+'/' + $(this).attr('data-id-backHour')+'/' + $(this).attr('data-id-brandName')+'/' + $(this).attr('data-id-modelName'),
-        type: 'PATCH',
-        success: function (result) {
-          location.replace("/reservation-equipment");
-        },
-        error: function (error) {
-          alert(
-              'Error! Holiday has not been added/updated. Check data in your form');
-        }
-      });
-    });
-  });
-});
+// $(function () {
+//   $(document).ready(function () {
+//     $("#checkOpportunityToReservation").click(function () {
+//       $.ajax({
+//         url: '/api/reservations/check/'+$(this).attr('data-id-departmentStart')+'/' + $(this).attr('data-id-departmentFinish')+'/' + $(this).attr('data-id-startDate')+'/' + $(this).attr('data-id-startHour')+'/' + $(this).attr('data-id-backDate')+'/' + $(this).attr('data-id-backHour')+'/' + $(this).attr('data-id-brandName')+'/' + $(this).attr('data-id-modelName'),
+//         type: 'PATCH',
+//         success: function (result) {
+//           location.replace("/reservation-equipment");
+//         },
+//         error: function (error) {
+//           alert(
+//               'Error! Holiday has not been added/updated. Check data in your form');
+//         }
+//       });
+//     });
+//   });
+// });
+
+function redirect(departmentStart, startDate,  startHour, backDate, backHour, brandName, modelName) {
+  window.location="reservations-equipment?startDate="+startDate+"&startHour="+startHour+"&backDate="+backDate+"&backHour="+backHour+"&departmentStart="+departmentStart+"&brandName="+brandName+"&modelName="+modelName
+}
+
+
+
+function dynInputBabyCarrier(cbox) {
+  if (cbox.checked) {
+    var input = document.createElement("input");
+    input.type = "number";
+    input.value = "1";
+    input.min = "1";
+    input.max = "3";
+    input.style = "width: 40px";
+    var div = document.createElement("div");
+    div.id = cbox.name;
+    div.innerHTML = "Ilość: " ;
+    div.appendChild(input);
+    document.getElementById("babyCarrierCounter").appendChild(div);
+  } else {
+    document.getElementById(cbox.name).remove();
+  }
+}
+
+function dynInputSmallSeat(cbox) {
+  if (cbox.checked) {
+    var input = document.createElement("input");
+    input.type = "number";
+    input.value = "1";
+    input.min = "1";
+    input.max = "3";
+    input.style = "width: 40px";
+    var div = document.createElement("div");
+    div.id = cbox.name;
+    div.innerHTML = "Ilość: " ;
+    div.appendChild(input);
+    document.getElementById("smallSeatCounter").appendChild(div);
+  } else {
+    document.getElementById(cbox.name).remove();
+  }
+}
+
+function dynInputSeat(cbox) {
+  if (cbox.checked) {
+    var input = document.createElement("input");
+    input.type = "number";
+    input.value = "1";
+    input.min = "1";
+    input.max = "3";
+    input.style = "width: 40px";
+    var div = document.createElement("div");
+    div.id = cbox.name;
+    div.innerHTML = "Ilość: " ;
+    div.appendChild(input);
+    document.getElementById("seatCounter").appendChild(div);
+  } else {
+    document.getElementById(cbox.name).remove();
+  }
+}
+
+
 
 
 
