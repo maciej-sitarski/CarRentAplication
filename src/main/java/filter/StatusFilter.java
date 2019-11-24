@@ -35,7 +35,6 @@ public class StatusFilter implements Filter {
     if (httpServletRequest.getSession().getAttribute("type") == null) {
       httpServletRequest.getSession().setAttribute("type", "Guest");
     }
-
     filterChain.doFilter(httpServletRequest, httpServletResponse);
   }
 
