@@ -1,11 +1,6 @@
 package filter;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -22,6 +17,11 @@ import javax.ws.rs.HttpMethod;
     urlPatterns = {"/reservations"}
 )
 public class ReservationFilter implements Filter {
+
+  @Override
+  public void init(FilterConfig filterConfig) throws ServletException {
+
+  }
 
   @Override
   public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
@@ -48,5 +48,10 @@ public class ReservationFilter implements Filter {
       }
     }
     filterChain.doFilter(httpServletRequest, httpServletResponse);
+  }
+
+  @Override
+  public void destroy() {
+
   }
 }
