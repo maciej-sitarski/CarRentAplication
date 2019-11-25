@@ -1044,12 +1044,12 @@ public class Apilnitializer {
     clientTypeDaoBean.saveClientType(silver);
     clientTypeDaoBean.saveClientType(gold);
 
-    Equipment babyCarrier = new Equipment("Fotelik dla dziecka (nosidełko 0-9kg)", 10L);
+    Equipment babyCarrier = new Equipment("Fotelik dla dziecka (nosidelko 0-9kg)", 10L);
     Equipment childSeat = new Equipment("Fotelik dla dziecka (9-36kg)", 10L);
-    Equipment childSeat2 = new Equipment("Podkładka(siedzisko) dla dziecka", 10L);
+    Equipment childSeat2 = new Equipment("Podkladka(siedzisko) dla dziecka", 10L);
     Equipment navigation = new Equipment("Nawigacja GPS", 10L);
     Equipment insuranceBasic = new Equipment("Ubezpieczenie podstawowe", 30L);
-    Equipment insuranceFull = new Equipment("Ubezpieczenie pełne", 60L);
+    Equipment insuranceFull = new Equipment("Ubezpieczenie pelne", 60L);
 
     equipmentDaoBean.saveEquipment(babyCarrier);
     equipmentDaoBean.saveEquipment(childSeat);

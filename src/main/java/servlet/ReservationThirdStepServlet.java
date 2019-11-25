@@ -45,6 +45,8 @@ public class ReservationThirdStepServlet extends HttpServlet {
     String backHour = req.getParameter("backHour");
     String brandName = req.getParameter("brandName");
     String modelName = req.getParameter("modelName");
+    String sectionName = req.getParameter("sectionName");
+    String sectionPrice = req.getParameter("sectionPrice");
 
     String position = (String) req.getSession().getAttribute("type");
     dataModel.put("type", position);
@@ -52,21 +54,15 @@ public class ReservationThirdStepServlet extends HttpServlet {
     List<EquipmentDto> equipments = equipmentService.findAllEquipmentsDto();
     dataModel.put("equipments", equipments);
 
-//    try {
-//      List<CarDto> uniqueSpecificCarList = carService.findSpecifyAbilityUniqueCarsList(departmentStart,startDate,backDate,startHour,backHour);
-//      dataModel.put("cars", uniqueSpecificCarList);
-//    } catch (ParseException e) {
-//      e.printStackTrace();
-//    }
-//    List<SectionDto> sectionsList = sectionService.sectionList();
-//
-    dataModel.put("departmentStart", departmentStart);
-    dataModel.put("startDate", startDate);
-    dataModel.put("startHour", startHour);
-    dataModel.put("backDate", backDate);
-    dataModel.put("backHour", backHour);
-    dataModel.put("brandName", brandName);
-    dataModel.put("modelName", modelName);
+    req.getSession().setAttribute("departmentStart", departmentStart);
+    req.getSession().setAttribute("startDate", startDate);
+    req.getSession().setAttribute("startHour", startHour);
+    req.getSession().setAttribute("backDate", backDate);
+    req.getSession().setAttribute("backHour", backHour);
+    req.getSession().setAttribute("brandName", brandName);
+    req.getSession().setAttribute("modelName", modelName);
+    req.getSession().setAttribute("sectionName", sectionName);
+    req.getSession().setAttribute("sectionPrice", sectionPrice);
 
 
     try {
@@ -76,4 +72,33 @@ public class ReservationThirdStepServlet extends HttpServlet {
     }
   }
 
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+      throws ServletException, IOException {
+    String equipment1 = req.getParameter("Fotelik dla dziecka (nosidelko 0-9kg)");
+    String equipment2 = req.getParameter("Fotelik dla dziecka (9-36kg)");
+    String equipment3 = req.getParameter("Podkladka(siedzisko) dla dziecka");
+    String equipment4 = req.getParameter("Nawigacja GPS");
+    String equipment5 = req.getParameter("Ubezpieczenie podstawowe");
+    String equipment6 = req.getParameter("Ubezpieczenie pelne");
+
+    req.getSession().setAttribute("equipment1", equipment1);
+    req.getSession().setAttribute("equipment2", equipment2);
+    req.getSession().setAttribute("equipment3", equipment3);
+    req.getSession().setAttribute("equipment4", equipment4);
+    req.getSession().setAttribute("equipment5", equipment5);
+    req.getSession().setAttribute("equipment6", equipment6);
+
+    String babyCarriesNumbers = req.getParameter("babyCarriesNumbers");
+    String smallSeatNumbers = req.getParameter("smallSeatNumbers");
+    String seatNumbers = req.getParameter("seatNumbers");
+
+    req.getSession().setAttribute("babyCarriesNumbers", babyCarriesNumbers);
+    req.getSession().setAttribute("smallSeatNumbers", smallSeatNumbers);
+    req.getSession().setAttribute("seatNumbers", seatNumbers);
+
+
+    resp.sendRedirect(
+        "/reservations-summary");
+  }
 }

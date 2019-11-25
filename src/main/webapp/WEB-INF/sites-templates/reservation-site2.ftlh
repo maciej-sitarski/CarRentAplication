@@ -14,6 +14,7 @@
              style="text-align: center; margin-bottom: auto; margin-top: auto">
           <h2 style="font-family: 'Lato', sans-serif"><strong>SEGMENT
               &nbsp; ${section.name}</strong></h2>
+          <small>Cena: ${section.price} pln/doba</small>
         </div>
         <div class="right col-md-9">
           <div class="row ">
@@ -66,7 +67,7 @@
                           </#if>
                       </div>
                       <div class="text-center">
-                        <button onclick="redirect('${departmentStart}', '${startDate}','${startHour}', '${backDate}', '${backHour}', '${car.brandDto.name}', '${car.modelDto.name}')"
+                        <button onclick="redirectToEquipmentSite('${departmentStart}', '${startDate}','${startHour}', '${backDate}', '${backHour}', '${car.brandDto.name}', '${car.modelDto.name}', '${car.modelDto.sectionDto.name}', '${car.modelDto.sectionDto.price}')"
                         class="btn btn-primary" style="font-size:20px; width:70%; margin-bottom:20px">
                           ${car.brandDto.name}  ${car.modelDto.name}
                         </button>

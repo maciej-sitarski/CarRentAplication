@@ -6,34 +6,16 @@ $(function(){
   });
 });
 
-// $(function () {
-//   $(document).ready(function () {
-//     $("#checkOpportunityToReservation").click(function () {
-//       $.ajax({
-//         url: '/api/reservations/check/'+$(this).attr('data-id-departmentStart')+'/' + $(this).attr('data-id-departmentFinish')+'/' + $(this).attr('data-id-startDate')+'/' + $(this).attr('data-id-startHour')+'/' + $(this).attr('data-id-backDate')+'/' + $(this).attr('data-id-backHour')+'/' + $(this).attr('data-id-brandName')+'/' + $(this).attr('data-id-modelName'),
-//         type: 'PATCH',
-//         success: function (result) {
-//           location.replace("/reservation-equipment");
-//         },
-//         error: function (error) {
-//           alert(
-//               'Error! Holiday has not been added/updated. Check data in your form');
-//         }
-//       });
-//     });
-//   });
-// });
-
-function redirect(departmentStart, startDate,  startHour, backDate, backHour, brandName, modelName) {
-  window.location="reservations-equipment?startDate="+startDate+"&startHour="+startHour+"&backDate="+backDate+"&backHour="+backHour+"&departmentStart="+departmentStart+"&brandName="+brandName+"&modelName="+modelName
+function redirectToEquipmentSite(departmentStart, startDate,  startHour, backDate, backHour, brandName, modelName, sectionName, sectionPrice) {
+  window.location="reservations-equipment?startDate="+startDate+"&startHour="+startHour+"&backDate="+backDate+"&backHour="+backHour+"&departmentStart="+departmentStart+"&brandName="+brandName+"&modelName="+modelName+"&sectionName="+sectionName+"&sectionPrice="+sectionPrice
 }
-
 
 
 function dynInputBabyCarrier(cbox) {
   if (cbox.checked) {
     var input = document.createElement("input");
     input.type = "number";
+    input.name = "babyCarriesNumbers";
     input.value = "1";
     input.min = "1";
     input.max = "3";
@@ -52,6 +34,7 @@ function dynInputSmallSeat(cbox) {
   if (cbox.checked) {
     var input = document.createElement("input");
     input.type = "number";
+    input.name = "smallSeatNumbers";
     input.value = "1";
     input.min = "1";
     input.max = "3";
@@ -70,6 +53,7 @@ function dynInputSeat(cbox) {
   if (cbox.checked) {
     var input = document.createElement("input");
     input.type = "number";
+    input.name = "seatNumbers";
     input.value = "1";
     input.min = "1";
     input.max = "3";
@@ -84,7 +68,23 @@ function dynInputSeat(cbox) {
   }
 }
 
+function goBack() {
+  window.history.back();
+}
 
+$(function () {
+  $(document).ready(function () {
+    $("#saveReservation").click(function () {
+      $.ajax({
+        url: '/api/workers/departments/'+$(this).attr('data-id-department')+'/' + $(this).attr('data-id-worker'),
+        type: 'PATCH',
+        success: function (result) {
+          location.reload();
+        }
+      });
+    });
+  });
+});
 
 
 
