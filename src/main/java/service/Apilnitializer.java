@@ -91,10 +91,6 @@ public class Apilnitializer {
     departmentDaoBean.saveDepartment(departmentLublin);
     departmentDaoBean.saveDepartment(departmentSzczecin);
 
-    Section sectionA = new Section();
-    sectionA.setName("A");
-    sectionA.setPrice(70L);
-
     Section sectionB = new Section();
     sectionB.setName("B");
     sectionB.setPrice(80L);
@@ -123,7 +119,6 @@ public class Apilnitializer {
     sectionPremium.setName("PREMIUM");
     sectionPremium.setPrice(300L);
 
-    sectionDaoBean.saveSection(sectionA);
     sectionDaoBean.saveSection(sectionB);
     sectionDaoBean.saveSection(sectionC);
     sectionDaoBean.saveSection(sectionD);
