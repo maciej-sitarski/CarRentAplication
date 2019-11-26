@@ -56,20 +56,20 @@ public class Car {
   @JoinColumn(name = "model_id")
   Model model;
 
-  @OneToMany(mappedBy = "service")
-  List<Car> cars = new ArrayList<>();
+  @OneToMany(mappedBy = "cars")
+  List<Service> Services = new ArrayList<>();
 
   public Car() {
   }
 
   public Car(String registrationNumber, List<Reservation> reservations, Department department,
-      Brand brand, Model model, List<Car> cars) {
+      Brand brand, Model model, List<Service> services) {
     this.registrationNumber = registrationNumber;
     this.reservations = reservations;
     this.department = department;
     this.brand = brand;
     this.model = model;
-    this.cars = cars;
+    Services = services;
   }
 
   public Car(String registrationNumber) {
@@ -124,11 +124,11 @@ public class Car {
     this.model = model;
   }
 
-  public List<Car> getCars() {
-    return cars;
+  public List<Service> getServices() {
+    return Services;
   }
 
-  public void setCars(List<Car> cars) {
-    this.cars = cars;
+  public void setServices(List<Service> services) {
+    Services = services;
   }
 }

@@ -73,6 +73,7 @@
             <div class="dropdown-menu" aria-labelledby="submenu">
               <a class="dropdown-item" href="/workers">Pracownicy</a>
               <a class="dropdown-item" href="/clients">Użytkownicy</a>
+              <a class="dropdown-item" href="/services">Serwisy</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
           </li>
@@ -82,6 +83,7 @@
                aria-expanded="false" id="submenu" aria-haspopup="true">Panel pracownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
               <a class="dropdown-item" href="#">Pracownicy</a>
+              <a class="dropdown-item" href="/services">Serwisy</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
           </li>
