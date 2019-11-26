@@ -1,15 +1,19 @@
-$(function(){
-  $("#departmentsMenu li a").click(function(){
+$(function () {
+  $("#departmentsMenu li a").click(function () {
     var target = $(this).closest('.btn-group').find('.btn:first-child')
     target.text($(this).text());
     target.val($(this).text());
   });
 });
 
-function redirectToEquipmentSite(departmentStart, startDate,  startHour, backDate, backHour, brandName, modelName, sectionName, sectionPrice) {
-  window.location="reservations-equipment?startDate="+startDate+"&startHour="+startHour+"&backDate="+backDate+"&backHour="+backHour+"&departmentStart="+departmentStart+"&brandName="+brandName+"&modelName="+modelName+"&sectionName="+sectionName+"&sectionPrice="+sectionPrice
+function redirectToEquipmentSite(departmentStart, startDate, startHour,
+    backDate, backHour, brandName, modelName, sectionName, sectionPrice) {
+  window.location = "reservations-equipment?startDate=" + startDate
+      + "&startHour=" + startHour + "&backDate=" + backDate + "&backHour="
+      + backHour + "&departmentStart=" + departmentStart + "&brandName="
+      + brandName + "&modelName=" + modelName + "&sectionName=" + sectionName
+      + "&sectionPrice=" + sectionPrice
 }
-
 
 function dynInputBabyCarrier(cbox) {
   if (cbox.checked) {
@@ -22,7 +26,7 @@ function dynInputBabyCarrier(cbox) {
     input.style = "width: 40px";
     var div = document.createElement("div");
     div.id = cbox.name;
-    div.innerHTML = "Ilość: " ;
+    div.innerHTML = "Ilość: ";
     div.appendChild(input);
     document.getElementById("babyCarrierCounter").appendChild(div);
   } else {
@@ -41,7 +45,7 @@ function dynInputSmallSeat(cbox) {
     input.style = "width: 40px";
     var div = document.createElement("div");
     div.id = cbox.name;
-    div.innerHTML = "Ilość: " ;
+    div.innerHTML = "Ilość: ";
     div.appendChild(input);
     document.getElementById("smallSeatCounter").appendChild(div);
   } else {
@@ -60,7 +64,7 @@ function dynInputSeat(cbox) {
     input.style = "width: 40px";
     var div = document.createElement("div");
     div.id = cbox.name;
-    div.innerHTML = "Ilość: " ;
+    div.innerHTML = "Ilość: ";
     div.appendChild(input);
     document.getElementById("seatCounter").appendChild(div);
   } else {
@@ -76,32 +80,29 @@ $(function () {
   $(document).ready(function () {
     $("#saveReservation").click(function () {
       $.ajax({
-        url: '/api/workers/departments/'+$(this).attr('data-id-department')+'/' + $(this).attr('data-id-worker'),
+        url: '/api/reservations/save/' + $(this).attr('data-id-startDate')
+            + '/' + $(this).attr('data-id-startHour') + '/' + $(this).attr(
+                'data-id-backDate') + '/' + $(this).attr('data-id-backHour')
+            + '/'
+            + $(this).attr('data-id-modelName') + '/' + $(this).attr(
+                'data-id-idClient') + '/' + $(this).attr(
+                'data-id-insuranceFull') + '/'
+            + $(this).attr('data-id-insuranceBasic') + '/' + $(this).attr(
+                'data-id-navigation') + '/' + $(this).attr(
+                'data-id-babyCarrier') + '/'
+            + $(this).attr('data-id-babyCarriesNumbers') + '/' + $(this).attr(
+                'data-id-smallSeat') + '/' + $(this).attr(
+                'data-id-smallSeatNumbers') + '/' + $(this).attr('data-id-seat')
+            + '/' + $(this).attr('data-id-seatNumbers') + '/' + $(this).attr(
+                'data-id-departmentStart'),
         type: 'PATCH',
-        success: function (result) {
-          location.reload();
+        success: function () {
+          location.replace("/main");
         }
       });
     });
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // $(function () {
 //   var departmentStart = document.getElementById("departmentStart");

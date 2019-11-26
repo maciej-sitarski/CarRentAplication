@@ -27,7 +27,11 @@ public class ReservationDtoMapper {
     reservationDto.setEndHour(reservation.getEndHour());
     reservationDto.setCarDto(carDtoMapper.mapCarToDto(reservation.getCar()));
     reservationDto.setClientDto(clientDtoMapper.mapClientToDto(reservation.getClient()));
-    reservationDto.setWorkerDto(workerDtoMapper.mapWorkerToDto(reservation.getWorker()));
+    if (workerDtoMapper.mapWorkerToDto(reservation.getWorker()) != null){
+      reservationDto.setWorkerDto(workerDtoMapper.mapWorkerToDto(reservation.getWorker()));
+    } else {
+      reservationDto.setWorkerDto(null);
+    }
 
     return reservationDto;
   }

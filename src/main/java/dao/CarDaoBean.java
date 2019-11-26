@@ -17,7 +17,7 @@ public class CarDaoBean {
     entityManager.persist(car);
   }
 
-  public Car findBrandById(Long id) {
+  public Car findCarById(Long id) {
     return entityManager.find(Car.class, id);
   }
 
@@ -26,9 +26,21 @@ public class CarDaoBean {
     return query.getResultList();
   }
 
-  public List<Car> findCarsListFromDepartment(String city){
-    Query query = entityManager.createNamedQuery("Cars.findAvailableCars");
+  public List<Car> findCarsListByDepartment(String city){
+    Query query = entityManager.createNamedQuery("Cars.findCarsByDepartment");
     query.setParameter("city", city);
     return query.getResultList();
   }
+  public List<Car> findCarsListByBrand(String name){
+    Query query = entityManager.createNamedQuery("Cars.findCarsByBrands");
+    query.setParameter("name", name);
+    return query.getResultList();
+  }
+
+  public List<Car> findCarsListByModel(String name){
+    Query query = entityManager.createNamedQuery("Cars.findCarsByModel");
+    query.setParameter("name", name);
+    return query.getResultList();
+  }
+
 }

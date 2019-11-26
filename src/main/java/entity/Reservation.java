@@ -22,6 +22,10 @@ import javax.persistence.Table;
         name = "Reservations.findAllReservationsFromDepartment",
         query = "SELECT r FROM Reservation r INNER JOIN r.car c INNER JOIN r.car.department d WHERE d.city = :city"
     ),
+    @NamedQuery(
+        name = "Reservations.findReservationsByCars",
+        query = "SELECT r FROM Reservation r INNER JOIN r.car c WHERE c.id = :id"
+    )
 })
 
 @Entity

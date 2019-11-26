@@ -17,6 +17,8 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import mapper.CarDtoMapper;
 import mapper.ReservationDtoMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Stateless
 public class CarService {
@@ -32,6 +34,8 @@ public class CarService {
 
   @EJB
   CarDtoMapper carDtoMapper;
+
+  private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
   public List<CarDto> carList() {
     List<Car> carsDao = carDaoBean.findCarsList();
@@ -57,9 +61,18 @@ public class CarService {
         .findAllReservationsFromDepartmentList(city).stream()
         .map(reservation -> reservationDtoMapper.mapReservationToDto(reservation)).collect(
             Collectors.toList());
-    List<CarDto> availableCarsInDepartmentList = carDaoBean.findCarsListFromDepartment(city)
+    for (int i = 0; i < specifyReservationList.size(); i++) {
+      logger.info(specifyReservationList.get(i).getCarDto().getModelDto().getName());
+
+    }
+    List<CarDto> availableCarsInDepartmentList = carDaoBean.findCarsListByDepartment(city)
         .stream().map(car -> carDtoMapper.mapCarToDto(car)).collect(
             Collectors.toList());
+
+    for (int i = 0; i < availableCarsInDepartmentList.size(); i++) {
+      logger.info(availableCarsInDepartmentList.get(i).getModelDto().getName()+"dupadupadupa");
+
+    }
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date startFormatDate = dateFormat.parse(startDate);
@@ -114,5 +127,6 @@ public class CarService {
         .filter(FilterDistinctByKey.distinctByKey(p -> p.getModelDto().getName())).collect(
             Collectors.toList());
   }
+
 }
 

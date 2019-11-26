@@ -119,16 +119,56 @@
       <button id="saveReservation" data-id-startDate="${startDate}" data-id-startHour="${startHour}"
               data-id-backDate="${backDate}" data-id-backHour="${backHour}"
               data-id-modelName="${modelName}" data-id-idClient="${id}"
-              data-id-insuranceFull="${insuranceFull}" data-id-insuranceBasic="${insuranceBasic}"
-              data-id-navigation="${navigation}" data-id-babyCarrier="${babyCarrier}"
-              data-id-babyCarriesNumbers="${babyCarriesNumbers}" data-id-smallSeat="${smallSeat}"
-              data-id-smallSeatNumbers="${smallSeatNumbers}" data-id-seat="${seat}"data-id-seatNumbers="${seatNumbers}"
+              data-id-departmentStart="${departmentStart}"
+              <#if insuranceFull??>
+                data-id-insuranceFull="${insuranceFull}"
+                  <#else>
+                    data-id-insuranceFull="empty"
+              </#if>
+              <#if insuranceBasic??>
+                data-id-insuranceBasic="${insuranceBasic}"
+              <#else>
+                data-id-insuranceBasic="empty"
+              </#if>
+              <#if navigation??>
+                data-id-navigation="${navigation}"
+              <#else>
+                data-id-navigation="empty"
+              </#if>
+              <#if babyCarrier??>
+                data-id-babyCarrier="${babyCarrier}"
+              <#else>
+                data-id-babyCarrier="empty"
+              </#if>
+              <#if babyCarriesNumbers??>
+                data-id-babyCarriesNumbers="${babyCarriesNumbers}"
+              <#else>
+                data-id-babyCarriesNumbers="empty"
+              </#if>
+              <#if smallSeat??>
+                data-id-smallSeat="${smallSeat}"
+              <#else>
+                data-id-smallSeat="empty"
+              </#if>
+              <#if smallSeatNumbers??>
+                data-id-smallSeatNumbers="${smallSeatNumbers}"
+              <#else>
+                data-id-smallSeatNumbers="empty"
+              </#if>
+              <#if seat??>
+                data-id-seat="${seat}"
+              <#else>
+                data-id-seat="empty"
+              </#if>
+              <#if seatNumbers??>
+                data-id-seatNumbers="${seatNumbers}"
+              <#else>
+                data-id-seatNumbers="empty"
+              </#if>
               class="btn btn-success"
               style=" margin-bottom:20px;margin-top:20px; margin-left: 20px; width: 20%">
         Zarezerwuj
       </button>
-
-
     </div>
   </div>
 </div>

@@ -35,6 +35,10 @@ import javax.persistence.Table;
         name = "Worker.findAll",
         query = "SELECT w FROM Worker w"
     ),
+    @NamedQuery(
+        name = "Worker.findWorkersByDepartment",
+        query = "SELECT w FROM Worker w INNER JOIN w.department d WHERE d.city = :city"
+    )
 })
 
 @Entity

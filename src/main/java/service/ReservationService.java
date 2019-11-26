@@ -18,6 +18,8 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import mapper.CarDtoMapper;
 import mapper.ReservationDtoMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Stateless
 public class ReservationService {
@@ -36,6 +38,8 @@ public class ReservationService {
 
   @EJB
   EquipmentDaoBean equipmentDaoBean;
+
+  private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
   public Long countingPriceOfReservation(String startDate, String finishDate,
       String sectionPrice, String babyCarrier, String smallSeat, String seat, String navigation,
@@ -71,8 +75,9 @@ public class ReservationService {
     Date startFormatDate = dateFormat.parse(startDate);
     Date finishFormatDate = dateFormat.parse(finishDate);
 
-    long duration = finishFormatDate.getDay() - startFormatDate.getDay();
 
-    return duration;
+    long duration = finishFormatDate.getTime() - startFormatDate.getTime();
+
+    return duration/(1000*60*60*24);
   }
 }

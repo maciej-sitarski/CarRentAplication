@@ -48,7 +48,7 @@ public class ReservationFourthStepServlet extends HttpServlet {
     String position = (String) req.getSession().getAttribute("type");
     dataModel.put("type", position);
 
-    String id = (String) req.getSession().getAttribute("id");
+    Long id = (Long)req.getSession().getAttribute("id");
     dataModel.put("id", id);
 
     String departmentStart = (String) req.getSession().getAttribute("departmentStart");
