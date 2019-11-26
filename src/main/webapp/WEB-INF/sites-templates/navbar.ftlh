@@ -45,11 +45,9 @@
       <li class="nav-item mr-4">
         <a class="nav-link" href="/main"> Strona główna </a>
       </li>
-
       <li class="nav-item mr-4">
         <a class="nav-link" href="/reservations"> Rezerwacje </a>
       </li>
-
       <li class="nav-item mr-4">
         <a class="nav-link " href="/cars"> Samochody </a>
       </li>
