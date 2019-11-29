@@ -70,7 +70,7 @@ public class CarService {
             Collectors.toList());
 
     for (int i = 0; i < availableCarsInDepartmentList.size(); i++) {
-      logger.info(availableCarsInDepartmentList.get(i).getModelDto().getName()+"dupadupadupa");
+      logger.info(availableCarsInDepartmentList.get(i).getModelDto().getName() + "dupadupadupa");
 
     }
 
@@ -81,7 +81,6 @@ public class CarService {
     DateFormat hourFormat = new SimpleDateFormat("hh:mm");
     Date startFormatHour = hourFormat.parse(startHour);
     Date finishFormatHour = hourFormat.parse(endHour);
-
 
     for (int i = 0; i < specifyReservationList.size(); i++) {
       if (dateFormat.parse(specifyReservationList.get(i).getStartDate()).compareTo(startFormatDate)
@@ -117,17 +116,15 @@ public class CarService {
 
         }
       }
-
     }
     return availableCarsInDepartmentList;
   }
 
   public List<CarDto> findSpecifyAbilityUniqueCarsList(String city, String startDate,
       String finishDate, String startHour, String endHour) throws ParseException {
-    return findSpecifyAbilityCarsList(city,startDate,finishDate,startHour,endHour).stream()
+    return findSpecifyAbilityCarsList(city, startDate, finishDate, startHour, endHour).stream()
         .filter(FilterDistinctByKey.distinctByKey(p -> p.getModelDto().getName())).collect(
             Collectors.toList());
   }
-
 }
 

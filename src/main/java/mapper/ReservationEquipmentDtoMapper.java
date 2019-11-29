@@ -14,14 +14,15 @@ public class ReservationEquipmentDtoMapper {
   @EJB
   ReservationDtoMapper reservationDtoMapper;
 
-  public ReservationEquipmentDto mapReservationEquipmentToDto(ReservationEquipment reservationEquipment) {
+  public ReservationEquipmentDto mapReservationEquipmentToDto(
+      ReservationEquipment reservationEquipment) {
     ReservationEquipmentDto reservationEquipmentDto = new ReservationEquipmentDto();
-
     reservationEquipmentDto.setId(reservationEquipment.getId());
     reservationEquipmentDto.setNumber(reservationEquipment.getNumber());
-    reservationEquipmentDto.setEquipmentDto(equipmentDtoMapper.mapEquipmentToDto(reservationEquipment.getEquipment()));
-    reservationEquipmentDto.setReservationDto(reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()));
-
+    reservationEquipmentDto
+        .setEquipmentDto(equipmentDtoMapper.mapEquipmentToDto(reservationEquipment.getEquipment()));
+    reservationEquipmentDto.setReservationDto(
+        reservationDtoMapper.mapReservationToDto(reservationEquipment.getReservation()));
     return reservationEquipmentDto;
   }
 }

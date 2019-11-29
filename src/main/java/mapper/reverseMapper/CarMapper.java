@@ -21,9 +21,8 @@ public class CarMapper {
   @EJB
   DepartmentMapper departmentMapper;
 
-  public Car mapCar(CarDto carDto){
+  public Car mapCar(CarDto carDto) {
     Car car = new Car();
-
     car.setId(carDto.getId());
     car.setRegistrationNumber(null);
     car.setReservations(reservationDaoBean.findReservationsByCars(carDto.getId()));
@@ -32,5 +31,4 @@ public class CarMapper {
     car.setDepartment(departmentMapper.mapDepartment(carDto.getDepartmentDto()));
     return car;
   }
-
 }

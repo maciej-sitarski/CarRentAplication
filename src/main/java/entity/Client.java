@@ -73,7 +73,8 @@ public class Client {
   public Client() {
   }
 
-  public Client(String nameAndSurname, String email, String pesel, String phoneNumber, String password) {
+  public Client(String nameAndSurname, String email, String pesel, String phoneNumber,
+      String password) {
     this.nameAndSurname = nameAndSurname;
     this.email = email;
     this.pesel = pesel;

@@ -19,14 +19,17 @@ public class ReservationEquipmentService {
   ReservationEquipmentDtoMapper reservationEquipmentDtoMapper;
 
   public List<ReservationEquipmentDto> findReservationEquipmentDtoListByReservationId(Long id) {
-    List<ReservationEquipmentDto> reservationEquipmentDtos = reservationEquipmentDao.findAllReservationEquipmentsListByReservationId(id).stream().map(reservationEquipment -> reservationEquipmentDtoMapper.mapReservationEquipmentToDto(reservationEquipment)).collect(
-        Collectors.toList());
+    List<ReservationEquipmentDto> reservationEquipmentDtos = reservationEquipmentDao
+        .findAllReservationEquipmentsListByReservationId(id).stream().map(
+            reservationEquipment -> reservationEquipmentDtoMapper
+                .mapReservationEquipmentToDto(reservationEquipment)).collect(
+            Collectors.toList());
     return reservationEquipmentDtos;
   }
 
   public List<ReservationEquipment> findReservationEquipmentListByReservationId(Long id) {
-    List<ReservationEquipment> reservationEquipments = reservationEquipmentDao.findAllReservationEquipmentsListByReservationId(id);
+    List<ReservationEquipment> reservationEquipments = reservationEquipmentDao
+        .findAllReservationEquipmentsListByReservationId(id);
     return reservationEquipments;
   }
-
 }

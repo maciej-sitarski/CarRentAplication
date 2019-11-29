@@ -1,6 +1,5 @@
 package dao;
 
-import entity.Car;
 import entity.Reservation;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -18,22 +17,27 @@ public class ReservationDaoBean {
     entityManager.persist(reservation);
   }
 
+  public void updateReservation(Reservation reservation) {
+    entityManager.merge(reservation);
+  }
+
   public Reservation findReservationById(Long id) {
     return entityManager.find(Reservation.class, id);
   }
-  public List<Reservation> findAllReservationsFromDepartmentList(String city){
+
+  public List<Reservation> findAllReservationsFromDepartmentList(String city) {
     Query query = entityManager.createNamedQuery("Reservations.findAllReservationsFromDepartment");
     query.setParameter("city", city);
     return query.getResultList();
   }
 
-  public List<Reservation> findReservationsByCars(Long id){
+  public List<Reservation> findReservationsByCars(Long id) {
     Query query = entityManager.createNamedQuery("Reservations.findReservationsByCars");
     query.setParameter("id", id);
     return query.getResultList();
   }
 
-  public List<Reservation> findAllClientReservations(Long id){
+  public List<Reservation> findAllClientReservations(Long id) {
     Query query = entityManager.createNamedQuery("Reservations.findReservationsByCars");
     query.setParameter("id", id);
     return query.getResultList();

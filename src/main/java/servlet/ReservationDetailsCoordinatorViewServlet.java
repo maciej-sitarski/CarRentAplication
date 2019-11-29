@@ -7,7 +7,6 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 import service.ReservationEquipmentService;
 import service.ReservationService;
 
-@WebServlet("/client-reservation-view")
-public class ClientReservationViewServlet extends HttpServlet {
+@WebServlet("/coordinator-reservations-details")
+public class ReservationDetailsCoordinatorViewServlet extends HttpServlet {
 
   @Inject
   TemplateProvider templateProvider;
@@ -33,13 +32,16 @@ public class ClientReservationViewServlet extends HttpServlet {
   @EJB
   ReservationEquipmentService reservationEquipmentService;
 
-
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    Template template = templateProvider.getTemplate(getServletContext(), "client-reservation-view.ftlh");
-    PrintWriter printWriter = resp.getWriter();
+
+    Template template = templateProvider
+        .getTemplate(getServletContext(), "coordinator-reservation-details-view.ftlh");
+
     Map<String, Object> dataModel = new HashMap<>();
+
+    PrintWriter printWriter = resp.getWriter();
 
     String position = (String) req.getSession().getAttribute("type");
     dataModel.put("type", position);
@@ -47,18 +49,10 @@ public class ClientReservationViewServlet extends HttpServlet {
     Long reservationId = Long.valueOf(req.getParameter("reservationId"));
     ReservationDto reservationDto = reservationService.findReservationDtoById(reservationId);
     dataModel.put("reservation", reservationDto);
-    dataModel.put("reservationId", reservationId);
 
-    List<ReservationEquipmentDto> reservationEquipmentDtoList = reservationEquipmentService.findReservationEquipmentDtoListByReservationId(reservationId);
+    List<ReservationEquipmentDto> reservationEquipmentDtoList = reservationEquipmentService
+        .findReservationEquipmentDtoListByReservationId(reservationId);
     dataModel.put("reservationEquipments", reservationEquipmentDtoList);
-
-    try {
-      Long period = reservationService.countingNumberOfDayOfReservation(reservationDto.getStartDate(), reservationDto.getEndDate());
-      dataModel.put("period", period);
-    } catch (ParseException e) {
-      e.printStackTrace();
-    }
-
 
     try {
       template.process(dataModel, printWriter);
@@ -66,5 +60,4 @@ public class ClientReservationViewServlet extends HttpServlet {
       e.printStackTrace();
     }
   }
-
 }

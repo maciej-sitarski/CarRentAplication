@@ -1,6 +1,5 @@
 package rest;
 
-import dao.ClientDaoBean;
 import dao.DepartmentDaoBean;
 import dao.WorkerDaoBean;
 import entity.Client;
@@ -29,10 +28,10 @@ public class PrivilegeClientsController {
   DepartmentDaoBean departmentDaoBean;
 
 
-
   @PATCH
   @Path("/{permission}/{id}")
-  public Response giveWorkerPermissions(@PathParam("id") String idParam, @PathParam("permission") String permission) {
+  public Response giveWorkerPermissions(@PathParam("id") String idParam,
+      @PathParam("permission") String permission) {
     Long id = Long.valueOf(idParam);
 
     Client client = clientService.findClientById(id);
@@ -43,13 +42,13 @@ public class PrivilegeClientsController {
     worker.setPassword(client.getPassword());
     worker.setEmail(client.getEmail());
     worker.setDepartment(departmentDaoBean.findWarszawaDepartment());
-    if(permission.equals("giveManager")){
+    if (permission.equals("giveManager")) {
       worker.setPosition(positionService.findMenagerPosition());
     }
-    if(permission.equals("giveWorker")){
+    if (permission.equals("giveWorker")) {
       worker.setPosition(positionService.findWorkerPosition());
     }
-    if(permission.equals("giveCoordinator")){
+    if (permission.equals("giveCoordinator")) {
       worker.setPosition(positionService.findCoordinatorPosition());
     }
     workerDaoBean.saveWorker(worker);
@@ -64,6 +63,4 @@ public class PrivilegeClientsController {
     clientService.deleteClientById(id);
     return Response.ok().build();
   }
-
-
 }

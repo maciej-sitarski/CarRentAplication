@@ -1,8 +1,5 @@
 package servlet;
 
-import dao.ReservationDaoBean;
-import dto.DepartmentDto;
-import entity.Reservation;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -10,7 +7,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.inject.Inject;
@@ -19,8 +15,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import service.ReservationService;
 
 @WebServlet("/reservations-summary")
@@ -31,11 +25,6 @@ public class ReservationFourthStepServlet extends HttpServlet {
 
   @EJB
   ReservationService reservationService;
-
-  @EJB
-  ReservationDaoBean reservationDaoBean;
-
-  private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -48,7 +37,7 @@ public class ReservationFourthStepServlet extends HttpServlet {
     String position = (String) req.getSession().getAttribute("type");
     dataModel.put("type", position);
 
-    Long id = (Long)req.getSession().getAttribute("id");
+    Long id = (Long) req.getSession().getAttribute("id");
     dataModel.put("id", id);
 
     String departmentStart = (String) req.getSession().getAttribute("departmentStart");
@@ -80,7 +69,8 @@ public class ReservationFourthStepServlet extends HttpServlet {
 
     try {
       Long finalPrice = reservationService
-          .countingPriceOfReservation(startDate, backDate, sectionPrice, babyCarrier, smallSeat, seat,
+          .countingPriceOfReservation(startDate, backDate, sectionPrice, babyCarrier, smallSeat,
+              seat,
               navigation, insuranceBasic, insuranceFull, babyCarriesNumbers, smallSeatNumbers,
               seatNumbers);
       dataModel.put("finalPrice", finalPrice);

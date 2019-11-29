@@ -16,7 +16,6 @@ public class WorkerDtoMapper {
 
   public WorkerDto mapWorkerToDto(Worker worker) {
     WorkerDto workerDto = new WorkerDto();
-
     workerDto.setId(worker.getId());
     workerDto.setNameAndSurname(worker.getFullName());
     workerDto.setEmail(worker.getEmail());
@@ -25,7 +24,6 @@ public class WorkerDtoMapper {
     workerDto.setPassword(worker.getPassword());
     workerDto.setDepartmentDto(departmentDtoMapper.mapDepartmentToDto(worker.getDepartment()));
     workerDto.setPositionDto(positionDtoMapper.mapPositionToDto(worker.getPosition()));
-
     return workerDto;
   }
 }

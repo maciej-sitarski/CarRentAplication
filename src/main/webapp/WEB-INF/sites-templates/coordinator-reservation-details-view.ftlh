@@ -1,4 +1,5 @@
 <#include "navbar.ftlh">
+
 <div class="container-fluid" style=" margin-bottom: 20px">
   <header class="border-bottom border-success"
           style="text-align:center;  width: 90%; margin-left: auto; margin-right: auto;margin-top: 30px; padding-bottom: 20px">
@@ -70,9 +71,6 @@
           Od <strong>${reservation.startDate} ${reservation.startHour}</strong> do
           <strong>${reservation.endDate} ${reservation.endHour}</strong>
         </li>
-        <li>
-          Liczba dni: <strong>${period}</strong>
-        </li>
         <br/>
       </ul>
       <h4 style="color: #0088cc; margin-left: 20px">Wyposażenie dodatkowe:</h4>
@@ -87,7 +85,6 @@
                 <li>
                     ${reservationEquipment.equipmentDto.equipmentType}
                 </li>
-
               </#if>
           </#list>
       </ul>
@@ -99,12 +96,8 @@
               style="margin-bottom:20px;margin-top:20px; margin-left: 20px; width: 20%;"
               onclick="goBack();">Powrót
       </button>
-      <button id="deleteReservation" data-id-reservation="${reservationId}"
-              class="btn btn-danger"
-              style=" margin-bottom:20px;margin-top:20px; margin-left: 20px; width: 30%">
-        Usuń rezerwację
-      </button>
     </div>
   </div>
 </div>
+
 <#include "footer.ftlh">

@@ -1,13 +1,11 @@
 package servlet;
 
-import dto.DepartmentDto;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -26,7 +24,8 @@ public class SuccessDeleteReservationViewServlet extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
 
-    Template template = templateProvider.getTemplate(getServletContext(), "success-delete-reservation-view.ftlh");
+    Template template = templateProvider
+        .getTemplate(getServletContext(), "success-delete-reservation-view.ftlh");
     Map<String, Object> dataModel = new HashMap<>();
     PrintWriter printWriter = resp.getWriter();
 
@@ -39,5 +38,4 @@ public class SuccessDeleteReservationViewServlet extends HttpServlet {
       e.printStackTrace();
     }
   }
-
 }

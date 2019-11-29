@@ -17,16 +17,12 @@ public class DepartmentDaoBean {
     entityManager.persist(department);
   }
 
-  public Department findDepartmentById(Long id) {
-    return entityManager.find(Department.class, id);
-  }
-
   public List<Department> findAllDepartments() {
     Query query = entityManager.createNamedQuery("Departments.findAll", Department.class);
     return query.getResultList();
   }
 
-  public Department findWarszawaDepartment(){
+  public Department findWarszawaDepartment() {
     Query query = entityManager.createNamedQuery("Department.findWarszawa", Department.class);
     List<Department> positions = query.getResultList();
     return positions.get(0);

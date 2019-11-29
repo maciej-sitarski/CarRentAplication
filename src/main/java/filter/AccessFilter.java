@@ -19,7 +19,6 @@ public class AccessFilter implements Filter {
 
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
-
   }
 
   @Override
@@ -27,16 +26,14 @@ public class AccessFilter implements Filter {
       FilterChain filterChain) throws IOException, ServletException {
     HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
     HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
-    if (!httpServletRequest.getSession().getAttribute("type").equals("Admin") && !httpServletRequest.getSession().getAttribute("type").equals( "Menadżer")) {
+    if (!httpServletRequest.getSession().getAttribute("type").equals("Admin") && !httpServletRequest
+        .getSession().getAttribute("type").equals("Menadżer")) {
       httpServletResponse.sendRedirect("/main");
     }
-
     filterChain.doFilter(httpServletRequest, httpServletResponse);
   }
 
   @Override
   public void destroy() {
-
   }
-
 }

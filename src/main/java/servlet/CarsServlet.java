@@ -20,7 +20,7 @@ import service.CarService;
 import service.SectionService;
 
 @WebServlet("/cars")
-public class CarsServlet extends HttpServlet{
+public class CarsServlet extends HttpServlet {
 
   @Inject
   TemplateProvider templateProvider;
@@ -44,7 +44,6 @@ public class CarsServlet extends HttpServlet{
     List<CarDto> uniqueCarList = carService.uniqueCarsList();
     List<SectionDto> sectionsList = sectionService.sectionList();
 
-
     dataModel.put("cars", uniqueCarList);
     dataModel.put("sections", sectionsList);
     try {
@@ -53,5 +52,4 @@ public class CarsServlet extends HttpServlet{
       e.printStackTrace();
     }
   }
-
 }

@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "service")
+@Table(name = "service")
 public class Service {
 
   @Id
@@ -26,7 +26,6 @@ public class Service {
   @ManyToOne
   @JoinColumn(name = "car_id")
   Car cars;
-
 
   public Service() {
   }

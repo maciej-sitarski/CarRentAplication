@@ -1,7 +1,6 @@
 package filter;
 
 import java.io.IOException;
-import javax.ejb.EJB;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -11,7 +10,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import service.ClientService;
 
 @WebFilter(
     filterName = "StatusFilter",
@@ -19,12 +17,8 @@ import service.ClientService;
 )
 public class StatusFilter implements Filter {
 
-  @EJB
-  ClientService clientService;
-
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
-
   }
 
   @Override
@@ -35,13 +29,10 @@ public class StatusFilter implements Filter {
     if (httpServletRequest.getSession().getAttribute("type") == null) {
       httpServletRequest.getSession().setAttribute("type", "Guest");
     }
-
     filterChain.doFilter(httpServletRequest, httpServletResponse);
   }
 
   @Override
   public void destroy() {
-
   }
-
 }

@@ -53,7 +53,6 @@
           <#else>
             <img class="img" id="img-car-summary" src="img/BrakZdj.png">
           </#if>
-
       </div>
     </div>
     <div class="col-md-6">
@@ -122,8 +121,8 @@
               data-id-departmentStart="${departmentStart}"
               <#if insuranceFull??>
                 data-id-insuranceFull="${insuranceFull}"
-                  <#else>
-                    data-id-insuranceFull="empty"
+              <#else>
+                data-id-insuranceFull="empty"
               </#if>
               <#if insuranceBasic??>
                 data-id-insuranceBasic="${insuranceBasic}"

@@ -66,29 +66,29 @@
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
           </li>
-        <#elseif type=="Admin" || type=="Menagement">
+        <#elseif type=="Admin" || type=="Menadżer">
           <li class="nav-item mr-4 dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#"
-               aria-expanded="false" id="submenu" aria-haspopup="true">Panel pracownika</a>
+               aria-expanded="false" id="submenu" aria-haspopup="true">Panel administratora</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
               <a class="dropdown-item" href="/workers">Pracownicy</a>
               <a class="dropdown-item" href="/clients">Użytkownicy</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
           </li>
-        <#elseif type=="Coordinator">
+        <#elseif type=="Koordynator">
           <li class="nav-item mr-4 dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#"
-               aria-expanded="false" id="submenu" aria-haspopup="true">Panel pracownika</a>
+               aria-expanded="false" id="submenu" aria-haspopup="true">Panel koordynatora</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
-              <a class="dropdown-item" href="#">Pracownicy</a>
+              <a class="dropdown-item" href="/reservations-assign">Zlecenia</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
           </li>
-        <#elseif type=="Worker">
+        <#elseif type=="Pracownik">
           <li class="nav-item mr-4 dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#"
-               aria-expanded="false" id="submenu" aria-haspopup="true" >Panel pracownika</a>
+               aria-expanded="false" id="submenu" aria-haspopup="true">Panel pracownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
               <a class="dropdown-item" href="#">Zlecenia</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
