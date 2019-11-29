@@ -30,7 +30,7 @@
           <td>${client.clientTypeDto.type}</td>
           <td>${client.clientTypeDto.discount}</td>
               <td class=" dropdown">
-                <a class="dropdown-toggler" data-toggle="dropdown" role="button" href="#"
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#"
                    aria-expanded="false" id="submenu" aria-haspopup="true" style="color: white">Nadaj uprawnienia</a>
                 <div class="dropdown-menu" aria-labelledby="submenu">
                   <button class="dropdown-item btn btn-primary givePermission" data-id-client="${client.id}" data-id-permission="giveManager">Menadżer</button>

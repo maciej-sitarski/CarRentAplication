@@ -14,6 +14,10 @@ import javax.persistence.Table;
 
 @NamedQueries({
     @NamedQuery(
+        name = "Positions.findAll",
+        query = "SELECT p FROM Position p"
+    ),
+    @NamedQuery(
         name = "Position.findWorker",
         query = "SELECT p FROM Position p WHERE p.name LIKE 'Pracownik'"
     ),

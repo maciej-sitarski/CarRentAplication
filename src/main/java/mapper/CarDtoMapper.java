@@ -17,15 +17,16 @@ public class CarDtoMapper {
   @EJB
   ModelDtoMapper modelDtoMapper;
 
+  @EJB
+  ServiceDtoMapper serviceDtoMapper;
+
   public CarDto mapCarToDto(Car car){
     CarDto carDto = new CarDto();
-
     carDto.setId(car.getId());
     carDto.setRegistrationNumber(car.getRegistrationNumber());
     carDto.setBrandDto(brandDtoMapper.mapBrandToDto(car.getBrand()));
     carDto.setDepartmentDto(departmentDtoMapper.mapDepartmentToDto(car.getDepartment()));
     carDto.setModelDto(modelDtoMapper.mapModelToDto(car.getModel()));
-
     return carDto;
   }
 }

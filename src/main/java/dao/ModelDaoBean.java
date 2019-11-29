@@ -25,4 +25,10 @@ public class ModelDaoBean {
     Query query = entityManager.createNamedQuery("Models.findAll");
     return query.getResultList();
   }
+
+  public List<Model> findModelListBySection(String name){
+    Query query = entityManager.createNamedQuery("Models.findAllBySection");
+    query.setParameter("name", name);
+    return query.getResultList();
+  }
 }

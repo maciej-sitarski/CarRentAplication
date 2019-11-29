@@ -22,6 +22,11 @@ public class PositionDaoBean {
     return entityManager.find(Position.class, id);
   }
 
+  public List<Position> findAllPosition() {
+    Query query = entityManager.createNamedQuery("Positions.findAll", Position.class);
+    return query.getResultList();
+  }
+
   public Position findWorkerPosition(){
     Query query = entityManager.createNamedQuery("Position.findWorker", Position.class);
     List<Position> positions = query.getResultList();

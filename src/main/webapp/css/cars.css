@@ -4,6 +4,13 @@
   margin-bottom: 10px;
 }
 
+#img-car-summary {
+  width: 80%;
+  height: auto;
+  margin-bottom: 0px;
+
+}
+
 .car-signature{
   color: black;
   text-decoration: none;

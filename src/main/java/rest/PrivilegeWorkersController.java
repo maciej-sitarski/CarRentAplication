@@ -4,7 +4,10 @@ import dao.DepartmentDaoBean;
 import dao.PositionDaoBean;
 import dao.WorkerDaoBean;
 import entity.Client;
+import entity.Department;
+import entity.Position;
 import entity.Worker;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.PATCH;
 import javax.ws.rs.Path;
@@ -32,33 +35,8 @@ public class PrivilegeWorkersController {
   public Response giveWorkerDepartment(@PathParam("id") String idParam, @PathParam("department") String department) {
     Long id = Long.valueOf(idParam);
     Worker worker = workerDaoBean.findWorkerById(id);
-
-    switch (department) {
-      case "Gdansk":
-        worker.setDepartment(departmentDaoBean.findGdanskDepartment());
-        break;
-      case "Warszawa":
-        worker.setDepartment(departmentDaoBean.findWarszawaDepartment());
-        break;
-      case "Lodz":
-        worker.setDepartment(departmentDaoBean.findLodzDepartment());
-        break;
-      case "Krakow":
-        worker.setDepartment(departmentDaoBean.findKrakowDepartment());
-        break;
-      case "Wroclaw":
-        worker.setDepartment(departmentDaoBean.findWroclawDepartment());
-        break;
-      case "Szczecin":
-        worker.setDepartment(departmentDaoBean.findSzczecinDepartment());
-        break;
-      case "Lublin":
-        worker.setDepartment(departmentDaoBean.findLublinDepartment());
-        break;
-      case "Poznan":
-        worker.setDepartment(departmentDaoBean.findPoznanDepartment());
-        break;
-    }
+    List<Department> departments = departmentDaoBean.findAllDepartments();
+    worker.setDepartment(departments.stream().filter(department1 -> department1.getCity().equals(department)).findFirst().get());
     workerDaoBean.updateWorker(worker);
     return Response.ok().build();
   }
@@ -67,10 +45,9 @@ public class PrivilegeWorkersController {
   public Response giveWorkerPermission(@PathParam("id") String idParam, @PathParam("permission") String permission) {
     Long id = Long.valueOf(idParam);
     Worker worker = workerDaoBean.findWorkerById(id);
-
     switch (permission) {
       case "giveMenager":
-        worker.setPosition(positionDaoBean.findMenagerPosition());
+       worker.setPosition(positionDaoBean.findMenagerPosition());
         workerDaoBean.updateWorker(worker);
         break;
       case "giveCoordinator":
@@ -84,7 +61,7 @@ public class PrivilegeWorkersController {
       case "delete":
         workerDaoBean.deleteWorker(id);
         break;
-    }
+   }
     return Response.ok().build();
   }
 }

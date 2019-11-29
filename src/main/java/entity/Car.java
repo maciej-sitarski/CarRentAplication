@@ -22,6 +22,18 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "Cars.findUnique",
         query = "SELECT distinct(c.model) FROM Car c"
+    ),
+    @NamedQuery(
+        name = "Cars.findCarsByDepartment",
+        query = "SELECT c FROM Car c  WHERE c.department.city = :city"
+    ),
+    @NamedQuery(
+        name = "Cars.findCarsByBrands",
+        query = "SELECT c FROM Car c  INNER JOIN c.brand b WHERE b.name = :name"
+    ),
+    @NamedQuery(
+        name = "Cars.findCarsByModel",
+        query = "SELECT c FROM Car c  INNER JOIN c.model m WHERE m.name = :name"
     )
 })
 
@@ -52,7 +64,19 @@ public class Car {
   @JoinColumn(name = "model_id")
   Model model;
 
+  @OneToMany(mappedBy = "cars")
+  List<Service> services = new ArrayList<>();
+
   public Car() {
+  }
+
+  public Car(String registrationNumber, List<Reservation> reservations, Department department,
+      Brand brand, Model model, List<Car> cars) {
+    this.registrationNumber = registrationNumber;
+    this.reservations = reservations;
+    this.department = department;
+    this.brand = brand;
+    this.model = model;
   }
 
   public Car(String registrationNumber) {
@@ -106,4 +130,6 @@ public class Car {
   public void setModel(Model model) {
     this.model = model;
   }
+
+
 }

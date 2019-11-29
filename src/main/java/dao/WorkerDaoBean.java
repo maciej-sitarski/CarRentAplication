@@ -63,4 +63,11 @@ public class WorkerDaoBean {
     Query query = entityManager.createNamedQuery("Worker.findAll", Worker.class);
     return query.getResultList();
   }
+
+  public List<Worker> findWorkersByDepartment(String city){
+    Query query = entityManager.createNamedQuery("Worker.findWorkersByDepartment");
+    query.setParameter("city", city);
+    return query.getResultList();
+  }
+
 }
