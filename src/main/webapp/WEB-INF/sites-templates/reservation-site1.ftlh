@@ -8,7 +8,7 @@
   <br/>
 
   <div class="row text-center">
-    <div class="col-md-6 text-center">
+    <div class="col-md-12 text-center">
       <h6>Miejsce wynajmu: </h6>
       <select style="width: 80%; font-size: 20px; text-align-last:center; " name="departmentStart">
           <#list departments as department>
@@ -25,22 +25,22 @@
       </select>
 
     </div>
-    <div class="col-md-6 text-center">
-      <h6>Miejsce zwrotu: </h6>
-      <select style="width: 80%; font-size: 20px; text-align-last:center; " name="departmentFinish">
-          <#list departments as department>
-              <#if city??>
-                  <#if city == department.city>
-                    <option selected value="${department.city}">${department.city}</option>
-                  <#else>
-                    <option value="${department.city}">${department.city}</option>
-                  </#if>
-              <#else>
-                <option value="${department.city}">${department.city}</option>
-              </#if>
-          </#list>
-      </select>
-    </div>
+<#--    <div class="col-md-6 text-center">-->
+<#--      <h6>Miejsce zwrotu: </h6>-->
+<#--      <select style="width: 80%; font-size: 20px; text-align-last:center; " name="departmentFinish">-->
+<#--          <#list departments as department>-->
+<#--              <#if city??>-->
+<#--                  <#if city == department.city>-->
+<#--                    <option selected value="${department.city}">${department.city}</option>-->
+<#--                  <#else>-->
+<#--                    <option value="${department.city}">${department.city}</option>-->
+<#--                  </#if>-->
+<#--              <#else>-->
+<#--                <option value="${department.city}">${department.city}</option>-->
+<#--              </#if>-->
+<#--          </#list>-->
+<#--      </select>-->
+<#--    </div>-->
   </div>
   <br/><br/>
   <div class="row text-center">

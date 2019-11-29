@@ -1,7 +1,8 @@
 package servlet;
 
-import dao.CarDaoBean;
-import entity.Car;
+import dto.CarDto;
+import dto.ReservationDto;
+import dto.SectionDto;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -17,33 +18,31 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import service.ReservationService;
 
-
-@WebServlet("/main")
-public class MainSiteServlet extends HttpServlet {
+@WebServlet("/client-reservations")
+public class ClientReservationsServlet extends HttpServlet {
 
   @Inject
   TemplateProvider templateProvider;
 
   @EJB
-  CarDaoBean carDaoBean;
-
-  private Logger logger = LoggerFactory.getLogger(getClass().getName());
+  ReservationService reservationService;
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-
-    Template template = templateProvider.getTemplate(getServletContext(), "main-site.ftlh");
-
-    Map<String, Object> dataModel = new HashMap<>();
-
+    Template template = templateProvider.getTemplate(getServletContext(), "client-reservations.ftlh");
     PrintWriter printWriter = resp.getWriter();
+    Map<String, Object> dataModel = new HashMap<>();
 
     String position = (String) req.getSession().getAttribute("type");
     dataModel.put("type", position);
+
+    Long id = (Long)req.getSession().getAttribute("id");
+
+    List<ReservationDto> reservationsDto = reservationService.findAllClientReservationDto(id);
+    dataModel.put("reservations", reservationsDto);
 
     try {
       template.process(dataModel, printWriter);
@@ -51,4 +50,5 @@ public class MainSiteServlet extends HttpServlet {
       e.printStackTrace();
     }
   }
+
 }

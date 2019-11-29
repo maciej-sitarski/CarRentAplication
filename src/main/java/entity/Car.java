@@ -64,8 +64,8 @@ public class Car {
   @JoinColumn(name = "model_id")
   Model model;
 
-  @OneToMany(mappedBy = "service")
-  List<Car> cars = new ArrayList<>();
+  @OneToMany(mappedBy = "cars")
+  List<Service> services = new ArrayList<>();
 
   public Car() {
   }
@@ -77,7 +77,6 @@ public class Car {
     this.department = department;
     this.brand = brand;
     this.model = model;
-    this.cars = cars;
   }
 
   public Car(String registrationNumber) {
@@ -132,11 +131,5 @@ public class Car {
     this.model = model;
   }
 
-  public List<Car> getCars() {
-    return cars;
-  }
 
-  public void setCars(List<Car> cars) {
-    this.cars = cars;
-  }
 }

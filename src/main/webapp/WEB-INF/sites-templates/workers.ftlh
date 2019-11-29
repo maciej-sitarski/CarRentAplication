@@ -14,7 +14,7 @@
           <th scope="col">Numer telefonu</th>
           <th scope="col">Pesel</th>
           <th scope="col">Oddział</th>
-          <th scope="col">Oddział</th>
+          <th scope="col">Stanowisko</th>
           <th scope="col">Zmień Oddział</th>
           <th scope="col">Zmień Stanowisko</th>
         </tr>

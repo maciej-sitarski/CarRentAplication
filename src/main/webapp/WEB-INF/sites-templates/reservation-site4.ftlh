@@ -165,6 +165,7 @@
               <#else>
                 data-id-seatNumbers="empty"
               </#if>
+              data-id-reservationPrice="${finalPrice}"
               class="btn btn-success"
               style=" margin-bottom:20px;margin-top:20px; margin-left: 20px; width: 20%">
         Zarezerwuj

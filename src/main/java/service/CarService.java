@@ -82,6 +82,7 @@ public class CarService {
     Date startFormatHour = hourFormat.parse(startHour);
     Date finishFormatHour = hourFormat.parse(endHour);
 
+
     for (int i = 0; i < specifyReservationList.size(); i++) {
       if (dateFormat.parse(specifyReservationList.get(i).getStartDate()).compareTo(startFormatDate)
           > 0 &&
@@ -89,7 +90,7 @@ public class CarService {
               < 0) {
         if (availableCarsInDepartmentList.contains(specifyReservationList.get(i).getCarDto())) {
           availableCarsInDepartmentList.remove(specifyReservationList.get(i).getCarDto());
-          break;
+
         }
       } else if (
           dateFormat.parse(specifyReservationList.get(i).getEndDate()).compareTo(startFormatDate)
@@ -97,7 +98,7 @@ public class CarService {
               .compareTo(finishFormatDate) < 0) {
         if (availableCarsInDepartmentList.contains(specifyReservationList.get(i).getCarDto())) {
           availableCarsInDepartmentList.remove(specifyReservationList.get(i).getCarDto());
-          break;
+
         }
       } else if (dateFormat.parse(specifyReservationList.get(i).getStartDate())
           .compareTo(finishFormatDate) == 0 &&
@@ -105,7 +106,7 @@ public class CarService {
               .compareTo(finishFormatHour) < 0) {
         if (availableCarsInDepartmentList.contains(specifyReservationList.get(i).getCarDto())) {
           availableCarsInDepartmentList.remove(specifyReservationList.get(i).getCarDto());
-          break;
+
         }
       } else if (dateFormat.parse(specifyReservationList.get(i).getEndDate())
           .compareTo(startFormatDate) == 0 &&
@@ -113,7 +114,7 @@ public class CarService {
               .compareTo(startFormatHour) > 0) {
         if (availableCarsInDepartmentList.contains(specifyReservationList.get(i).getCarDto())) {
           availableCarsInDepartmentList.remove(specifyReservationList.get(i).getCarDto());
-          break;
+
         }
       }
 

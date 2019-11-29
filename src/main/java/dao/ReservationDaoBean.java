@@ -32,4 +32,14 @@ public class ReservationDaoBean {
     query.setParameter("id", id);
     return query.getResultList();
   }
+
+  public List<Reservation> findAllClientReservations(Long id){
+    Query query = entityManager.createNamedQuery("Reservations.findReservationsByCars");
+    query.setParameter("id", id);
+    return query.getResultList();
+  }
+
+  public void deleteReservation(Long id) {
+    entityManager.remove(entityManager.find(Reservation.class, id));
+  }
 }

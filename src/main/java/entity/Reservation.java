@@ -25,6 +25,10 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "Reservations.findReservationsByCars",
         query = "SELECT r FROM Reservation r INNER JOIN r.car c WHERE c.id = :id"
+    ),
+    @NamedQuery(
+        name = "Reservations.findAllClientReservations",
+        query = "SELECT r FROM Reservation r  WHERE r.client.id = :id"
     )
 })
 
@@ -48,6 +52,9 @@ public class Reservation {
 
   @Column(name = "end_hour")
   String endHour;
+
+  @Column(name = "price")
+  Long price;
 
   @OneToMany(mappedBy = "equipment")
   List<ReservationEquipment> reservationEquipments = new ArrayList<>();
@@ -144,5 +151,13 @@ public class Reservation {
 
   public void setEndHour(String endHour) {
     this.endHour = endHour;
+  }
+
+  public Long getPrice() {
+    return price;
+  }
+
+  public void setPrice(Long price) {
+    this.price = price;
   }
 }

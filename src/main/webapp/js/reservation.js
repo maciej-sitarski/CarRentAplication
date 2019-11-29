@@ -94,45 +94,28 @@ $(function () {
                 'data-id-smallSeat') + '/' + $(this).attr(
                 'data-id-smallSeatNumbers') + '/' + $(this).attr('data-id-seat')
             + '/' + $(this).attr('data-id-seatNumbers') + '/' + $(this).attr(
-                'data-id-departmentStart'),
+                'data-id-departmentStart')+ '/' + $(this).attr(
+                'data-id-reservationPrice'),
         type: 'PATCH',
         success: function () {
-          location.replace("/main");
+          location.replace("/reservations-success");
         }
       });
     });
   });
 });
 
-// $(function () {
-//   var departmentStart = document.getElementById("departmentStart");
-//   var departmentFinish = document.getElementById("departmentFinish");
-//   var departmentStartValue = departmentStart.options[departmentStart.selectedIndex].text;
-//   var departmentFinishValue = departmentFinish.options[departmentFinish.selectedIndex].text;
-//   $("#firstStepOfReservation").click(function () {
-//     $.ajax({
-//       url: "/reservations",
-//       method: "POST",
-//       data: $('form#form-reservation').serialize(),
-//       success: function () {
-//         window.location("/reservations-cars?startDate="+$(this).attr('data-id-startDate')+"&startHour="+$(this).attr('data-id-startHour')+"&backDate="+$(this).attr('data-id-backDate')+"&backHour="+$(this).attr('data-id-backHour')+"&departmentStart="+departmentStartValue+"&departmentFinish="+departmentFinishValue);
-//       }
-//     });
-//   });
-// });
-// $(function () {
-//   var departmentStart = document.getElementById("departmentStart");
-//   var departmentFinish = document.getElementById("departmentFinish");
-//   var departmentStartValue = departmentStart.options[departmentStart.selectedIndex].text;
-//   var departmentFinishValue = departmentFinish.options[departmentFinish.selectedIndex].text;
-//   $("#firstStepOfReservation").click(function () {
-//     $.ajax({
-//       url: "/reservations",
-//       method: "POST",
-//       data: $('form#form-reservation').serialize(),
-//       success: function () {
-//         window.location("/reservations-cars?startDate="+$(this).attr('data-id-startDate')+"&startHour="+$(this).attr('data-id-startHour')+"&backDate="+$(this).attr('data-id-backDate')+"&backHour="+$(this).attr('data-id-backHour')+"&departmentStart="+departmentStartValue+"&departmentFinish="+departmentFinishValue);
-//       }
-//     });
-//   });
-// });
+$(function () {
+  $(document).ready(function () {
+    $("#deleteReservation").click(function () {
+      $.ajax({
+        url: '/api/reservations/delete/' + $(this).attr('data-id-reservation'),
+        type: 'PATCH',
+        success: function () {
+          location.replace("/reservations-delete-success");
+        }
+      });
+    });
+  });
+});
+

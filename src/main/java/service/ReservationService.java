@@ -6,6 +6,7 @@ import dao.ReservationDaoBean;
 import dto.CarDto;
 import dto.ReservationDto;
 import entity.Equipment;
+import entity.Reservation;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -48,25 +49,25 @@ public class ReservationService {
     Long numberOfDays = countingNumberOfDayOfReservation(startDate, finishDate);
     Long finalPrice = 0L;
     List<Equipment> equipments = equipmentDaoBean.findAllEquipments();
-    if(babyCarrier != null){
-      finalPrice=finalPrice+Long.parseLong(babyCarriesNumbers)*equipments.get(0).getPrice();
+    if (babyCarrier != null) {
+      finalPrice = finalPrice + Long.parseLong(babyCarriesNumbers) * equipments.get(0).getPrice();
     }
-    if(smallSeat != null){
-      finalPrice=finalPrice+Long.parseLong(smallSeatNumbers)*equipments.get(1).getPrice();
+    if (smallSeat != null) {
+      finalPrice = finalPrice + Long.parseLong(smallSeatNumbers) * equipments.get(1).getPrice();
     }
-    if(seat != null){
-      finalPrice=finalPrice+Long.parseLong(seatNumbers)*equipments.get(2).getPrice();
+    if (seat != null) {
+      finalPrice = finalPrice + Long.parseLong(seatNumbers) * equipments.get(2).getPrice();
     }
-    if(navigation != null){
-      finalPrice=finalPrice+equipments.get(3).getPrice();
+    if (navigation != null) {
+      finalPrice = finalPrice + equipments.get(3).getPrice();
     }
-    if(insuranceBasic != null){
-      finalPrice=finalPrice+equipments.get(4).getPrice();
+    if (insuranceBasic != null) {
+      finalPrice = finalPrice + equipments.get(4).getPrice();
     }
-    if(insuranceFull != null){
-      finalPrice=finalPrice+equipments.get(5).getPrice();
+    if (insuranceFull != null) {
+      finalPrice = finalPrice + equipments.get(5).getPrice();
     }
-    return (finalPrice+Long.parseLong(sectionPrice))*numberOfDays;
+    return (finalPrice + Long.parseLong(sectionPrice)) * numberOfDays;
   }
 
   public Long countingNumberOfDayOfReservation(String startDate, String finishDate)
@@ -75,9 +76,25 @@ public class ReservationService {
     Date startFormatDate = dateFormat.parse(startDate);
     Date finishFormatDate = dateFormat.parse(finishDate);
 
-
     long duration = finishFormatDate.getTime() - startFormatDate.getTime();
 
-    return duration/(1000*60*60*24);
+    return duration / (1000 * 60 * 60 * 24);
+  }
+
+  public List<ReservationDto> findAllClientReservationDto(Long id) {
+    List<ReservationDto> reservationsDto = reservationDaoBean.findAllClientReservations(id).stream()
+        .map(reservation -> reservationDtoMapper.mapReservationToDto(reservation)).collect(
+            Collectors.toList());
+    return reservationsDto;
+  }
+
+  public ReservationDto findReservationDtoById(Long id) {
+    ReservationDto reservationDto = reservationDtoMapper.mapReservationToDto(reservationDaoBean.findReservationById(id));
+    return reservationDto;
+  }
+
+  public Reservation findReservationById(Long id) {
+    Reservation reservation = reservationDaoBean.findReservationById(id);
+    return reservation;
   }
 }

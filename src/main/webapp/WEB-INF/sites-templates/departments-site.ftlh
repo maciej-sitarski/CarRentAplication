@@ -43,9 +43,12 @@
       </h1><br/>
         <#list departments as department>
           <li>
-            <a class="department" href="/reservations?city=${department.city}">${department.city}</a>
+            <a class="department"
+               href="/reservations?city=${department.city}">${department.city}</a>
           </li>
         </#list>
     </div>
+  </div>
+</div>
 
 <#include "footer.ftlh">

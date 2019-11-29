@@ -25,6 +25,8 @@ import org.slf4j.LoggerFactory;
 import service.CarService;
 import service.ClientService;
 import service.EquipmentService;
+import service.ReservationEquipmentService;
+import service.ReservationService;
 import service.WorkerService;
 
 @Path("/reservations")
@@ -51,10 +53,16 @@ public class ReservationController {
   @EJB
   WorkerService workerService;
 
+  @EJB
+  ReservationService reservationService;
+
+  @EJB
+  ReservationEquipmentService reservationEquipmentService;
+
   private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
   @PATCH
-  @Path("/save/{startDate}/{startHour}/{backDate}/{backHour}/{modelName}/{idClient}/{insuranceFull}/{insuranceBasic}/{navigation}/{babyCarrier}/{babyCarriesNumbers}/{smallSeat}/{smallSeatNumbers}/{seat}/{seatNumbers}/{departmentStart}")
+  @Path("/save/{startDate}/{startHour}/{backDate}/{backHour}/{modelName}/{idClient}/{insuranceFull}/{insuranceBasic}/{navigation}/{babyCarrier}/{babyCarriesNumbers}/{smallSeat}/{smallSeatNumbers}/{seat}/{seatNumbers}/{departmentStart}/{reservationPrice}")
   public Response saveReservation(
       @PathParam("startDate") String startDate, @PathParam("startHour") String startHour,
       @PathParam("backDate") String backDate, @PathParam("backHour") String backHour,
@@ -63,7 +71,7 @@ public class ReservationController {
       @PathParam("navigation") String navigation, @PathParam("babyCarrier") String babyCarrier,
       @PathParam("babyCarriesNumbers") String babyCarriesNumbers, @PathParam("smallSeat") String smallSeat,
       @PathParam("smallSeatNumbers") String smallSeatNumbers, @PathParam("seat") String seat,
-      @PathParam("seatNumbers") String seatNumbers, @PathParam("departmentStart") String departmentStart)
+      @PathParam("seatNumbers") String seatNumbers, @PathParam("departmentStart") String departmentStart, @PathParam("reservationPrice") Long reservationPrice)
       throws ParseException {
 
     Reservation reservation =  new Reservation();
@@ -71,6 +79,7 @@ public class ReservationController {
     reservation.setStartHour(startHour);
     reservation.setEndDate(backDate);
     reservation.setEndHour(backHour);
+    reservation.setPrice(reservationPrice);
     reservation.setClient(clientService.findClientById(idClient));
     reservation.setWorker(workerService.findWorkerByEmail("randomWorker").get());
     CarDto carDto = carService.findSpecifyAbilityCarsList(departmentStart,startDate,backDate,startHour,backHour).stream().findFirst().get();
@@ -133,6 +142,18 @@ public class ReservationController {
       reservationEquipment.setReservation(reservation);
       reservationEquipmentDao.saveReservationEquipment(reservationEquipment);
     }
+
+    return Response.ok().build();
+  }
+
+  @PATCH
+  @Path("/delete/{reservationId}")
+  public Response deleteReservation(
+      @PathParam("reservationId") Long reservationId){
+
+    List<ReservationEquipment> reservationEquipments = reservationEquipmentService.findReservationEquipmentListByReservationId(reservationId);
+    reservationEquipments.forEach(reservationEquipment -> reservationEquipmentDao.deleteReservationEquipment(reservationEquipment.getId()));
+    reservationDaoBean.deleteReservation(reservationId);
 
     return Response.ok().build();
   }

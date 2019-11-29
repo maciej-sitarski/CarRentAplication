@@ -62,7 +62,7 @@
                aria-expanded="false" id="submenu" aria-haspopup="true">Panel użytkownika</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
               <a class="dropdown-item" href="/profile">Profil użytkownika</a>
-              <a class="dropdown-item" href="#">Twoje rezerwacje</a>
+              <a class="dropdown-item" href="/client-reservations">Twoje rezerwacje</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
           </li>
