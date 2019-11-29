@@ -11,19 +11,15 @@ public class PositionService {
   @EJB
   PositionDaoBean positionDaoBean;
 
-  public Position findWorkerPosition(){
+  public Position findWorkerPosition() {
     return positionDaoBean.findWorkerPosition();
   }
 
-  public Position findAdminPosition(){
-    return positionDaoBean.findAdminPosition();
-  }
-
-  public Position findCoordinatorPosition(){
+  public Position findCoordinatorPosition() {
     return positionDaoBean.findCoordinatorPosition();
   }
 
-  public Position findMenagerPosition(){
+  public Position findMenagerPosition() {
     return positionDaoBean.findMenagerPosition();
   }
 

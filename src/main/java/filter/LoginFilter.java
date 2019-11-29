@@ -26,7 +26,6 @@ public class LoginFilter implements Filter {
 
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
-
   }
 
   @Override
@@ -38,7 +37,8 @@ public class LoginFilter implements Filter {
       String email = httpServletRequest.getParameter("email");
       String password = httpServletRequest.getParameter("password");
       String hashPassword = DigestUtils.md5Hex(password);
-      if(!loginService.isClientInDataBase(email,hashPassword) && !loginService.isWorkerInDataBase(email,hashPassword)){
+      if (!loginService.isClientInDataBase(email, hashPassword) && !loginService
+          .isWorkerInDataBase(email, hashPassword)) {
         httpServletResponse
             .sendError(1, "Aby się zalogować, najpierw załóż konto.");
       }
@@ -48,6 +48,5 @@ public class LoginFilter implements Filter {
 
   @Override
   public void destroy() {
-
   }
 }

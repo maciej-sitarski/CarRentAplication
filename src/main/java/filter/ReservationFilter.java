@@ -20,7 +20,6 @@ public class ReservationFilter implements Filter {
 
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
-
   }
 
   @Override
@@ -41,7 +40,7 @@ public class ReservationFilter implements Filter {
         httpServletResponse.sendError(1, "Wypełnij datę odbioru i spróbuj ponownie");
       } else if (startHour.isEmpty()) {
         httpServletResponse.sendError(1, "Wypełnij godzinę odbioru i spróbuj ponownie");
-      }  else if (backDate.isEmpty()) {
+      } else if (backDate.isEmpty()) {
         httpServletResponse.sendError(1, "Wypełnij datę zwrotu i spróbuj ponownie");
       } else if (backHour.isEmpty()) {
         httpServletResponse.sendError(1, "Wypełnij godzinę zwrotu i spróbuj ponownie");
@@ -52,6 +51,5 @@ public class ReservationFilter implements Filter {
 
   @Override
   public void destroy() {
-
   }
 }

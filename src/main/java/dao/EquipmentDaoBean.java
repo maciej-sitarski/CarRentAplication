@@ -1,7 +1,6 @@
 package dao;
 
 import entity.Equipment;
-import entity.Position;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

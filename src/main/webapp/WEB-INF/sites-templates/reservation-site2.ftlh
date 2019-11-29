@@ -67,12 +67,13 @@
                           </#if>
                       </div>
                       <div class="text-center">
-                        <button onclick="redirectToEquipmentSite('${departmentStart}', '${startDate}','${startHour}', '${backDate}', '${backHour}', '${car.brandDto.name}', '${car.modelDto.name}', '${car.modelDto.sectionDto.name}', '${car.modelDto.sectionDto.price}')"
-                        class="btn btn-primary" style="font-size:20px; width:70%; margin-bottom:20px">
-                          ${car.brandDto.name}  ${car.modelDto.name}
+                        <button
+                            onclick="redirectToEquipmentSite('${departmentStart}', '${startDate}','${startHour}', '${backDate}', '${backHour}', '${car.brandDto.name}', '${car.modelDto.name}', '${car.modelDto.sectionDto.name}', '${car.modelDto.sectionDto.price}')"
+                            class="btn btn-primary"
+                            style="font-size:20px; width:70%; margin-bottom:20px">
+                            ${car.brandDto.name}  ${car.modelDto.name}
                         </button>
                       </div>
-
                     </#if>
                 </div>
               </#list>

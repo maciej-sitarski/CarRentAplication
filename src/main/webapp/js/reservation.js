@@ -94,7 +94,7 @@ $(function () {
                 'data-id-smallSeat') + '/' + $(this).attr(
                 'data-id-smallSeatNumbers') + '/' + $(this).attr('data-id-seat')
             + '/' + $(this).attr('data-id-seatNumbers') + '/' + $(this).attr(
-                'data-id-departmentStart')+ '/' + $(this).attr(
+                'data-id-departmentStart') + '/' + $(this).attr(
                 'data-id-reservationPrice'),
         type: 'PATCH',
         success: function () {

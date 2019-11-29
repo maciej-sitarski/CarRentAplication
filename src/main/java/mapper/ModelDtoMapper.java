@@ -11,13 +11,11 @@ public class ModelDtoMapper {
   @EJB
   SectionDtoMapper sectionDtoMapper;
 
-  public ModelDto mapModelToDto(Model model){
+  public ModelDto mapModelToDto(Model model) {
     ModelDto modelDto = new ModelDto();
-
     modelDto.setId(model.getId());
     modelDto.setName(model.getName());
     modelDto.setSectionDto(sectionDtoMapper.mapSectionToDto(model.getSection()));
-
     return modelDto;
   }
 }

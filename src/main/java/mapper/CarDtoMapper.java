@@ -17,10 +17,7 @@ public class CarDtoMapper {
   @EJB
   ModelDtoMapper modelDtoMapper;
 
-  @EJB
-  ServiceDtoMapper serviceDtoMapper;
-
-  public CarDto mapCarToDto(Car car){
+  public CarDto mapCarToDto(Car car) {
     CarDto carDto = new CarDto();
     carDto.setId(car.getId());
     carDto.setRegistrationNumber(car.getRegistrationNumber());

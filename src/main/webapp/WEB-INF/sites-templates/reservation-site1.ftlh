@@ -23,7 +23,6 @@
               </#if>
           </#list>
       </select>
-
     </div>
 <#--    <div class="col-md-6 text-center">-->
 <#--      <h6>Miejsce zwrotu: </h6>-->
@@ -67,11 +66,11 @@
   <br/><br/>
   <div class="row text-center">
     <div class="col-md-12">
-        <#if type != "Guest">
+        <#if type == "Client">
           <button class="btn btn-success" type="submit" style="margin-bottom: 20px; width:70%;">
             Dalej
           </button>
-        <#else>
+        <#elseif type == "Guest">
           <a class="btn btn-primary" href="#" style="margin-bottom: 20px; width:70%;"
              data-toggle="modal" data-target="#loginModal">Zaloguj się, aby zarezerwować</a>
         </#if>

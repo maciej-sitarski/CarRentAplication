@@ -1,14 +1,11 @@
 package servlet;
 
-import dto.CarDto;
 import dto.EquipmentDto;
-import dto.SectionDto;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +61,6 @@ public class ReservationThirdStepServlet extends HttpServlet {
     req.getSession().setAttribute("sectionName", sectionName);
     req.getSession().setAttribute("sectionPrice", sectionPrice);
 
-
     try {
       template.process(dataModel, printWriter);
     } catch (TemplateException e) {
@@ -96,7 +92,6 @@ public class ReservationThirdStepServlet extends HttpServlet {
     req.getSession().setAttribute("babyCarriesNumbers", babyCarriesNumbers);
     req.getSession().setAttribute("smallSeatNumbers", smallSeatNumbers);
     req.getSession().setAttribute("seatNumbers", seatNumbers);
-
 
     resp.sendRedirect(
         "/reservations-summary");

@@ -12,15 +12,12 @@ public class SectionMapper {
   @EJB
   ModelDaoBean modelDaoBean;
 
-  public Section mapSection(SectionDto sectionDto){
+  public Section mapSection(SectionDto sectionDto) {
     Section section = new Section();
-
-  section.setName(sectionDto.getName());
-  section.setPrice(sectionDto.getPrice());
-  section.setId(sectionDto.getId());
-  section.setModels(modelDaoBean.findModelListBySection(sectionDto.getName()));
-
+    section.setName(sectionDto.getName());
+    section.setPrice(sectionDto.getPrice());
+    section.setId(sectionDto.getId());
+    section.setModels(modelDaoBean.findModelListBySection(sectionDto.getName()));
     return section;
   }
-
 }

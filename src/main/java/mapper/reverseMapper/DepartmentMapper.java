@@ -16,14 +16,12 @@ public class DepartmentMapper {
   @EJB
   WorkerDaoBean workerDaoBean;
 
-  public Department mapDepartment(DepartmentDto departmentDto){
+  public Department mapDepartment(DepartmentDto departmentDto) {
     Department department = new Department();
-
     department.setCity(departmentDto.getCity());
     department.setId(departmentDto.getId());
     department.setCars(carDaoBean.findCarsListByDepartment(departmentDto.getCity()));
     department.setWorkers(workerDaoBean.findWorkersByDepartment(departmentDto.getCity()));
     return department;
   }
-
 }

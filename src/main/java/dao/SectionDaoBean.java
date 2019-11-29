@@ -17,10 +17,6 @@ public class SectionDaoBean {
     entityManager.persist(section);
   }
 
-  public Section findSectionById(Long id) {
-    return entityManager.find(Section.class, id);
-  }
-
   public List<Section> sectionsList() {
     Query query = entityManager.createNamedQuery("Section.findAll", Section.class);
     return query.getResultList();

@@ -17,16 +17,7 @@ public class ModelDaoBean {
     entityManager.persist(model);
   }
 
-  public Model findModelById(Long id) {
-    return entityManager.find(Model.class, id);
-  }
-
-  public List<Model> findModelList(){
-    Query query = entityManager.createNamedQuery("Models.findAll");
-    return query.getResultList();
-  }
-
-  public List<Model> findModelListBySection(String name){
+  public List<Model> findModelListBySection(String name) {
     Query query = entityManager.createNamedQuery("Models.findAllBySection");
     query.setParameter("name", name);
     return query.getResultList();

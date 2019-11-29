@@ -22,7 +22,8 @@ public class DepartmentsService {
   public List<DepartmentDto> findListOfDepartmentsDto() {
     List<Department> departments = departmentDaoBean.findAllDepartments().stream().sorted(
         Comparator.comparing(Department::getCity)).collect(Collectors.toList());
-    return departments.stream().map(department -> departmentDtoMapper.mapDepartmentToDto(department)).collect(
-        Collectors.toList());
+    return departments.stream()
+        .map(department -> departmentDtoMapper.mapDepartmentToDto(department)).collect(
+            Collectors.toList());
   }
 }

@@ -24,14 +24,12 @@ public class LoginServlet extends HttpServlet {
       throws ServletException, IOException {
     String email = req.getParameter("email");
 
-    if(clientService.findClientByEmail(email).isPresent()){
+    if (clientService.findClientByEmail(email).isPresent()) {
       String position = "Client";
       Long id = clientService.findClientDtoByEmail(email).getId();
       req.getSession().setAttribute("type", position);
       req.getSession().setAttribute("id", id);
-    }
-
-    else if(workerService.findWorkerByEmail(email).isPresent()){
+    } else if (workerService.findWorkerByEmail(email).isPresent()) {
       String position = workerService.findWorkerByEmail(email).get().getPosition().getName();
       Long id = workerService.findWorkerByEmail(email).get().getId();
       req.getSession().setAttribute("type", position);

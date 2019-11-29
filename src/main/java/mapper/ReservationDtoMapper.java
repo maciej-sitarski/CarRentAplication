@@ -17,7 +17,7 @@ public class ReservationDtoMapper {
   @EJB
   CarDtoMapper carDtoMapper;
 
-  public ReservationDto mapReservationToDto(Reservation reservation){
+  public ReservationDto mapReservationToDto(Reservation reservation) {
     ReservationDto reservationDto = new ReservationDto();
 
     reservationDto.setId(reservation.getId());
@@ -28,12 +28,11 @@ public class ReservationDtoMapper {
     reservationDto.setPrice(reservation.getPrice());
     reservationDto.setCarDto(carDtoMapper.mapCarToDto(reservation.getCar()));
     reservationDto.setClientDto(clientDtoMapper.mapClientToDto(reservation.getClient()));
-    if (workerDtoMapper.mapWorkerToDto(reservation.getWorker()) != null){
+    if (workerDtoMapper.mapWorkerToDto(reservation.getWorker()) != null) {
       reservationDto.setWorkerDto(workerDtoMapper.mapWorkerToDto(reservation.getWorker()));
     } else {
       reservationDto.setWorkerDto(null);
     }
-
     return reservationDto;
   }
 }
