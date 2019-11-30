@@ -18,6 +18,7 @@
           <th scope="col">Godzina zwrotu</th>
           <th scope="col">Miejsce odbioru i zwrotu</th>
           <th scope="col">Szczegóły</th>
+          <th scope="col">Pomoc</th>
         </tr>
         </thead>
         <tbody>
@@ -33,6 +34,9 @@
           <td>${reservation.carDto.departmentDto.city} </td>
           <td><a id="details-button" type="button"
                  href="/client-reservation-view?reservationId=${reservation.id}">Pokaż szczegóły</a>
+          </td>
+          <td><a id="details-button" style="background-color: darkgreen; color: black" type="button"
+                 href="#">Pomoc</a>
           </td>
             </#list>
       </table>
