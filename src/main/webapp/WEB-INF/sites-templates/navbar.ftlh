@@ -23,6 +23,7 @@
   <script src="/js/login.js"></script>
   <script src="/js/permission.js"></script>
   <script src="/js/reservation.js"></script>
+  <script src="/js/services.js"></script>
 
 
 </head>

@@ -15,7 +15,7 @@
         </thead>
         <tbody>
         <#list cars as car>
-           <tr datatype="/service-view">
+           <tr onclick="singleService(${car.id})">
               <th scope="row"><#if car.registrationNumber??>  ${car.registrationNumber} </#if> </th>
               <td> ${car.brandDto.name} </td>
               <td> ${car.modelDto.name} </td>

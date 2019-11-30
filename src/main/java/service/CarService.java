@@ -33,6 +33,10 @@ public class CarService {
   @EJB
   CarDtoMapper carDtoMapper;
 
+  public CarDto findCarById(Long id){
+    return carDtoMapper.mapCarToDto(carDaoBean.findCarById(id));
+  }
+
   public List<CarDto> carList() {
     List<Car> carsDao = carDaoBean.findCarsList();
     List<CarDto> carsDto = new ArrayList<>();

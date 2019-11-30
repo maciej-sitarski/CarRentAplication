@@ -17,7 +17,7 @@ public class CarDaoBean {
     entityManager.persist(car);
   }
 
-  public Car findBrandById(Long id) {
+  public Car findCarById(Long id) {
     return entityManager.find(Car.class, id);
   }
 
