@@ -65,12 +65,14 @@ public class RegisterServlet extends HttpServlet {
     String email = req.getParameter("email");
     String pesel = req.getParameter("pesel");
     String password = req.getParameter("password");
+    String confirmPassword = req.getParameter("confirm-password");
     String number = req.getParameter("number");
     String hashPassword = DigestUtils.md5Hex(password);
+    String hashConfirmPassword = DigestUtils.md5Hex(confirmPassword);
     if (!registrationService.isClientNumberInDataBase(number) && !registrationService
         .isClientEmailInDataBase(email) && !registrationService.isClientPeselInDataBase(pesel)
         && !registrationService.isWorkerNumberInDataBase(number) && !registrationService
-        .isWorkerPeselInDataBase(pesel) && !registrationService.isWorkerEmailInDataBase(email)) {
+        .isWorkerPeselInDataBase(pesel) && !registrationService.isWorkerEmailInDataBase(email) && hashConfirmPassword.equals(hashPassword)) {
       Client client = new Client(fullname, email, pesel, number, hashPassword);
       client.setClientType(clientTypeDaoBean.findClientTypeById(1L));
       clientDaoBean.saveClient(client);

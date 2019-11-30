@@ -123,7 +123,7 @@ public class Apilnitializer {
     sectionPremium.setName("PREMIUM");
     sectionPremium.setPrice(300L);
 
-    sectionDaoBean.saveSection(sectionA);
+//    sectionDaoBean.saveSection(sectionA);
     sectionDaoBean.saveSection(sectionB);
     sectionDaoBean.saveSection(sectionC);
     sectionDaoBean.saveSection(sectionD);
