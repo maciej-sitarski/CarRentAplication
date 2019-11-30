@@ -6,8 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@NamedQueries({
+    @NamedQuery(
+        name = "Service.findServiceByCar",
+        query = "SELECT s FROM Service s WHERE s.cars.id=?1"
+    ),
+})
 @Entity
 @Table(name = "service")
 public class Service {

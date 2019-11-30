@@ -35,6 +35,10 @@ public class CarService {
   @EJB
   CarDtoMapper carDtoMapper;
 
+  public CarDto findCarById(Long id){
+    return carDtoMapper.mapCarToDto(carDaoBean.findCarById(id));
+  }
+
   private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
   public List<CarDto> carList() {

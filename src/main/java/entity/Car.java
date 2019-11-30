@@ -65,13 +65,14 @@ public class Car {
   Model model;
 
   @OneToMany(mappedBy = "cars")
+
   List<Service> services = new ArrayList<>();
 
   public Car() {
   }
 
   public Car(String registrationNumber, List<Reservation> reservations, Department department,
-      Brand brand, Model model, List<Car> cars) {
+      Brand brand, Model model, List<Service> services) {
     this.registrationNumber = registrationNumber;
     this.reservations = reservations;
     this.department = department;
@@ -131,5 +132,11 @@ public class Car {
     this.model = model;
   }
 
+  public List<Service> getServices() {
+    return services;
+  }
 
+  public void setServices(List<Service> services) {
+    this.services = services;
+  }
 }

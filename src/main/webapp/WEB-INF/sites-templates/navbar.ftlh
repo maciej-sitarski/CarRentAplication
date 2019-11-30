@@ -23,6 +23,7 @@
   <script src="/js/login.js"></script>
   <script src="/js/permission.js"></script>
   <script src="/js/reservation.js"></script>
+  <script src="/js/services.js"></script>
 
 
 </head>
@@ -73,6 +74,7 @@
             <div class="dropdown-menu" aria-labelledby="submenu">
               <a class="dropdown-item" href="/workers">Pracownicy</a>
               <a class="dropdown-item" href="/clients">Użytkownicy</a>
+              <a class="dropdown-item" href="/services">Serwisy</a>
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
           </li>
@@ -81,7 +83,12 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#"
                aria-expanded="false" id="submenu" aria-haspopup="true">Panel koordynatora</a>
             <div class="dropdown-menu" aria-labelledby="submenu">
+<<<<<<< HEAD
+              <a class="dropdown-item" href="#">Pracownicy</a>
+              <a class="dropdown-item" href="/services">Serwisy</a>
+=======
               <a class="dropdown-item" href="/reservations-assign">Zlecenia</a>
+>>>>>>> master
               <button class="dropdown-item btn btn-danger" id="log-out">Wyloguj się</button>
             </div>
           </li>

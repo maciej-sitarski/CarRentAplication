@@ -183,31 +183,37 @@ public class Apilnitializer {
     car1.setBrand(brandOpel);
     car1.setModel(modelCorsa);
     car1.setDepartment(departmentGdansk);
+    car1.setRegistrationNumber("Gd92714");
 
     Car car2 = new Car();
     car2.setBrand(brandOpel);
     car2.setModel(modelCorsa);
     car2.setDepartment(departmentKrakow);
+    car2.setRegistrationNumber("Ga98414");
 
     Car car3 = new Car();
     car3.setBrand(brandOpel);
     car3.setModel(modelCorsa);
     car3.setDepartment(departmentLodz);
+    car3.setRegistrationNumber("We268zu");
 
     Car car4 = new Car();
     car4.setBrand(brandOpel);
     car4.setModel(modelCorsa);
     car4.setDepartment(departmentLublin);
+    car4.setRegistrationNumber("We873wu");
 
     Car car5 = new Car();
     car5.setBrand(brandOpel);
     car5.setModel(modelCorsa);
     car5.setDepartment(departmentPoznan);
+    car5.setRegistrationNumber("Wz268ww");
 
     Car car6 = new Car();
     car6.setBrand(brandOpel);
     car6.setModel(modelCorsa);
     car6.setDepartment(departmentSzczecin);
+    car6.setRegistrationNumber("Gd828lh");
 
     Model modelClio = new Model();
     modelClio.setName("Clio");
@@ -219,31 +225,37 @@ public class Apilnitializer {
     car7.setBrand(brandRenault);
     car7.setModel(modelClio);
     car7.setDepartment(departmentGdansk);
+    car7.setRegistrationNumber("Cg92714");
 
     Car car8 = new Car();
     car8.setBrand(brandRenault);
     car8.setModel(modelClio);
     car8.setDepartment(departmentKrakow);
+    car8.setRegistrationNumber("Wz2233u");
 
     Car car9 = new Car();
     car9.setBrand(brandRenault);
     car9.setModel(modelClio);
     car9.setDepartment(departmentLodz);
+    car9.setRegistrationNumber("We22831");
 
     Car car10 = new Car();
     car10.setBrand(brandRenault);
     car10.setModel(modelClio);
     car10.setDepartment(departmentLublin);
+    car10.setRegistrationNumber("We882sk");
 
     Car car11 = new Car();
     car11.setBrand(brandRenault);
     car11.setModel(modelClio);
     car11.setDepartment(departmentPoznan);
+    car11.setRegistrationNumber("Wb874bu");
 
     Car car12 = new Car();
     car12.setBrand(brandRenault);
     car12.setModel(modelClio);
     car12.setDepartment(departmentSzczecin);
+    car12.setRegistrationNumber("Wb87612");
 
     Model modelI20 = new Model();
     modelI20.setName("i20");
@@ -255,31 +267,37 @@ public class Apilnitializer {
     car13.setBrand(brandHyundai);
     car13.setModel(modelI20);
     car13.setDepartment(departmentGdansk);
+    car13.setRegistrationNumber("Wb283dx");
 
     Car car14 = new Car();
     car14.setBrand(brandHyundai);
     car14.setModel(modelI20);
     car14.setDepartment(departmentKrakow);
+    car14.setRegistrationNumber("We873wi");
 
     Car car15 = new Car();
     car15.setBrand(brandHyundai);
     car15.setModel(modelI20);
     car15.setDepartment(departmentLodz);
+    car15.setRegistrationNumber("Wd928lg");
 
     Car car16 = new Car();
     car16.setBrand(brandHyundai);
     car16.setModel(modelI20);
     car16.setDepartment(departmentLublin);
+    car16.setRegistrationNumber("Gd871lg");
 
     Car car17 = new Car();
     car17.setBrand(brandHyundai);
     car17.setModel(modelI20);
     car17.setDepartment(departmentPoznan);
+    car17.setRegistrationNumber("Gd927lh");
 
     Car car18 = new Car();
     car18.setBrand(brandHyundai);
     car18.setModel(modelI20);
     car18.setDepartment(departmentSzczecin);
+    car18.setRegistrationNumber("Wb92714");
 
     Model modelFiesta = new Model();
     modelFiesta.setName("Fiesta");
@@ -291,31 +309,37 @@ public class Apilnitializer {
     car19.setBrand(brandFord);
     car19.setModel(modelFiesta);
     car19.setDepartment(departmentGdansk);
+    car19.setRegistrationNumber("Wx883wi");
 
     Car car20 = new Car();
     car20.setBrand(brandFord);
     car20.setModel(modelFiesta);
     car20.setDepartment(departmentKrakow);
+    car1.setRegistrationNumber("Wb92714");
 
     Car car21 = new Car();
     car21.setBrand(brandFord);
     car21.setModel(modelFiesta);
     car21.setDepartment(departmentLodz);
+    car21.setRegistrationNumber("Wb728lh");
 
     Car car22 = new Car();
     car22.setBrand(brandFord);
     car22.setModel(modelFiesta);
     car22.setDepartment(departmentLublin);
+    car22.setRegistrationNumber("Wi89271");
 
     Car car23 = new Car();
     car23.setBrand(brandFord);
     car23.setModel(modelFiesta);
     car23.setDepartment(departmentPoznan);
+    car23.setRegistrationNumber("Wb672ls");
 
     Car car24 = new Car();
     car24.setBrand(brandFord);
     car24.setModel(modelFiesta);
     car24.setDepartment(departmentSzczecin);
+    car24.setRegistrationNumber("Kr82741");
 
     Model modelAstra = new Model();
     modelAstra.setName("Astra");
@@ -327,31 +351,37 @@ public class Apilnitializer {
     car25.setBrand(brandOpel);
     car25.setModel(modelAstra);
     car25.setDepartment(departmentGdansk);
+    car25.setRegistrationNumber("Kr89171");
 
     Car car26 = new Car();
     car26.setBrand(brandOpel);
     car26.setModel(modelAstra);
     car26.setDepartment(departmentKrakow);
+    car26.setRegistrationNumber("Kr91831");
 
     Car car27 = new Car();
     car27.setBrand(brandOpel);
     car27.setModel(modelAstra);
     car27.setDepartment(departmentLodz);
+    car27.setRegistrationNumber("Kr873ks");
 
     Car car28 = new Car();
     car28.setBrand(brandOpel);
     car28.setModel(modelAstra);
     car28.setDepartment(departmentLublin);
+    car28.setRegistrationNumber("Kr174rs");
 
     Car car29 = new Car();
     car29.setBrand(brandOpel);
     car29.setModel(modelAstra);
     car29.setDepartment(departmentPoznan);
+    car29.setRegistrationNumber("Kr783ri");
 
     Car car30 = new Car();
     car30.setBrand(brandOpel);
     car30.setModel(modelAstra);
     car30.setDepartment(departmentSzczecin);
+    car30.setRegistrationNumber("Kr183is");
 
     Model modelLeon = new Model();
     modelLeon.setName("Leon");
@@ -363,35 +393,42 @@ public class Apilnitializer {
     car31.setBrand(brandSeat);
     car31.setModel(modelLeon);
     car31.setDepartment(departmentGdansk);
+    car31.setRegistrationNumber("Wz268xu");
 
     Car car32 = new Car();
     car32.setBrand(brandSeat);
     car32.setModel(modelLeon);
     car32.setDepartment(departmentKrakow);
+    car32.setRegistrationNumber("We217rs");
 
     Car car33 = new Car();
     car33.setBrand(brandSeat);
     car33.setModel(modelLeon);
     car33.setDepartment(departmentLodz);
+    car33.setRegistrationNumber("We98721");
 
     Car car34 = new Car();
     car34.setBrand(brandSeat);
     car34.setModel(modelLeon);
     car34.setDepartment(departmentLublin);
+    car34.setRegistrationNumber("Wb873lh");
 
     Car car35 = new Car();
     car35.setBrand(brandSeat);
     car35.setModel(modelLeon);
     car35.setDepartment(departmentPoznan);
+    car1.setRegistrationNumber("Wi8999u");
 
     Car car36 = new Car();
     car36.setBrand(brandSeat);
     car36.setModel(modelLeon);
     car36.setDepartment(departmentSzczecin);
+    car1.setRegistrationNumber("Wb17813");
 
     Model modelI30 = new Model();
     modelI30.setName("i30");
     modelI30.setSection(sectionC);
+    car1.setRegistrationNumber("Wx873ld");
 
     modelDaoBean.saveModel(modelI30);
 
@@ -399,16 +436,20 @@ public class Apilnitializer {
     car37.setBrand(brandHyundai);
     car37.setModel(modelI30);
     car37.setDepartment(departmentGdansk);
+    car1.setRegistrationNumber("Wz873is");
 
     Car car38 = new Car();
     car38.setBrand(brandHyundai);
     car38.setModel(modelI30);
     car38.setDepartment(departmentKrakow);
+    car1.setRegistrationNumber("Wz877ls");
 
     Car car39 = new Car();
     car39.setBrand(brandHyundai);
     car39.setModel(modelI30);
     car39.setDepartment(departmentLodz);
+    car1.setRegistrationNumber("We268zu");
+
 
     Car car40 = new Car();
     car40.setBrand(brandHyundai);
