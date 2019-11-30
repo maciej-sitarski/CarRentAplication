@@ -13,7 +13,6 @@ public class ClientDtoMapper {
 
   public ClientDto mapClientToDto(Client client) {
     ClientDto clientDto = new ClientDto();
-
     clientDto.setId(client.getId());
     clientDto.setEmail(client.getEmail());
     clientDto.setFullName(client.getNameAndSurname());
@@ -21,7 +20,6 @@ public class ClientDtoMapper {
     clientDto.setPhoneNumber(client.getPhoneNumber());
     clientDto.setPassword(client.getPassword());
     clientDto.setClientTypeDto(clientTypeDtoMapper.mapClientTypeToDto(client.getClientType()));
-
     return clientDto;
   }
 }

@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
-import service.PositionService;
 import service.RegistrationService;
 
 
@@ -36,9 +35,6 @@ public class RegisterServlet extends HttpServlet {
 
   @EJB
   ClientTypeDaoBean clientTypeDaoBean;
-
-  @EJB
-  PositionService positionService;
 
 
   @Override
@@ -86,6 +82,5 @@ public class RegisterServlet extends HttpServlet {
         "alert('Poprawnie zarejestrowano konto.Zaloguj sie, aby korzystac w pelni z serwisu');");
     printWriter.println("window.location.replace(\"/main\")");
     printWriter.println("</script>");
-
   }
 }

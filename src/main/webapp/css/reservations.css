@@ -1,0 +1,11 @@
+#details-button:hover{
+  text-decoration: none;
+}
+
+#details-button{
+  background-color: #2A6496;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  border-radius: 50px;
+}

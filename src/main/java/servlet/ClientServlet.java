@@ -1,7 +1,6 @@
 package servlet;
 
 import dto.ClientDto;
-import dto.WorkerDto;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -48,5 +47,4 @@ public class ClientServlet extends HttpServlet {
       e.printStackTrace();
     }
   }
-
 }

@@ -14,8 +14,4 @@ public class BrandDaoBean {
   public void saveBrand(Brand brand) {
     entityManager.persist(brand);
   }
-
-  public Brand findBrandById(Long id) {
-    return entityManager.find(Brand.class, id);
-  }
 }

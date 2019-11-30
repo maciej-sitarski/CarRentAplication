@@ -14,12 +14,16 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@NamedQueries(
+@NamedQueries({
     @NamedQuery(
         name = "Models.findAll",
         query = "SELECT m FROM Model m"
+    ),
+    @NamedQuery(
+        name = "Models.findAllBySection",
+        query = "SELECT m FROM Model m INNER JOIN m.section s WHERE s.name = :name"
     )
-)
+})
 
 @Entity
 @Table(name = "model")

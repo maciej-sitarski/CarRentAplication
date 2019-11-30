@@ -19,37 +19,37 @@ public class WorkerService {
   @EJB
   WorkerDtoMapper workerDtoMapper;
 
-  public WorkerDto findWorkerDtoByEmail(String email){
-    return workerDtoMapper.mapWorkerToDto(workerDaoBean.findWorkerByEmail(email).get());
-  }
-
-  public Optional<Worker> findWorkerByEmail(String email){
+  public Optional<Worker> findWorkerByEmail(String email) {
     return workerDaoBean.findWorkerByEmail(email);
   }
 
-  public List findWorkerEmailInDB(String email){
+  public List findWorkerEmailInDB(String email) {
     return workerDaoBean.findWorkerEmailInDB(email);
   }
 
-  public List findWorkerPeselInDB(String pesel){
+  public List findWorkerPeselInDB(String pesel) {
     return workerDaoBean.findWorkerPeselInDB(pesel);
   }
 
-  public List findWorkerNumberInDB(String number){
+  public List findWorkerNumberInDB(String number) {
     return workerDaoBean.findWorkerNumberInDB(number);
   }
 
-  public List<WorkerDto> findAllWorkersDto(){
-    return workerDaoBean.findAllWorkers().stream().map(worker->workerDtoMapper.mapWorkerToDto(worker)).collect(
-        Collectors.toList());
+  public List<WorkerDto> findAllWorkersDto() {
+    return workerDaoBean.findAllWorkers().stream()
+        .map(worker -> workerDtoMapper.mapWorkerToDto(worker)).collect(
+            Collectors.toList());
   }
 
-  public Worker findWorkerById(Long id){
-    return workerDaoBean.findWorkerById(id);
-  }
-
-  public WorkerDto findWorkerDtoById(Long id){
+  public WorkerDto findWorkerDtoById(Long id) {
     return workerDtoMapper.mapWorkerToDto(workerDaoBean.findWorkerById(id));
+  }
+
+  public List<WorkerDto> findListOfWorkersDtoFromDepartment(String city) {
+    List<WorkerDto> WorkerDtoList = workerDaoBean.findWorkersByDepartment(city).stream()
+        .map(worker -> workerDtoMapper.mapWorkerToDto(worker)).collect(
+            Collectors.toList());
+    return WorkerDtoList;
   }
 
 }

@@ -1,9 +1,7 @@
 package entity;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +9,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+@NamedQueries({
+    @NamedQuery(
+        name = "Reservations.findAllReservationsFromDepartment",
+        query = "SELECT r FROM Reservation r INNER JOIN r.car c INNER JOIN r.car.department d WHERE r.car.department.city = :city"
+    ),
+    @NamedQuery(
+        name = "Reservations.findReservationsByCars",
+        query = "SELECT r FROM Reservation r INNER JOIN r.car c WHERE c.id = :id"
+    ),
+    @NamedQuery(
+        name = "Reservations.findAllClientReservations",
+        query = "SELECT r FROM Reservation r  WHERE r.client.id = :id"
+    )
+})
 
 @Entity
 @Table(name = "reservation")
@@ -25,10 +39,19 @@ public class Reservation {
   Long id;
 
   @Column(name = "start_date")
-  Date startDate;
+  String startDate;
 
   @Column(name = "end_date")
-  Date endDate;
+  String endDate;
+
+  @Column(name = "start_hour")
+  String startHour;
+
+  @Column(name = "end_hour")
+  String endHour;
+
+  @Column(name = "price")
+  Long price;
 
   @OneToMany(mappedBy = "equipment")
   List<ReservationEquipment> reservationEquipments = new ArrayList<>();
@@ -48,9 +71,11 @@ public class Reservation {
   public Reservation() {
   }
 
-  public Reservation(Date startDate, Date endDate) {
+  public Reservation(String startDate, String endDate, String startHour, String endHour) {
     this.startDate = startDate;
     this.endDate = endDate;
+    this.startHour = startHour;
+    this.endHour = endHour;
   }
 
   public Long getId() {
@@ -61,19 +86,19 @@ public class Reservation {
     this.id = id;
   }
 
-  public Date getStartDate() {
+  public String getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(Date startDate) {
+  public void setStartDate(String startDate) {
     this.startDate = startDate;
   }
 
-  public Date getEndDate() {
+  public String getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(Date endDate) {
+  public void setEndDate(String endDate) {
     this.endDate = endDate;
   }
 
@@ -107,5 +132,29 @@ public class Reservation {
 
   public void setCar(Car car) {
     this.car = car;
+  }
+
+  public String getStartHour() {
+    return startHour;
+  }
+
+  public void setStartHour(String startHour) {
+    this.startHour = startHour;
+  }
+
+  public String getEndHour() {
+    return endHour;
+  }
+
+  public void setEndHour(String endHour) {
+    this.endHour = endHour;
+  }
+
+  public Long getPrice() {
+    return price;
+  }
+
+  public void setPrice(Long price) {
+    this.price = price;
   }
 }

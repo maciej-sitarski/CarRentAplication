@@ -5,8 +5,11 @@ import java.util.Date;
 public class ReservationDto {
 
   private Long id;
-  private Date startDate;
-  private Date endDate;
+  private String startDate;
+  private String endDate;
+  private String startHour;
+  private String endHour;
+  private Long price;
   private ClientDto clientDto;
   private WorkerDto workerDto;
   private CarDto carDto;
@@ -19,19 +22,19 @@ public class ReservationDto {
     this.id = id;
   }
 
-  public Date getStartDate() {
+  public String getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(Date startDate) {
+  public void setStartDate(String startDate) {
     this.startDate = startDate;
   }
 
-  public Date getEndDate() {
+  public String getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(Date endDate) {
+  public void setEndDate(String endDate) {
     this.endDate = endDate;
   }
 
@@ -57,5 +60,29 @@ public class ReservationDto {
 
   public void setCarDto(CarDto carDto) {
     this.carDto = carDto;
+  }
+
+  public String getStartHour() {
+    return startHour;
+  }
+
+  public void setStartHour(String startHour) {
+    this.startHour = startHour;
+  }
+
+  public String getEndHour() {
+    return endHour;
+  }
+
+  public void setEndHour(String endHour) {
+    this.endHour = endHour;
+  }
+
+  public Long getPrice() {
+    return price;
+  }
+
+  public void setPrice(Long price) {
+    this.price = price;
   }
 }
