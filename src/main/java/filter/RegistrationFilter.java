@@ -25,7 +25,6 @@ public class RegistrationFilter implements Filter {
 
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
-
   }
 
   @Override
@@ -41,19 +40,22 @@ public class RegistrationFilter implements Filter {
       String number = httpServletRequest.getParameter("number");
       String confirmPassword = httpServletRequest.getParameter("confirm-password");
       if (fullname.isEmpty()) {
-        httpServletResponse.sendError(1, "Okno imię i nazwisko nie zostało uzupełnione. Spróbuj ponownie");
+        httpServletResponse
+            .sendError(1, "Okno imię i nazwisko nie zostało uzupełnione. Spróbuj ponownie");
       } else if (email.isEmpty()) {
         httpServletResponse.sendError(1, "Okno email nie zostało uzupełnione.  Spróbuj ponownie");
       } else if (pesel.isEmpty()) {
         httpServletResponse.sendError(1, "Okno pesel nie zostało uzupełnione.  Spróbuj ponownie");
       } else if (password.isEmpty()) {
         httpServletResponse.sendError(1, "Okno hasło nie zostało uzupełnione.  Spróbuj ponownie");
-      }  else if (confirmPassword.isEmpty()) {
-      httpServletResponse.sendError(1, "Okno potwierdzające hasło nie zostało uzupełnione.  Spróbuj ponownie");
+      } else if (confirmPassword.isEmpty()) {
+        httpServletResponse
+            .sendError(1, "Okno potwierdzające hasło nie zostało uzupełnione.  Spróbuj ponownie");
       } else if (number.isEmpty()) {
         httpServletResponse.sendError(1, "Okno numer nie zostało uzupełnione.  Spróbuj ponownie");
       } else if (!confirmPassword.equals(password)) {
-        httpServletResponse.sendError(1, "Hasło potwierdzające inne niż hasło główne. Spróbuj ponownie");
+        httpServletResponse
+            .sendError(1, "Hasło potwierdzające inne niż hasło główne. Spróbuj ponownie");
       } else if (registrationService.isClientEmailInDataBase(email) || registrationService
           .isClientEmailInDataBase(email)) {
         httpServletResponse.sendError(1, "Adres email jest już zajęty. Spróbuj ponownie");
@@ -70,6 +72,5 @@ public class RegistrationFilter implements Filter {
 
   @Override
   public void destroy() {
-
   }
 }

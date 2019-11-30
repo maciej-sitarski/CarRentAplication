@@ -62,6 +62,4 @@ public class ClientDaoBean {
     Query query = entityManager.createNamedQuery("Client.findAll", Client.class);
     return query.getResultList();
   }
-
-
 }

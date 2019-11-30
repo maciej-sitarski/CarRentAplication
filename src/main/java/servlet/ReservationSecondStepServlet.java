@@ -1,7 +1,6 @@
 package servlet;
 
 import dto.CarDto;
-import dto.DepartmentDto;
 import dto.SectionDto;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
@@ -51,7 +50,9 @@ public class ReservationSecondStepServlet extends HttpServlet {
     dataModel.put("type", position);
 
     try {
-      List<CarDto> uniqueSpecificCarList = carService.findSpecifyAbilityUniqueCarsList(departmentStart,startDate,backDate,startHour,backHour);
+      List<CarDto> uniqueSpecificCarList = carService
+          .findSpecifyAbilityUniqueCarsList(departmentStart, startDate, backDate, startHour,
+              backHour);
       dataModel.put("cars", uniqueSpecificCarList);
     } catch (ParseException e) {
       e.printStackTrace();

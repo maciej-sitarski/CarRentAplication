@@ -2,7 +2,6 @@ package servlet;
 
 import dao.ClientDaoBean;
 import dto.ClientDto;
-import dto.WorkerDto;
 import entity.Client;
 import freemarker.TemplateProvider;
 import freemarker.template.Template;
@@ -21,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
 import service.ClientService;
 import service.RegistrationService;
-import service.WorkerService;
 
 @WebServlet("/profile")
 public class ProfileServlet extends HttpServlet {
@@ -31,9 +29,6 @@ public class ProfileServlet extends HttpServlet {
 
   @EJB
   ClientService clientService;
-
-  @EJB
-  WorkerService workerService;
 
   @EJB
   RegistrationService registrationService;
@@ -52,7 +47,7 @@ public class ProfileServlet extends HttpServlet {
     PrintWriter printWriter = resp.getWriter();
 
     String position = (String) req.getSession().getAttribute("type");
-    Long id = (Long)req.getSession().getAttribute("id");
+    Long id = (Long) req.getSession().getAttribute("id");
     dataModel.put("type", position);
 
     ClientDto client = clientService.findClientDtoById(id);
@@ -79,7 +74,7 @@ public class ProfileServlet extends HttpServlet {
         .isClientEmailInDataBase(email) && !registrationService.isClientPeselInDataBase(pesel)
         && !registrationService.isWorkerNumberInDataBase(number) && !registrationService
         .isWorkerPeselInDataBase(pesel) && !registrationService.isWorkerEmailInDataBase(email)) {
-      Long id = (Long)req.getSession().getAttribute("id");
+      Long id = (Long) req.getSession().getAttribute("id");
       Client client = clientService.findClientById(id);
       client.setNameAndSurname(fullname);
       client.setEmail(email);
@@ -95,7 +90,5 @@ public class ProfileServlet extends HttpServlet {
         "alert('Poprawnie zmieniono dane.');");
     printWriter.println("window.location.replace(\"/main\")");
     printWriter.println("</script>");
-
   }
-
 }

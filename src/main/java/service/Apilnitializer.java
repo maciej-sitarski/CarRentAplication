@@ -91,6 +91,10 @@ public class Apilnitializer {
     departmentDaoBean.saveDepartment(departmentLublin);
     departmentDaoBean.saveDepartment(departmentSzczecin);
 
+    Section sectionA = new Section();
+    sectionA.setName("A");
+    sectionA.setPrice(70L);
+
     Section sectionB = new Section();
     sectionB.setName("B");
     sectionB.setPrice(80L);
@@ -119,6 +123,7 @@ public class Apilnitializer {
     sectionPremium.setName("PREMIUM");
     sectionPremium.setPrice(300L);
 
+    sectionDaoBean.saveSection(sectionA);
     sectionDaoBean.saveSection(sectionB);
     sectionDaoBean.saveSection(sectionC);
     sectionDaoBean.saveSection(sectionD);
@@ -1080,12 +1085,12 @@ public class Apilnitializer {
     clientTypeDaoBean.saveClientType(silver);
     clientTypeDaoBean.saveClientType(gold);
 
-    Equipment babyCarrier = new Equipment("Fotelik dla dziecka (nosidełko 0-9kg)", 10L);
+    Equipment babyCarrier = new Equipment("Fotelik dla dziecka (nosidelko 0-9kg)", 10L);
     Equipment childSeat = new Equipment("Fotelik dla dziecka (9-36kg)", 10L);
-    Equipment childSeat2 = new Equipment("Podkładka(siedzisko) dla dziecka", 10L);
+    Equipment childSeat2 = new Equipment("Podkladka(siedzisko) dla dziecka", 10L);
     Equipment navigation = new Equipment("Nawigacja GPS", 10L);
     Equipment insuranceBasic = new Equipment("Ubezpieczenie podstawowe", 30L);
-    Equipment insuranceFull = new Equipment("Ubezpieczenie pełne", 60L);
+    Equipment insuranceFull = new Equipment("Ubezpieczenie pelne", 60L);
 
     equipmentDaoBean.saveEquipment(babyCarrier);
     equipmentDaoBean.saveEquipment(childSeat);
@@ -1093,6 +1098,16 @@ public class Apilnitializer {
     equipmentDaoBean.saveEquipment(navigation);
     equipmentDaoBean.saveEquipment(insuranceBasic);
     equipmentDaoBean.saveEquipment(insuranceFull);
+
+    Worker worker1 = new Worker();
+    worker1.setPosition(worker);
+    worker1.setDepartment(departmentWarszawa);
+    worker1.setEmail("randomWorker");
+    worker1.setPassword("worker");
+    worker1.setPhoneNumber("123456789");
+    worker1.setPesel("12345678910");
+    worker1.setFullName("WorkerWorker");
+    workerDaoBean.saveWorker(worker1);
 
 
   }

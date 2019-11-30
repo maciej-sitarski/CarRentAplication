@@ -9,6 +9,7 @@ public class ReservationDto {
   private String endDate;
   private String startHour;
   private String endHour;
+  private Long price;
   private ClientDto clientDto;
   private WorkerDto workerDto;
   private CarDto carDto;
@@ -75,5 +76,13 @@ public class ReservationDto {
 
   public void setEndHour(String endHour) {
     this.endHour = endHour;
+  }
+
+  public Long getPrice() {
+    return price;
+  }
+
+  public void setPrice(Long price) {
+    this.price = price;
   }
 }

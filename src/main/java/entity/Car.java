@@ -24,9 +24,17 @@ import javax.persistence.Table;
         query = "SELECT distinct(c.model) FROM Car c"
     ),
     @NamedQuery(
-        name = "Cars.findAvailableCars",
-        query = "SELECT c FROM Car c INNER JOIN c.department d WHERE d.city = :city"
+        name = "Cars.findCarsByDepartment",
+        query = "SELECT c FROM Car c  WHERE c.department.city = :city"
     ),
+    @NamedQuery(
+        name = "Cars.findCarsByBrands",
+        query = "SELECT c FROM Car c  INNER JOIN c.brand b WHERE b.name = :name"
+    ),
+    @NamedQuery(
+        name = "Cars.findCarsByModel",
+        query = "SELECT c FROM Car c  INNER JOIN c.model m WHERE m.name = :name"
+    )
 })
 
 @Entity
@@ -57,7 +65,8 @@ public class Car {
   Model model;
 
   @OneToMany(mappedBy = "cars")
-  List<Service> Services = new ArrayList<>();
+
+  List<Service> services = new ArrayList<>();
 
   public Car() {
   }
@@ -69,7 +78,6 @@ public class Car {
     this.department = department;
     this.brand = brand;
     this.model = model;
-    Services = services;
   }
 
   public Car(String registrationNumber) {
@@ -125,10 +133,10 @@ public class Car {
   }
 
   public List<Service> getServices() {
-    return Services;
+    return services;
   }
 
   public void setServices(List<Service> services) {
-    Services = services;
+    this.services = services;
   }
 }

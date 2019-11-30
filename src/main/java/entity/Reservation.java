@@ -1,9 +1,7 @@
 package entity;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,14 +12,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @NamedQueries({
     @NamedQuery(
         name = "Reservations.findAllReservationsFromDepartment",
-        query = "SELECT r FROM Reservation r INNER JOIN r.car c INNER JOIN r.car.department d WHERE d.city = :city"
+        query = "SELECT r FROM Reservation r INNER JOIN r.car c INNER JOIN r.car.department d WHERE r.car.department.city = :city"
     ),
+    @NamedQuery(
+        name = "Reservations.findReservationsByCars",
+        query = "SELECT r FROM Reservation r INNER JOIN r.car c WHERE c.id = :id"
+    ),
+    @NamedQuery(
+        name = "Reservations.findAllClientReservations",
+        query = "SELECT r FROM Reservation r  WHERE r.client.id = :id"
+    )
 })
 
 @Entity
@@ -44,6 +49,9 @@ public class Reservation {
 
   @Column(name = "end_hour")
   String endHour;
+
+  @Column(name = "price")
+  Long price;
 
   @OneToMany(mappedBy = "equipment")
   List<ReservationEquipment> reservationEquipments = new ArrayList<>();
@@ -140,5 +148,13 @@ public class Reservation {
 
   public void setEndHour(String endHour) {
     this.endHour = endHour;
+  }
+
+  public Long getPrice() {
+    return price;
+  }
+
+  public void setPrice(Long price) {
+    this.price = price;
   }
 }

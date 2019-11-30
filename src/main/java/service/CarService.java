@@ -17,6 +17,8 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import mapper.CarDtoMapper;
 import mapper.ReservationDtoMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Stateless
 public class CarService {
@@ -36,6 +38,8 @@ public class CarService {
   public CarDto findCarById(Long id){
     return carDtoMapper.mapCarToDto(carDaoBean.findCarById(id));
   }
+
+  private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
   public List<CarDto> carList() {
     List<Car> carsDao = carDaoBean.findCarsList();
@@ -61,9 +65,18 @@ public class CarService {
         .findAllReservationsFromDepartmentList(city).stream()
         .map(reservation -> reservationDtoMapper.mapReservationToDto(reservation)).collect(
             Collectors.toList());
-    List<CarDto> availableCarsInDepartmentList = carDaoBean.findCarsListFromDepartment(city)
+    for (int i = 0; i < specifyReservationList.size(); i++) {
+      logger.info(specifyReservationList.get(i).getCarDto().getModelDto().getName());
+
+    }
+    List<CarDto> availableCarsInDepartmentList = carDaoBean.findCarsListByDepartment(city)
         .stream().map(car -> carDtoMapper.mapCarToDto(car)).collect(
             Collectors.toList());
+
+    for (int i = 0; i < availableCarsInDepartmentList.size(); i++) {
+      logger.info(availableCarsInDepartmentList.get(i).getModelDto().getName() + "dupadupadupa");
+
+    }
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date startFormatDate = dateFormat.parse(startDate);
@@ -80,7 +93,7 @@ public class CarService {
               < 0) {
         if (availableCarsInDepartmentList.contains(specifyReservationList.get(i).getCarDto())) {
           availableCarsInDepartmentList.remove(specifyReservationList.get(i).getCarDto());
-          break;
+
         }
       } else if (
           dateFormat.parse(specifyReservationList.get(i).getEndDate()).compareTo(startFormatDate)
@@ -88,7 +101,7 @@ public class CarService {
               .compareTo(finishFormatDate) < 0) {
         if (availableCarsInDepartmentList.contains(specifyReservationList.get(i).getCarDto())) {
           availableCarsInDepartmentList.remove(specifyReservationList.get(i).getCarDto());
-          break;
+
         }
       } else if (dateFormat.parse(specifyReservationList.get(i).getStartDate())
           .compareTo(finishFormatDate) == 0 &&
@@ -96,7 +109,7 @@ public class CarService {
               .compareTo(finishFormatHour) < 0) {
         if (availableCarsInDepartmentList.contains(specifyReservationList.get(i).getCarDto())) {
           availableCarsInDepartmentList.remove(specifyReservationList.get(i).getCarDto());
-          break;
+
         }
       } else if (dateFormat.parse(specifyReservationList.get(i).getEndDate())
           .compareTo(startFormatDate) == 0 &&
@@ -104,17 +117,16 @@ public class CarService {
               .compareTo(startFormatHour) > 0) {
         if (availableCarsInDepartmentList.contains(specifyReservationList.get(i).getCarDto())) {
           availableCarsInDepartmentList.remove(specifyReservationList.get(i).getCarDto());
-          break;
+
         }
       }
-
     }
     return availableCarsInDepartmentList;
   }
 
   public List<CarDto> findSpecifyAbilityUniqueCarsList(String city, String startDate,
       String finishDate, String startHour, String endHour) throws ParseException {
-    return findSpecifyAbilityCarsList(city,startDate,finishDate,startHour,endHour).stream()
+    return findSpecifyAbilityCarsList(city, startDate, finishDate, startHour, endHour).stream()
         .filter(FilterDistinctByKey.distinctByKey(p -> p.getModelDto().getName())).collect(
             Collectors.toList());
   }
