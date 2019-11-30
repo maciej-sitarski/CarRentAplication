@@ -46,4 +46,10 @@ public class ReservationDaoBean {
   public void deleteReservation(Long id) {
     entityManager.remove(entityManager.find(Reservation.class, id));
   }
+
+  public List<Reservation> findAllWorkerReservations(Long id) {
+    Query query = entityManager.createNamedQuery("Reservations.findReservationsOfWorker");
+    query.setParameter("id", id);
+    return query.getResultList();
+  }
 }

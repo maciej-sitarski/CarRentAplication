@@ -1103,7 +1103,7 @@ public class Apilnitializer {
     worker1.setPosition(worker);
     worker1.setDepartment(departmentWarszawa);
     worker1.setEmail("randomWorker");
-    worker1.setPassword("worker");
+    worker1.setPassword(DigestUtils.md5Hex("worker"));
     worker1.setPhoneNumber("123456789");
     worker1.setPesel("12345678910");
     worker1.setFullName("WorkerWorker");

@@ -45,25 +45,25 @@ public class PrivilegeWorkersController {
 
   @PATCH
   @Path("/permission/{permission}/{id}")
-  public Response giveWorkerPermission(@PathParam("id") String idParam,
+  public Response giveWorkerPermission(@PathParam("id") Long idParam,
       @PathParam("permission") String permission) {
-    Long id = Long.valueOf(idParam);
-    Worker worker = workerDaoBean.findWorkerById(id);
+
+    Worker worker = workerDaoBean.findWorkerById(idParam);
     switch (permission) {
-      case "giveMenager":
+      case "Menadżer":
         worker.setPosition(positionDaoBean.findMenagerPosition());
         workerDaoBean.updateWorker(worker);
         break;
-      case "giveCoordinator":
+      case "Koordynator":
         worker.setPosition(positionDaoBean.findCoordinatorPosition());
         workerDaoBean.updateWorker(worker);
         break;
-      case "giveWorker":
+      case "Pracownik":
         worker.setPosition(positionDaoBean.findWorkerPosition());
         workerDaoBean.updateWorker(worker);
         break;
       case "delete":
-        workerDaoBean.deleteWorker(id);
+        workerDaoBean.deleteWorker(idParam);
         break;
     }
     return Response.ok().build();
