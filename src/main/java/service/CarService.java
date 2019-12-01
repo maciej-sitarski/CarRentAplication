@@ -39,7 +39,6 @@ public class CarService {
     return carDtoMapper.mapCarToDto(carDaoBean.findCarById(id));
   }
 
-  private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
   public List<CarDto> carList() {
     List<Car> carsDao = carDaoBean.findCarsList();
@@ -65,18 +64,10 @@ public class CarService {
         .findAllReservationsFromDepartmentList(city).stream()
         .map(reservation -> reservationDtoMapper.mapReservationToDto(reservation)).collect(
             Collectors.toList());
-    for (int i = 0; i < specifyReservationList.size(); i++) {
-      logger.info(specifyReservationList.get(i).getCarDto().getModelDto().getName());
 
-    }
     List<CarDto> availableCarsInDepartmentList = carDaoBean.findCarsListByDepartment(city)
         .stream().map(car -> carDtoMapper.mapCarToDto(car)).collect(
             Collectors.toList());
-
-    for (int i = 0; i < availableCarsInDepartmentList.size(); i++) {
-      logger.info(availableCarsInDepartmentList.get(i).getModelDto().getName() + "dupadupadupa");
-
-    }
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date startFormatDate = dateFormat.parse(startDate);

@@ -1,5 +1,7 @@
 package dto;
 
+import java.util.Objects;
+
 public class SectionDto {
 
   private Long id;
@@ -28,5 +30,24 @@ public class SectionDto {
 
   public void setPrice(Long price) {
     this.price = price;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof SectionDto)) {
+      return false;
+    }
+    SectionDto that = (SectionDto) o;
+    return Objects.equals(getId(), that.getId()) &&
+        Objects.equals(getName(), that.getName()) &&
+        Objects.equals(getPrice(), that.getPrice());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(getId(), getName(), getPrice());
   }
 }
