@@ -22,7 +22,7 @@
 
     </div>
     <div class="col-md-4" id="main-cards">
-      <a href="#" class="cards-link" style="color: #052F09;">
+      <a href="/reservations" class="cards-link" style="color: #052F09;">
         <h2 class="card-header" style="font-weight: bold">Rezerwacje</h2>
       </a>
       <div class="card-body">

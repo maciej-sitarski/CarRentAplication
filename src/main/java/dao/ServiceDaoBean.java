@@ -26,10 +26,4 @@ public class ServiceDaoBean {
 
   return query.getResultList();
   }
-
-
-
-
-
-
 }

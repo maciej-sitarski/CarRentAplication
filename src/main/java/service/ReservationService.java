@@ -90,4 +90,12 @@ public class ReservationService {
             Collectors.toList());
     return reservationsDtoList;
   }
+
+  public List<ReservationDto> findListOfWorkerReservationsDto(Long id) {
+    List<ReservationDto> reservationsDtoList = reservationDaoBean
+        .findAllWorkerReservations(id).stream()
+        .map(reservation -> reservationDtoMapper.mapReservationToDto(reservation)).collect(
+            Collectors.toList());
+    return reservationsDtoList;
+  }
 }

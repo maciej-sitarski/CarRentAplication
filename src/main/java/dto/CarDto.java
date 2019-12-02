@@ -1,5 +1,7 @@
 package dto;
 
+import java.util.Objects;
+
 public class CarDto {
 
   private Long id;
@@ -46,5 +48,27 @@ public class CarDto {
 
   public void setDepartmentDto(DepartmentDto departmentDto) {
     this.departmentDto = departmentDto;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof CarDto)) {
+      return false;
+    }
+    CarDto carDto = (CarDto) o;
+    return Objects.equals(getId(), carDto.getId()) &&
+        Objects.equals(getRegistrationNumber(), carDto.getRegistrationNumber()) &&
+        Objects.equals(getBrandDto(), carDto.getBrandDto()) &&
+        Objects.equals(getModelDto(), carDto.getModelDto()) &&
+        Objects.equals(getDepartmentDto(), carDto.getDepartmentDto());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects
+        .hash(getId(), getRegistrationNumber(), getBrandDto(), getModelDto(), getDepartmentDto());
   }
 }

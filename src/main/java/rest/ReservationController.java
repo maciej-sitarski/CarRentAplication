@@ -74,7 +74,7 @@ public class ReservationController {
     reservation.setWorker(workerService.findWorkerByEmail("randomWorker").get());
     CarDto carDto = carService
         .findSpecifyAbilityCarsList(departmentStart, startDate, backDate, startHour, backHour)
-        .stream().findFirst().get();
+        .stream().filter(carDto1 -> carDto1.getModelDto().getName().equals(modelName)).findFirst().get();
     reservation.setCar(carMapper.mapCar(carDto));
     reservation.setReservationEquipments(null);
     reservationDaoBean.saveReservation(reservation);

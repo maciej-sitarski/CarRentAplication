@@ -1,8 +1,9 @@
 <#include "navbar.ftlh">
 <div class="container-fluid" style="background-color: #D6D7D7; min-height: 700px">
   <div class="row">
-    <button onclick="carList()"> Powrót do listy </button>
-    <h1 style="text-align: center;margin-top: 30px; margin-left: auto; margin-right: auto;">
+    <button class="btn btn-danger" style="height: 50px; margin-top: 30px; margin-left: 2%" onclick="carList()"> Powrót do listy </button>
+    <button class="btn btn-success" style="height: 50px; margin-top: 30px; margin-left: 2%"> Dodaj serwis </button>
+    <h1 style="margin-top: 30px; margin-left: 17%">
          <#if car.registrationNumber??> ${car.registrationNumber} </#if> ${car.brandDto.name} ${car.modelDto.name}
     </h1>
     <div class="table-responsive" >
